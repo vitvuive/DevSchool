@@ -26,6 +26,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
 
-    backgroundColor: "blue"
+    backgroundColor: "#3771E6"
   }
 });
