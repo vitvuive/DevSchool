@@ -1,5 +1,5 @@
-import { registerScreens } from "./screens";
-import * as AppController from "./AppController";
+import { registerScreens, } from './screens';
+import * as AppController from './AppController';
 
 registerScreens();
 
@@ -7,4 +7,4 @@ async function startApp() {
   AppController.startLogin();
 }
 
-export default { start: startApp };
+export default { start: startApp, };

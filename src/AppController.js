@@ -1,6 +1,6 @@
-import { Navigation } from "react-native-navigation";
+import { Navigation, } from 'react-native-navigation';
 
-import ScreenIDs from "./screens/ScreenIDs";
+import ScreenIDs from './screens/ScreenIDs';
 
 export const startLogin = () => {
   Navigation.setRoot({
@@ -9,12 +9,12 @@ export const startLogin = () => {
         children: [
           {
             component: {
-              name: ScreenIDs.LoginScreen
-            }
-          }
-        ]
-      }
-    }
+              name: ScreenIDs.LoginScreen,
+            },
+          },
+        ],
+      },
+    },
   });
 };
 
@@ -25,11 +25,11 @@ export const startMainApp = () => {
         children: [
           {
             component: {
-              name: ScreenIDs.HomeScreen
-            }
-          }
-        ]
-      }
-    }
+              name: ScreenIDs.HomeScreen,
+            },
+          },
+        ],
+      },
+    },
   });
 };
