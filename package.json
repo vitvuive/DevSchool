@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest",
-    "precommit": "lint-staged"
+    "test": "jest"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
@@ -24,7 +23,9 @@
     "eslint": "^5.2.0",
     "eslint-plugin-react": "^7.10.0",
     "eslint-plugin-react-native": "^3.2.1",
+    "husky": ">=1",
     "jest": "^24.9.0",
+    "lint-staged": ">=8",
     "metro-react-native-babel-preset": "^0.56.0",
     "react-native-git-upgrade": "^0.2.7",
     "react-test-renderer": "16.8.3"
@@ -34,7 +35,14 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint"
+      "eslint",
+      "eslint --fix",
+      "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
