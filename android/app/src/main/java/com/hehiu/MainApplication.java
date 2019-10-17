@@ -7,6 +7,9 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
+import com.facebook.CallbackManager;
+
 import com.reactnativenavigation.NavigationApplication;
 import com.reactnativenavigation.react.NavigationReactNativeHost;
 import com.reactnativenavigation.react.ReactGateway;
@@ -15,7 +18,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainApplication extends NavigationApplication {
-    
+    private static CallbackManager callbackManager = CallbackManager.Factory.create();
+    protected static CallbackManager getCallbackManager(){
+        return callbackManager;
+    }
+
     @Override
     protected ReactGateway createReactGateway() {
         ReactNativeHost host = new NavigationReactNativeHost(this, isDebug(), createAdditionalReactPackages()) {
@@ -36,7 +43,8 @@ public class MainApplication extends NavigationApplication {
         // Add additional packages you require here
         // No need to add RnnPackage and MainReactPackage
         return Arrays.<ReactPackage>asList(
-            // eg. new VectorIconsPackage()
+                new MainReactPackage(),
+                new FBSDKPackage(callbackManager)
         );
     }
   

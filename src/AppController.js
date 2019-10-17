@@ -10,6 +10,13 @@ export const startLogin = () => {
           {
             component: {
               name: ScreenIDs.LoginScreen,
+              options: {
+                topBar: {
+                  title: {
+                    text: 'Login to account',
+                  },
+                },
+              },
             },
           },
         ],

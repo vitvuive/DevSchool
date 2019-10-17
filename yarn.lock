@@ -6236,6 +6236,11 @@ react-lifecycles-compat@2.0.0:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-2.0.0.tgz#71d9c4cde47114c4102454f76da055c2bc48c948"
   integrity sha512-txfpPCQYiazVdcbMRhatqWKcAxJweUu2wDXvts5/7Wyp6+Y9cHojqXHsLPEckzutfHlxZhG8Oiundbmp8Fd6eQ==
 
+react-native-fbsdk@0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/react-native-fbsdk/-/react-native-fbsdk-0.10.0.tgz#6f672ccceee9e2d25cc45a9b92342c9b1efadaf9"
+  integrity sha512-h0hTCj2ZBIbIKlKUvBmF+j3mtpb/KQOmIPcUGDLqSJqA188Z0JmAxfrL43KeNFsGX3PPEmbF/Aygp8XkyIk6LA==
+
 react-native-git-upgrade@^0.2.7:
   version "0.2.7"
   resolved "https://registry.yarnpkg.com/react-native-git-upgrade/-/react-native-git-upgrade-0.2.7.tgz#9bab5b9eabbe9f0845543feb5f1972183628aa12"
