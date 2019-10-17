@@ -145,6 +145,9 @@ dependencies {
 
     implementation "com.android.support:animated-vector-drawable:${rootProject.ext.supportLibVersion}"
     implementation "com.android.support:design:${rootProject.ext.supportLibVersion}"
+
+    implementation project(':@react-native-community_async-storage')
+
     implementation project(':react-native-navigation')
 
     implementation project(':react-native-fbsdk')

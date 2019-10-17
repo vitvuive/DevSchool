@@ -36,6 +36,8 @@ export default class LoginScreen extends Component {
   };
 
   render() {
+    const { isLoading, } = this.props;
+    console.log('viet' + isLoading);
     return (
       <View style={styles.container}>
         <LoginButton
