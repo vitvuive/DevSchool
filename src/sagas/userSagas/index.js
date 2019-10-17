@@ -1,17 +1,20 @@
-import { call, } from 'redux-saga/effects';
+import { call, take, } from 'redux-saga/effects';
 
+import { types, } from '../../stores';
 import handleLogin from './handleLogin';
 import handleLogout from './handleLogout';
 
 function* watchLogin() {
   while (true) {
-    yield call(handleLogin);
+    const action = yield take(types.user.LOGIN_WITH_FB);
+    yield call(handleLogin, action);
   }
 }
 
 function* watchLogout() {
   while (true) {
-    yield call(handleLogout);
+    const action = yield take(types.user.LOGOUT);
+    yield call(handleLogout, action);
   }
 }
 

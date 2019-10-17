@@ -1,8 +1,14 @@
 import { connect, } from 'react-redux';
-import { selectors, } from '../../stores';
+import { selectors, actions, } from '../../stores';
 import LoginScreen from './LoginScreen';
 
-const mapStateToProps = () => ({
-  isLoading: selectors.user.getAuthLoadingStatus,
+const mapStateToProps = (state) => ({
+  isLoading: selectors.user.getAuthLoadingStatus(state),
 });
-export default connect(mapStateToProps)(LoginScreen);
+const mapDispatchToProps = (dispatch) => ({
+  onPress: () => dispatch(actions.user.loginWithFb()),
+});
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginScreen);

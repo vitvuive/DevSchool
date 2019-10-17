@@ -5,6 +5,7 @@ const Types = {
   SET_AUTH_DATA: 'user.SET_AUTH_DATA',
   //TODO: Set update data
   //sagas
+  LOGIN_WITH_FB: 'user@LOGIN_WITH_FB',
   LOGIN: 'user@LOGIN',
   LOGOUT: 'user@LOGOUT',
 };
@@ -25,6 +26,9 @@ const Actions = {
   login: (payload: { username: String, password: String }) => ({
     type: Types.LOGIN,
     payload,
+  }),
+  loginWithFb: () => ({
+    type: Types.LOGIN_WITH_FB,
   }),
   logout: () => ({
     type: Types.LOGOUT,
