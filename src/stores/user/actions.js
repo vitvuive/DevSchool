@@ -11,7 +11,7 @@ const Types = {
 };
 
 const Actions = {
-  setAuthLoadingStatus: (payload: Boolean = false) => ({
+  setAuthLoadingStatus: (payload: boolean = false) => ({
     type: Types.SET_AUTH_LOADING_STATUS,
     payload,
   }),

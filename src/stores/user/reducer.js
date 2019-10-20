@@ -1,21 +1,22 @@
+import Immutable from 'seamless-immutable';
 import { createReducer, } from '../helper-function';
 import { Types, } from './actions';
 
-const initState = {
+const initState = Immutable({
   isLoading: false,
   profile: {},
   auth: {},
-};
+});
 
 const reducer = createReducer(initState, {
-  [Types.SET_AUTH_LOADING_STATUS]: ({ state, actions, }) => {
-    return state.merge({ isLoading: actions.payload, });
+  [Types.SET_AUTH_LOADING_STATUS]: ({ state, action, }) => {
+    return state.merge({ isLoading: action.payload, });
   },
-  [Types.SET_PROFILE]: ({ state, actions, }) => {
-    return state.merge({ profile: actions.payload, });
+  [Types.SET_PROFILE]: ({ state, action, }) => {
+    return state.merge({ profile: action.payload, });
   },
-  [Types.SET_AUTH_DATA]: ({ state, actions, }) => {
-    return state.merge({ auth: actions.payload, });
+  [Types.SET_AUTH_DATA]: ({ state, action, }) => {
+    return state.merge({ auth: action.payload, });
   },
 });
 
