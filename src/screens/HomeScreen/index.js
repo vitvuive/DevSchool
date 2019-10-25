@@ -1,6 +1,6 @@
 import { connect, } from 'react-redux';
 
-import { selectors, } from '../../stores';
+import { selectors, actions, } from '../../stores';
 import HomeScreen from './HomeScreen';
 
 const mapStateToProps = (state) => ({
@@ -9,4 +9,11 @@ const mapStateToProps = (state) => ({
   urlAvatar: selectors.user.getUrlAvatar(state),
 });
 
-export default connect(mapStateToProps)(HomeScreen);
+const mapDispatchToProps = (dispatch) => ({
+  onPress: () => dispatch(actions.user.logout()),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomeScreen);
