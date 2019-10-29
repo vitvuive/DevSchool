@@ -14,6 +14,8 @@ import com.reactnativenavigation.NavigationApplication;
 import com.reactnativenavigation.react.NavigationReactNativeHost;
 import com.reactnativenavigation.react.ReactGateway;
 
+import com.airbnb.android.react.maps.MapsPackage;
+
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import java.util.Arrays;
 import java.util.List;
@@ -46,7 +48,8 @@ public class MainApplication extends NavigationApplication {
         return Arrays.<ReactPackage>asList(
                 new MainReactPackage(),
                 new AsyncStoragePackage(),
-                new FBSDKPackage(callbackManager)
+                new FBSDKPackage(callbackManager),
+                new MapsPackage()
         );
     }
   
