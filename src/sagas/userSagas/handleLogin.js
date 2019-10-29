@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 import { call, put, } from 'redux-saga/effects';
 
-import { actions, } from '../../stores';
+import { actions, } from 'src/stores';
 
-import * as AppController from '../../AppController';
-import { API, } from '../../services';
+import * as AppController from 'src/AppController';
+import { API, } from 'src/services';
 
 export default function* handleLogin() {
   try {

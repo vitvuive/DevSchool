@@ -1,8 +1,8 @@
 import { Navigation, } from 'react-native-navigation';
 
-import ScreenIDs from './screens/ScreenIDs';
+import ScreenIDs from 'src/screens/ScreenIDs';
 
-import { IconAssets, } from './assets';
+import { IconAssets, } from 'src/assets';
 
 export const startLogin = () => {
   Navigation.setRoot({
