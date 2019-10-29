@@ -3,4 +3,6 @@ export const IconAssets = {
   Search: require('./icon-assets/search-icon.png'),
   Profile: require('./icon-assets/profile-icon.png'),
   Notification: require('./icon-assets/notification-icon.png'),
+  Map: require('./icon-assets/map-icon.png'),
+  Promotion: require('./icon-assets/promo-icon.png'),
 };

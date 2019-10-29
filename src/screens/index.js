@@ -8,6 +8,7 @@ import HomeScreen from './HomeScreen';
 import SearchScreen from './SearchSreen';
 import ProfileScreen from './ProfileScreen';
 import NotificationScreen from './NotificationScreen';
+import MapScreen from './MapScreen';
 
 const screens = {
   [ScreenIDs.LoginScreen]: LoginScreen,
@@ -15,6 +16,7 @@ const screens = {
   [ScreenIDs.SearchScreen]: SearchScreen,
   [ScreenIDs.ProfileScreen]: ProfileScreen,
   [ScreenIDs.NotificationScreen]: NotificationScreen,
+  [ScreenIDs.MapScreen]: MapScreen,
 };
 
 const registerScreens = (Provider, store) => {

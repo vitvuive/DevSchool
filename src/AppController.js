@@ -44,7 +44,7 @@ export const startMainApp = () => {
                     options: {
                       bottomTab: {
                         text: 'Home',
-                        icon: IconAssets.Home,
+                        icon: IconAssets.Promotion,
                       },
                     },
                   },
@@ -54,28 +54,14 @@ export const startMainApp = () => {
           },
           {
             component: {
-              name: ScreenIDs.SearchScreen,
+              name: ScreenIDs.MapScreen,
               passProps: {
                 text: 'This is tab 2',
               },
               options: {
                 bottomTab: {
-                  text: 'Search',
-                  icon: IconAssets.Search,
-                },
-              },
-            },
-          },
-          {
-            component: {
-              name: ScreenIDs.NotificationScreen,
-              passProps: {
-                text: 'This is tab 2',
-              },
-              options: {
-                bottomTab: {
-                  text: 'Profile',
-                  icon: IconAssets.Notification,
+                  text: 'Map',
+                  icon: IconAssets.Map,
                 },
               },
             },

@@ -4,5 +4,6 @@ export default {
   SearchScreen: 'SearchScreen',
   ProfileScreen: 'ProfileScreen',
   NotificationScreen: 'NotificationScreen',
+  MapScreen: 'MapScreen',
   //more
 };
