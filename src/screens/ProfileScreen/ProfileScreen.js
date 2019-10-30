@@ -7,7 +7,7 @@ export default class ProfileScreen extends Component {
     const { name, email, urlAvatar, onPress, } = this.props;
     return (
       <View style={styles.container}>
-        <View>
+        <View style={styles.info}>
           <Image source={{ uri: urlAvatar, }} style={styles.imageStyle} />
           <Text>{name}</Text>
           <Text>{email}</Text>
@@ -25,12 +25,16 @@ export default class ProfileScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
+    padding: 8,
     justifyContent: 'space-between',
+  },
+  info: {
+    alignItems: 'center',
   },
   imageStyle: {
     width: 100,
     height: 100,
+    borderRadius: 50,
 
     resizeMode: 'contain',
   },

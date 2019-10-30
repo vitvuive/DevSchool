@@ -2,7 +2,7 @@
 import React, { Component, } from 'react';
 import { View, StyleSheet, } from 'react-native';
 
-import { StyledButton, } from '../../shared-components';
+import { StyledButton, StyleText, } from '../../shared-components';
 import { Colors, } from '../../theme';
 export default class LoginScreen extends Component {
   render() {
@@ -10,6 +10,10 @@ export default class LoginScreen extends Component {
     console.log('viet' + isLoading);
     return (
       <View style={styles.container}>
+        <StyleText>{''}</StyleText>
+        <StyleText center bold size={25}>
+          {'Delicious'}
+        </StyleText>
         <StyledButton
           onPress={onPress}
           title={'Login with Facebook'}
@@ -23,6 +27,7 @@ export default class LoginScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
+    backgroundColor: '#fce4ec',
   },
 });

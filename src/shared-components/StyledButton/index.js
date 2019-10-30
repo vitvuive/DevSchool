@@ -68,11 +68,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: Metrics.hoverBtmButtonHeight,
-    marginHorizontal: Metrics.getBaseUnitFactor(),
-    marginBottom: Metrics.getBaseUnitFactor(),
+    marginHorizontal: Metrics.getBaseUnitFactor(3),
+    marginBottom: Metrics.getBaseUnitFactor(2),
     paddingHorizontal: Metrics.getBaseUnitFactor(),
 
-    borderRadius: 20,
+    shadowOffset: { width: 1, height: 13, },
+    elevation: 6,
+    shadowRadius: 15,
+    shadowOpacity: 0.8,
+    shadowColor: 'rgba(0, 0, 0, 0.1)',
+
+    borderRadius: 25,
     backgroundColor: Colors.primary,
   },
 });

@@ -21,6 +21,6 @@ export default {
 
   getBaseUnitFactor,
 
-  hoverBtmButtonHeight: getBaseUnitFactor(5),
+  hoverBtmButtonHeight: getBaseUnitFactor(6),
   hoverBtmButtonContainerPadding: getBaseUnitFactor(8),
 };

@@ -2,7 +2,7 @@ const statusBarTextColors = { dark: 'dark', light: 'light', };
 
 export default {
   statusBarTextColors: statusBarTextColors,
-  primary: '#f79741',
+  primary: '#ff3a7f',
   secondPrimary: '#fa6152',
   accent: 'rgba(40,144,255,0.88)',
 
@@ -11,5 +11,6 @@ export default {
 
   inActiveBtmTabColor: '#999999',
   border: 'rgba(0,0,0,.12)',
-  dark: '#2d4150',
+  dark: '#c60053',
+  light: '#ff75ae',
 };
