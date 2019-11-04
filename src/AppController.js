@@ -99,14 +99,8 @@ export const startMainApp = () => {
                     },
                     options: {
                       topBar: {
-                        title: {
-                          text: 'My profile',
-                          alignment: 'center',
-                          color: '#fff',
-                        },
-                        background: {
-                          color: Colors.primary,
-                        },
+                        visible: false,
+                        height: 0,
                       },
                       bottomTab: {
                         text: 'Profile',

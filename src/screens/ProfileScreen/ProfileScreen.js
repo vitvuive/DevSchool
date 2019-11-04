@@ -1,17 +1,22 @@
 import React, { Component, } from 'react';
 import { View, Text, Image, StyleSheet, } from 'react-native';
-import { StyledButton, } from '../../shared-components';
+import { StyledButton, StyleText, } from '../../shared-components';
 import { Colors, } from '../../theme';
 export default class ProfileScreen extends Component {
   render() {
     const { name, email, urlAvatar, onPress, } = this.props;
     return (
       <View style={styles.container}>
-        <View style={styles.info}>
-          <Image source={{ uri: urlAvatar, }} style={styles.imageStyle} />
-          <Text>{name}</Text>
+        <View style={styles.banner}>
+          <View style={styles.info}>
+            <Image source={{ uri: urlAvatar, }} style={styles.imageStyle} />
+            <StyleText white bold size={30}>
+              {'Hi ' + name}
+            </StyleText>
+          </View>
           <Text>{email}</Text>
         </View>
+
         <StyledButton
           onPress={onPress}
           title={'Log out'}
@@ -25,8 +30,14 @@ export default class ProfileScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 8,
     justifyContent: 'space-between',
+  },
+  banner: {
+    height: 200,
+
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: Colors.primary,
   },
   info: {
     alignItems: 'center',
