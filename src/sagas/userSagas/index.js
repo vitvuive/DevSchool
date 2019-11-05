@@ -1,6 +1,6 @@
 import { call, take, } from 'redux-saga/effects';
 
-import { types, } from '../../stores';
+import { types, } from 'src/stores';
 import handleLogin from './handleLogin';
 import handleLogout from './handleLogout';
 

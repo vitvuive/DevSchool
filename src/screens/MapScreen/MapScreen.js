@@ -4,8 +4,8 @@ import MapView, { PROVIDER_GOOGLE, Marker, } from 'react-native-maps';
 
 let { width, height, } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
-const LATITUDE = 20.9833562;
-const LONGITUDE = 105.850101;
+const LATITUDE = 10.8403397;
+const LONGITUDE = 106.6797019;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 export default class MapScreen extends Component {
@@ -20,36 +20,10 @@ export default class MapScreen extends Component {
       },
     };
   }
-  componentDidMount() {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        this.setState({
-          region: {
-            latitude: position.coords.altitude,
-            longitude: position.coords.longitude,
-            latitudeDelta: LATITUDE_DELTA,
-            longitudeDelta: LONGITUDE_DELTA,
-          },
-        });
-      },
-      // eslint-disable-next-line no-console
-      (error) => console.log(error.message),
-      { enableHighAccuracy: false, timeout: 20000, }
-    );
-    this.watchID = navigator.geolocation.watchPosition((position) => {
-      this.setState({
-        region: {
-          latitude: position.coords.altitude,
-          longitude: position.coords.longitude,
-          latitudeDelta: LATITUDE_DELTA,
-          longitudeDelta: LONGITUDE_DELTA,
-        },
-      });
-    });
-  }
 
-  componentWillUnmount() {
-    navigator.geolocation.clearWatch(this.watchID);
+  componentDidMount() {
+    const { getLocation, } = this.props;
+    getLocation && getLocation();
   }
 
   render() {
@@ -59,12 +33,20 @@ export default class MapScreen extends Component {
           provider={PROVIDER_GOOGLE}
           style={styles.map}
           region={this.state.region}
-          showsUserLocation={true}
-          onRegionChange={(region) => this.setState({ region, })}
+          showsUserLocation
+          // onRegionChange={(region) => this.setState({ region, })}
           onRegionChangeComplete={(region) => this.setState({ region, })}
-          showsMyLocationButton={true}
+          showsMyLocationButton
         >
-          <Marker coordinate={this.state.region} />
+          {!!this.state.latitude && !!this.state.longitude && (
+            <Marker
+              coordinate={{
+                latitude: this.state.latitude,
+                longitude: this.state.longitude,
+              }}
+              title={'Your Location'}
+            />
+          )}
         </MapView>
       </View>
     );

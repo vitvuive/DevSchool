@@ -1,3 +1,4 @@
 import AuthFb from './AuthFb';
+import MapApi from './MapApi';
 
-export default { AuthFb, };
+export default { AuthFb, MapApi, };
