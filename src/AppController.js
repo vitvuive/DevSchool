@@ -103,7 +103,7 @@ export const startMainApp = () => {
                         height: 0,
                       },
                       bottomTab: {
-                        text: 'Profile',
+                        text: 'Account',
                         icon: IconAssets.Profile,
                         selectedIconColor: Colors.primary,
                         selectedTextColor: Colors.primary,
