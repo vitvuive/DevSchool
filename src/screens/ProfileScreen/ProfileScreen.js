@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 1, height: 13, },
     shadowOpacity: 0.8,
     borderRadius: 8,
-    marginVertical: Metrics.getBaseUnitFactor(2),
+    marginVertical: Metrics.getBaseUnitFactor(3),
 
     shadowColor: 'rgba(0, 0, 0, 0.1)',
     backgroundColor: '#fff',

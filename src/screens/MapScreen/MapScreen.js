@@ -1,6 +1,7 @@
 import React, { Component, } from 'react';
 import { View, StyleSheet, Dimensions, } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker, } from 'react-native-maps';
+import { IconAssets, } from 'src/assets';
 
 let { width, height, } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
@@ -26,7 +27,16 @@ export default class MapScreen extends Component {
     getLocation && getLocation();
   }
 
+  renderMarker = () => {
+    return <Marker />;
+  };
+
+  onRegionChange = (region) => {
+    this.setState({ region, });
+  };
+
   render() {
+    const { dataFake, } = this.props;
     return (
       <View style={styles.wrapper}>
         <MapView
@@ -34,19 +44,21 @@ export default class MapScreen extends Component {
           style={styles.map}
           region={this.state.region}
           showsUserLocation
-          // onRegionChange={(region) => this.setState({ region, })}
+          // onRegionChange={this.onRegionChange}
           onRegionChangeComplete={(region) => this.setState({ region, })}
           showsMyLocationButton
         >
-          {!!this.state.latitude && !!this.state.longitude && (
+          {dataFake.map((marker) => (
             <Marker
+              key={marker.merchant.name}
               coordinate={{
-                latitude: this.state.latitude,
-                longitude: this.state.longitude,
+                latitude: marker.latitude,
+                longitude: marker.longitude,
               }}
-              title={'Your Location'}
+              title={marker.merchant.name}
+              image={IconAssets.Feedback}
             />
-          )}
+          ))}
         </MapView>
       </View>
     );

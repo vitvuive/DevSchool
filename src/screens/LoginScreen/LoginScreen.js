@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 import React, { Component, } from 'react';
-import { View, StyleSheet, } from 'react-native';
+import { View, StyleSheet, Text, } from 'react-native';
 
 import { StyledButton, StyleText, } from '../../shared-components';
-import { Colors, } from '../../theme';
+import { Colors, } from 'src/theme';
 export default class LoginScreen extends Component {
   render() {
     const { isLoading, onPress, } = this.props;
@@ -11,9 +11,7 @@ export default class LoginScreen extends Component {
     return (
       <View style={styles.container}>
         <StyleText>{''}</StyleText>
-        <StyleText center bold size={25}>
-          {'Delicious'}
-        </StyleText>
+        <Text style={styles.logo}>{'DRINKING'}</Text>
         <StyledButton
           onPress={onPress}
           title={'Login with Facebook'}
@@ -28,6 +26,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'space-between',
-    backgroundColor: '#fce4ec',
+    backgroundColor: Colors.primary,
+  },
+  logo: {
+    alignSelf: 'center',
+    color: '#fff',
+    fontSize: 40,
   },
 });

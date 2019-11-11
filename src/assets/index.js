@@ -10,4 +10,5 @@ export const IconAssets = {
   Privacy: require('./icon-assets/privacy-icon.png'),
   Condition: require('./icon-assets/conditions-icon.png'),
   Feedback: require('./icon-assets/feedback-icon.png'),
+  Logo: require('./icon-assets/Drinking.png'),
 };
