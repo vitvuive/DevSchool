@@ -6,8 +6,8 @@ import MapScreen from './MapScreen';
 
 const dataFake = [
   {
-    latitude: 10.8403397,
-    longitude: 106.6797019,
+    latitude: 10.7747201,
+    longitude: 106.69930120000004,
     address: 'acv',
     merchant: {
       name: 'HightLand',
@@ -21,9 +21,9 @@ const dataFake = [
   },
 
   {
-    latitude: 10.8403429,
-    longitude: 1573395587397,
-    address: 'acv',
+    latitude: 10.78006,
+    longitude: 106.69341,
+    address: 'Turtle Lake',
     merchant: {
       name: 'The coffe house',
       menu: [
@@ -35,8 +35,8 @@ const dataFake = [
     },
   },
   {
-    latitude: 10.1233397,
-    longitude: 106.6797019,
+    latitude: 10.7951612,
+    longitude: 106.7195944,
     address: 'acv',
     merchant: {
       name: 'Gongcha',

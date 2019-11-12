@@ -11,4 +11,5 @@ export const IconAssets = {
   Condition: require('./icon-assets/conditions-icon.png'),
   Feedback: require('./icon-assets/feedback-icon.png'),
   Logo: require('./icon-assets/Drinking.png'),
+  Soda: require('./icon-assets/soda-icon.png'),
 };
