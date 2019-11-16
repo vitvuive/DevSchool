@@ -12,4 +12,16 @@ export const IconAssets = {
   Feedback: require('./icon-assets/feedback-icon.png'),
   Logo: require('./icon-assets/Drinking.png'),
   Soda: require('./icon-assets/soda-icon.png'),
+  Like: require('./icon-assets/lile-icon.png'),
+  Heart: require('./icon-assets/heart-icon.png'),
+};
+
+export const ImageAssets = {
+  Card1: require('./image-assets/card1.jpg'),
+  Card2: require('./image-assets/card2.jpg'),
+  Card3: require('./image-assets/card3.jpg'),
+  Card4: require('./image-assets/card4.png'),
+  Card5: require('./image-assets/card5.jpg'),
+  Card6: require('./image-assets/card6.jpg'),
+  Banner: require('./image-assets/backgroundBanner.jpg'),
 };

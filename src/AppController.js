@@ -49,11 +49,15 @@ export const startMainApp = () => {
                     },
                     options: {
                       bottomTab: {
-                        text: 'Home',
+                        text: 'Promotion',
                         icon: IconAssets.Promotion,
                         selectedIconColor: Colors.primary,
                         selectedTextColor: Colors.primary,
                         fontSize: 10,
+                      },
+                      topBar: {
+                        visible: false,
+                        height: 0,
                       },
                     },
                   },

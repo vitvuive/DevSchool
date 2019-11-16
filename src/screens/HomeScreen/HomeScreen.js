@@ -1,12 +1,16 @@
 import React, { Component, } from 'react';
-import { View, Text, StyleSheet, } from 'react-native';
+import { StyleSheet, ScrollView, } from 'react-native';
+
+import PromotionList from './PromotionList';
+import BannerHome from './BannerHome';
 export default class HomeScreen extends Component {
   state = {};
   render() {
     return (
-      <View style={styles.container}>
-        <Text>this is holme</Text>
-      </View>
+      <ScrollView style={styles.container}>
+        <BannerHome />
+        <PromotionList />
+      </ScrollView>
     );
   }
 }
@@ -14,6 +18,6 @@ export default class HomeScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
+    // padding: 16,
   },
 });

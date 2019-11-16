@@ -2,16 +2,23 @@ import React, { Component, } from 'react';
 import { View, StyleSheet, Dimensions, Text, } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker, Callout, } from 'react-native-maps';
 import Carousel from 'react-native-snap-carousel';
+import Propstype from 'prop-types';
+
 import { IconAssets, } from 'src/assets';
 import { Metrics, Colors, } from 'src/theme';
 
 let { width, height, } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
-const LATITUDE = 10.8403397;
-const LONGITUDE = 106.6797019;
+const LATITUDE = 10.8215599;
+const LONGITUDE = 106.7633488;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 export default class MapScreen extends Component {
+  static propsType = {
+    region: Propstype.object.isRequired,
+    dataFake: Propstype.object.isRequired,
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -30,11 +37,7 @@ export default class MapScreen extends Component {
     getLocation && getLocation();
   }
 
-  onRegionChange = (region) => {
-    this.setState({ region, });
-  };
-
-  onCarouselItemChange = (index) => {
+  _onCarouselItemChange = (index) => {
     const { dataFake, } = this.props;
 
     let location = dataFake[index];
@@ -68,6 +71,27 @@ export default class MapScreen extends Component {
     );
   };
 
+  _renderMarker = () => {
+    const { dataFake, } = this.props;
+    return dataFake.map((marker, index) => (
+      <Marker
+        ref={(ref) => (this.state.markers[index] = ref)}
+        key={marker.merchant.name}
+        coordinate={{
+          latitude: marker.latitude,
+          longitude: marker.longitude,
+        }}
+        title={marker.merchant.name}
+        image={IconAssets.Soda}
+        onPress={() => this._onMarkerPress(marker, index)}
+      >
+        <Callout>
+          <Text>{marker.merchant.name}</Text>
+        </Callout>
+      </Marker>
+    ));
+  };
+
   render() {
     const { dataFake, } = this.props;
     return (
@@ -76,29 +100,13 @@ export default class MapScreen extends Component {
           provider={PROVIDER_GOOGLE}
           ref={(map) => (this._map = map)}
           style={styles.map}
-          region={this.state.region}
+          initialRegion={this.state.region}
           showsUserLocation
           // onRegionChange={this.onRegionChange}
-          onRegionChangeComplete={(region) => this.setState({ region, })}
+          // onRegionChangeComplete={(region) => this.setState({ region, })}
           showsMyLocationButton
         >
-          {dataFake.map((marker, index) => (
-            <Marker
-              ref={(ref) => (this.state.markers[index] = ref)}
-              key={marker.merchant.name}
-              coordinate={{
-                latitude: marker.latitude,
-                longitude: marker.longitude,
-              }}
-              title={marker.merchant.name}
-              image={IconAssets.Soda}
-              onPress={() => this._onMarkerPress(marker, index)}
-            >
-              <Callout>
-                <Text>{marker.merchant.name}</Text>
-              </Callout>
-            </Marker>
-          ))}
+          {this._renderMarker()}
         </MapView>
         <Carousel
           ref={(c) => {
@@ -109,7 +117,7 @@ export default class MapScreen extends Component {
           renderItem={this._renderItem}
           sliderWidth={width}
           itemWidth={300}
-          onSnapToItem={(index) => this.onCarouselItemChange(index)}
+          onSnapToItem={(index) => this._onCarouselItemChange(index)}
           layout={'stack'}
         />
       </View>

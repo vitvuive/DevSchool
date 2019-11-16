@@ -1,8 +1,14 @@
+import { Dimensions, } from 'react-native';
 import { connect, } from 'react-redux';
 
 import { selectors, actions, } from 'src/stores';
 
 import MapScreen from './MapScreen';
+
+let { width, height, } = Dimensions.get('window');
+const ASPECT_RATIO = width / height;
+const LATITUDE_DELTA = 0.0922;
+const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
 const dataFake = [
   {
@@ -49,17 +55,26 @@ const dataFake = [
     },
   },
 ];
-const mapStateToProps = (state) => ({
-  longitude: selectors.global.getTimestamp(state),
-  latitude: selectors.global.getLatitude(state),
-  dataFake,
-});
+const mapStateToProps = (state) => {
+  const longitude = selectors.global.getLongitude(state);
+  const latitude = selectors.global.getLatitude(state);
+
+  const region = {
+    latitude: latitude,
+    longitude: longitude,
+    latitudeDelta: LATITUDE_DELTA,
+    longitudeDelta: LONGITUDE_DELTA,
+  };
+  return {
+    region,
+    longitude,
+    latitude,
+    dataFake,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   getLocation: () => dispatch(actions.global.setPositionUser()),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MapScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(MapScreen);
