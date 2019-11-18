@@ -3,7 +3,7 @@ export default {
   HomeScreen: 'HomeScreen',
   SearchScreen: 'SearchScreen',
   ProfileScreen: 'ProfileScreen',
-  NotificationScreen: 'NotificationScreen',
+  StoreMenuScreen: 'StoreMenuScreen',
   MapScreen: 'MapScreen',
   //more
 };

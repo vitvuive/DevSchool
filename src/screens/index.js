@@ -7,7 +7,7 @@ import LoginScreen from './LoginScreen';
 import HomeScreen from './HomeScreen';
 import SearchScreen from './SearchSreen';
 import ProfileScreen from './ProfileScreen';
-import NotificationScreen from './NotificationScreen';
+import StoreMenuScreen from './StoreMenuScreen';
 import MapScreen from './MapScreen';
 
 const screens = {
@@ -15,7 +15,7 @@ const screens = {
   [ScreenIDs.HomeScreen]: HomeScreen,
   [ScreenIDs.SearchScreen]: SearchScreen,
   [ScreenIDs.ProfileScreen]: ProfileScreen,
-  [ScreenIDs.NotificationScreen]: NotificationScreen,
+  [ScreenIDs.StoreMenuScreen]: StoreMenuScreen,
   [ScreenIDs.MapScreen]: MapScreen,
 };
 

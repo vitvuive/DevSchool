@@ -1,10 +1,14 @@
 import React, { Component, } from 'react';
 import { View, } from 'react-native';
+import PropsType from 'prop-types';
 
 import { Metrics, Colors, } from 'src/theme';
 import { StyleText, } from 'src/shared-components';
 export default class BannerHome extends Component {
-  state = {};
+  static propsType = {
+    name: PropsType.string.isRequired,
+  };
+
   render() {
     return (
       <View
@@ -35,7 +39,7 @@ export default class BannerHome extends Component {
             {'Xin chào'}
           </StyleText>
           <StyleText size={30} color={'white'}>
-            {'Việt Nguyễn'}
+            {this.props.name}
           </StyleText>
         </View>
       </View>
