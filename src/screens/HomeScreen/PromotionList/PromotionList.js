@@ -9,14 +9,13 @@ import PromotionItem from './PromotionItem';
 export default class PromotionList extends Component {
   state = {};
   render() {
+    const { componentId, } = this.props;
     return (
       <View style={{ marginHorizontal: Metrics.getBaseUnitFactor(2), }}>
         <StyleText primary size={20}>
           {'Promotion for you today'}
         </StyleText>
-        <PromotionItem />
-        <PromotionItem />
-        <PromotionItem />
+        <PromotionItem componentId={componentId} />
       </View>
     );
   }

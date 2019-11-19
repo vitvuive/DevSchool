@@ -6,10 +6,10 @@ import { Metrics, Colors, } from 'src/theme';
 import { StyleText, } from 'src/shared-components';
 
 export default class PromotionItem extends Component {
-  state = {};
   render() {
+    const { onRowPress, componentId, } = this.props;
     return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => onRowPress(componentId)}>
         <View
           style={{
             height: 300,
