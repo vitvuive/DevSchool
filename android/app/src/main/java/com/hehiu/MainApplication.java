@@ -17,6 +17,9 @@ import com.reactnativenavigation.react.ReactGateway;
 import com.airbnb.android.react.maps.MapsPackage;
 
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+import com.swmansion.reanimated.ReanimatedPackage;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -49,7 +52,9 @@ public class MainApplication extends NavigationApplication {
                 new MainReactPackage(),
                 new AsyncStoragePackage(),
                 new FBSDKPackage(callbackManager),
-                new MapsPackage()
+                new MapsPackage(),
+                new RNGestureHandlerPackage(),
+                new ReanimatedPackage()
         );
     }
   

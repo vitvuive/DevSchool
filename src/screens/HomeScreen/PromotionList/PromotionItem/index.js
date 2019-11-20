@@ -10,6 +10,13 @@ const mapDispatchToProps = () => {
       await Navigation.push(componentId, {
         component: {
           name: ScreenIDs.StoreMenuScreen,
+          options: {
+            topBar: {
+              title: {
+                text: 'Menu',
+              },
+            },
+          },
         },
       });
     } catch (error) {

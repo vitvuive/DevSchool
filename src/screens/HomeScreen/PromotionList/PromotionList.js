@@ -16,6 +16,9 @@ export default class PromotionList extends Component {
           {'Promotion for you today'}
         </StyleText>
         <PromotionItem componentId={componentId} />
+        <PromotionItem componentId={componentId} />
+        <PromotionItem componentId={componentId} />
+        <PromotionItem componentId={componentId} />
       </View>
     );
   }

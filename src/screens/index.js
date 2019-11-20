@@ -1,4 +1,5 @@
 import { Navigation, } from 'react-native-navigation';
+import { gestureHandlerRootHOC, } from 'react-native-gesture-handler';
 
 import ScreenIDs from './ScreenIDs';
 import { screenHOC, } from '../custom-navigation';
@@ -22,7 +23,9 @@ const screens = {
 const registerScreens = (Provider, store) => {
   const enhancers = screenHOC(Provider, store);
   Object.keys(screens).map((screenID) => {
-    Navigation.registerComponent(screenID, () => enhancers(screens[screenID]));
+    Navigation.registerComponent(screenID, () =>
+      gestureHandlerRootHOC(enhancers(screens[screenID]))
+    );
   });
 };
 
