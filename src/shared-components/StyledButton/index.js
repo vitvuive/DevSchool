@@ -53,7 +53,7 @@ export default class StyledButton extends Component {
           {isLoading ? (
             <ActivityIndicator size={'large'} color={loadingColor} />
           ) : (
-            <StyleText size={20} color={textColor} bold>
+            <StyleText medium size={18} color={textColor}>
               {title}
             </StyleText>
           )}
@@ -76,9 +76,9 @@ const styles = StyleSheet.create({
     elevation: 6,
     shadowRadius: 15,
     shadowOpacity: 0.8,
-    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowColor: Colors.primary,
 
-    borderRadius: 25,
+    borderRadius: 5,
     backgroundColor: Colors.primary,
   },
 });

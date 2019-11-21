@@ -12,7 +12,7 @@ export default class ProfileScreen extends Component {
           <View style={styles.banner}>
             <View style={styles.info}>
               <Image source={{ uri: urlAvatar, }} style={styles.imageStyle} />
-              <StyleText white bold size={30}>
+              <StyleText white bold size={25}>
                 {'Hi ' + name}
               </StyleText>
             </View>

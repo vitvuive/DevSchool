@@ -24,7 +24,7 @@ export default class CoverStore extends Component {
 
 const styles = StyleSheet.create({
   conatainer: {
-    height: 180,
+    height: 160,
     backgroundColor: '#fff',
   },
   viewTitle: {

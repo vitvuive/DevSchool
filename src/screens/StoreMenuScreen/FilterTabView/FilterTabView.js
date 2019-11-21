@@ -1,10 +1,11 @@
 import React, { Component, } from 'react';
-import { Text, Dimensions, } from 'react-native';
+import { Dimensions, } from 'react-native';
 import { TabView, TabBar, } from 'react-native-tab-view';
 
 import { Colors, } from 'src/theme';
 
 import ListMenu from './ListMenu';
+import { StyleText, } from 'src/shared-components';
 
 export default class FilterTabView extends Component {
   constructor(props) {
@@ -23,9 +24,32 @@ export default class FilterTabView extends Component {
     return <ListMenu menu={select.menu} componentId={componentId} />;
   };
 
-  // _renderTabBar() => {
-
-  // }
+  _renderTabBar = (props) => {
+    return (
+      <TabBar
+        {...props}
+        activeColor={Colors.primary}
+        inactiveColor={Colors.inActiveBtmTabColor}
+        indicatorStyle={{
+          backgroundColor: Colors.primary,
+          height: 2,
+        }}
+        style={{ backgroundColor: '#fff', height: 35, }}
+        tabStyle={{ minHeight: 10, }}
+        renderLabel={({ route, focused, }) => (
+          <StyleText
+            medium
+            style={{
+              fontSize: 15,
+            }}
+            color={focused ? Colors.primary : null}
+          >
+            {route.title}
+          </StyleText>
+        )}
+      />
+    );
+  };
 
   render() {
     return (
@@ -34,30 +58,7 @@ export default class FilterTabView extends Component {
         renderScene={this._renderScene}
         onIndexChange={(index) => this.setState({ index, })}
         initialLayout={{ width: Dimensions.get('window').width, }}
-        renderTabBar={(props) => (
-          <TabBar
-            {...props}
-            activeColor={Colors.primary}
-            inactiveColor={Colors.inActiveBtmTabColor}
-            indicatorStyle={{
-              backgroundColor: Colors.primary,
-              height: 3,
-            }}
-            style={{
-              backgroundColor: '#fff',
-              height: 40,
-            }}
-            renderLabel={({ route, }) => (
-              <Text
-                style={{
-                  fontSize: 15,
-                }}
-              >
-                {route.title}
-              </Text>
-            )}
-          />
-        )}
+        renderTabBar={this._renderTabBar}
       />
     );
   }

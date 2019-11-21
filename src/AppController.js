@@ -4,6 +4,7 @@ import ScreenIDs from 'src/screens/ScreenIDs';
 
 import { IconAssets, } from 'src/assets';
 import { Colors, } from './theme';
+import Fonts from './theme/Fonts';
 
 export const startLogin = () => {
   Navigation.setRoot({
@@ -50,10 +51,12 @@ export const startMainApp = () => {
                     options: {
                       bottomTab: {
                         text: 'Promotion',
+                        fontSize: 10,
+                        fontFamily: Fonts.Default.regular,
                         icon: IconAssets.Promotion,
                         selectedIconColor: Colors.primary,
                         selectedTextColor: Colors.primary,
-                        fontSize: 10,
+                        iconColor: Colors.inActiveBtmTabColor,
                       },
                       topBar: {
                         visible: false,
@@ -80,11 +83,13 @@ export const startMainApp = () => {
                         height: 0,
                       },
                       bottomTab: {
-                        text: 'Map',
+                        text: 'Near By',
                         icon: IconAssets.Map,
+                        fontSize: 10,
+                        fontFamily: Fonts.Default.regular,
                         selectedIconColor: Colors.primary,
                         selectedTextColor: Colors.primary,
-                        fontSize: 10,
+                        iconColor: Colors.inActiveBtmTabColor,
                       },
                     },
                   },
@@ -108,10 +113,12 @@ export const startMainApp = () => {
                       },
                       bottomTab: {
                         text: 'Account',
+                        fontSize: 10,
+                        fontFamily: Fonts.Default.regular,
                         icon: IconAssets.Profile,
                         selectedIconColor: Colors.primary,
                         selectedTextColor: Colors.primary,
-                        fontSize: 10,
+                        iconColor: Colors.inActiveBtmTabColor,
                       },
                     },
                   },

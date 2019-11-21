@@ -1,5 +1,5 @@
 import React, { Component, } from 'react';
-import { View, } from 'react-native';
+import { View, StyleSheet, } from 'react-native';
 import PropsType from 'prop-types';
 
 import { Metrics, Colors, } from 'src/theme';
@@ -11,34 +11,12 @@ export default class BannerHome extends Component {
 
   render() {
     return (
-      <View
-        style={{
-          height: 150,
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: '#fff',
-        }}
-      >
-        <View
-          style={{
-            height: 80,
-            width: '70%',
-
-            paddingVertical: Metrics.getBaseUnitFactor(),
-
-            alignItems: 'center',
-            justifyContent: 'space-around',
-
-            borderRadius: 15,
-            shadowOffset: { height: 3, width: 13, },
-            elevation: 8,
-            backgroundColor: Colors.primary,
-          }}
-        >
+      <View style={styles.container}>
+        <View style={styles.wrapper}>
           <StyleText size={20} color={'white'}>
             {'Xin chào'}
           </StyleText>
-          <StyleText size={30} color={'white'}>
+          <StyleText size={25} color={'white'}>
             {this.props.name}
           </StyleText>
         </View>
@@ -46,3 +24,26 @@ export default class BannerHome extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    height: 150,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Colors.background,
+  },
+  wrapper: {
+    height: 80,
+    width: '70%',
+
+    paddingVertical: Metrics.getBaseUnitFactor(),
+
+    alignItems: 'center',
+    justifyContent: 'space-around',
+
+    borderRadius: 15,
+    shadowOffset: { height: 3, width: 13, },
+    elevation: 8,
+    backgroundColor: Colors.primary,
+  },
+});

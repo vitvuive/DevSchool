@@ -17,7 +17,6 @@ export default class StyledCardItem extends Component {
       tintColor,
       containerStyle,
       textColor,
-      size,
       borderBottomWidth,
     } = this.props;
     return (
@@ -34,7 +33,7 @@ export default class StyledCardItem extends Component {
               { tintColor: tintColor, },
             ]}
           />
-          <StyleText color={textColor} size={size} italic>
+          <StyleText color={textColor} size={12}>
             {title}
           </StyleText>
         </View>

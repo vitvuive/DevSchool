@@ -1,7 +1,18 @@
 import React, { Component, } from 'react';
-import { Image, Text, TouchableOpacity, StyleSheet, View, } from 'react-native';
+import {
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  View,
+  Dimensions,
+} from 'react-native';
+
 import { ImageAssets, } from 'src/assets';
-import { Metrics, } from 'src/theme';
+import { Metrics, Colors, } from 'src/theme';
+import { StyleText, } from 'src/shared-components';
+
+const WIDTH_ITEM =
+  (Dimensions.get('window').width - Metrics.getBaseUnitFactor(6)) / 2;
 export default class ItemMenu extends Component {
   render() {
     const { name, price, componentId, onPressItem, } = this.props;
@@ -10,13 +21,12 @@ export default class ItemMenu extends Component {
         style={styles.container}
         onPress={() => onPressItem(componentId)}
       >
+        <Image source={ImageAssets.Card6} style={styles.imageStyle} />
         <View style={styles.nameItem}>
-          <Image source={ImageAssets.Card6} style={styles.imageStyle} />
-
-          <Text>{name}</Text>
-        </View>
-        <View>
-          <Text>{price}</Text>
+          <StyleText>{name}</StyleText>
+          <StyleText bold size={10}>
+            {price} {'đ'}
+          </StyleText>
         </View>
       </TouchableOpacity>
     );
@@ -25,25 +35,34 @@ export default class ItemMenu extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    height: Metrics.getBaseUnitFactor(12),
+    height: 140,
+    width: WIDTH_ITEM,
 
-    padding: Metrics.getBaseUnitFactor(),
-    marginTop: Metrics.getBaseUnitFactor(0.5),
-
-    elevation: 8,
-
-    justifyContent: 'space-between',
-    backgroundColor: '#f5ece8',
-  },
-  imageStyle: {
-    height: Metrics.getBaseUnitFactor(10),
-    width: Metrics.getBaseUnitFactor(13),
+    marginTop: Metrics.getBaseUnitFactor(2),
 
     borderRadius: 10,
-    marginRight: Metrics.getBaseUnitFactor(2),
+
+    elevation: 4,
+    justifyContent: 'space-between',
+    shadowColor: Colors.primary,
+    shadowRadius: 5,
+    shadowOpacity: 0.75,
+    shadowOffset: { width: 0, height: 0, },
+
+    backgroundColor: '#fff',
+  },
+  imageStyle: {
+    height: Metrics.getBaseUnitFactor(13),
+    width: WIDTH_ITEM,
+
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
   },
   nameItem: {
     flexDirection: 'row',
+
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    marginBottom: Metrics.getBaseUnitFactor(1),
   },
 });
