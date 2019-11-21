@@ -10,6 +10,7 @@ import SearchScreen from './SearchSreen';
 import ProfileScreen from './ProfileScreen';
 import StoreMenuScreen from './StoreMenuScreen';
 import MapScreen from './MapScreen';
+import OrderDetailScreen from './OrderDetailScreen';
 
 const screens = {
   [ScreenIDs.LoginScreen]: LoginScreen,
@@ -18,6 +19,7 @@ const screens = {
   [ScreenIDs.ProfileScreen]: ProfileScreen,
   [ScreenIDs.StoreMenuScreen]: StoreMenuScreen,
   [ScreenIDs.MapScreen]: MapScreen,
+  [ScreenIDs.OrderDetailScreen]: OrderDetailScreen,
 };
 
 const registerScreens = (Provider, store) => {

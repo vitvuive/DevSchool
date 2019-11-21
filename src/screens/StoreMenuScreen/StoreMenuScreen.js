@@ -14,10 +14,11 @@ export default class StoreMenuScreen extends Component {
   };
 
   render() {
+    const { componentId, } = this.props;
     return (
       <ScrollView>
         <CoverStore />
-        <FilterTabView />
+        <FilterTabView componentId={componentId} />
       </ScrollView>
     );
   }

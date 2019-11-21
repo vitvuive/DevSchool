@@ -3,6 +3,30 @@ import { Text, } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { Colors, } from '../../theme';
+import Fonts from 'src/theme/Fonts';
+
+const getCorrectFonts = (
+  isBold: boolean,
+  isItalic: boolean,
+  isMedium: boolean,
+  isSemiBold: boolean,
+  isExtraBold: boolean
+) => {
+  switch (true) {
+    case isItalic:
+      return Fonts.Default.italic;
+    case isBold:
+      return Fonts.Default.bold;
+    case isMedium:
+      return Fonts.Default.medium;
+    case isSemiBold:
+      return Fonts.Default.semiBold;
+    case isExtraBold:
+      return Fonts.Default.extraBold;
+    default:
+      return Fonts.Default.regular;
+  }
+};
 
 const getCorrectColor = ({
   color,
@@ -65,6 +89,9 @@ export default class StyledText extends React.Component {
       center,
       bold,
       italic,
+      medium,
+      semiBold,
+      extraBold,
       color,
       dark,
       black,
@@ -80,6 +107,7 @@ export default class StyledText extends React.Component {
     const _style = {
       fontSize: size,
       textAlign: center ? 'center' : 'left',
+      fontFamily: getCorrectFonts(bold, italic, medium, semiBold, extraBold),
       color: getCorrectColor({
         color,
         dark,

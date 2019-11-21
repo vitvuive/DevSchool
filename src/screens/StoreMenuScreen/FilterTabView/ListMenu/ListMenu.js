@@ -5,7 +5,8 @@ export default class ListMenu extends Component {
   _keyExtractor = ({ name, }) => name;
 
   _renderItem = ({ item, }) => {
-    return <ItemMenu {...item} />;
+    const { componentId, } = this.props;
+    return <ItemMenu {...item} componentId={componentId} />;
   };
   render() {
     const { menu, } = this.props;

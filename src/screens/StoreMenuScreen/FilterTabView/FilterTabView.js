@@ -18,8 +18,9 @@ export default class FilterTabView extends Component {
 
   _renderScene = () => {
     const { routes, index, } = this.state;
+    const { componentId, } = this.props;
     let select = routes[index];
-    return <ListMenu menu={select.menu} />;
+    return <ListMenu menu={select.menu} componentId={componentId} />;
   };
 
   // _renderTabBar() => {

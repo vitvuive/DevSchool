@@ -4,9 +4,12 @@ import { ImageAssets, } from 'src/assets';
 import { Metrics, } from 'src/theme';
 export default class ItemMenu extends Component {
   render() {
-    const { name, price, } = this.props;
+    const { name, price, componentId, onPressItem, } = this.props;
     return (
-      <TouchableOpacity style={styles.container}>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={() => onPressItem(componentId)}
+      >
         <View style={styles.nameItem}>
           <Image source={ImageAssets.Card6} style={styles.imageStyle} />
 

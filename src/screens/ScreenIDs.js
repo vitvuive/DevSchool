@@ -5,5 +5,6 @@ export default {
   ProfileScreen: 'ProfileScreen',
   StoreMenuScreen: 'StoreMenuScreen',
   MapScreen: 'MapScreen',
+  OrderDetailScreen: 'OrderDetailScreen',
   //more
 };
