@@ -1,11 +1,18 @@
 import React, { Component, } from 'react';
-import { View, StyleSheet, Dimensions, Text, } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Dimensions,
+  Text,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker, Callout, } from 'react-native-maps';
 import Carousel from 'react-native-snap-carousel';
 import Propstype from 'prop-types';
 
 import { IconAssets, } from 'src/assets';
-import { Metrics, Colors, } from 'src/theme';
+import { Metrics, } from 'src/theme';
 
 let { width, height, } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
@@ -64,10 +71,11 @@ export default class MapScreen extends Component {
   };
 
   _renderItem = ({ item, }) => {
+    const { onPressPush, componentId, } = this.props;
     return (
-      <View style={styles.cardCarousel}>
-        <Text>{item.merchant.name}</Text>
-      </View>
+      <TouchableOpacity onPress={() => onPressPush(componentId)}>
+        <Image style={styles.cardCarousel} source={item.banner} />
+      </TouchableOpacity>
     );
   };
 
@@ -140,7 +148,6 @@ const styles = StyleSheet.create({
     height: 150,
     width: '100%',
 
-    borderRadius: 15,
-    backgroundColor: Colors.light,
+    borderRadius: 10,
   },
 });

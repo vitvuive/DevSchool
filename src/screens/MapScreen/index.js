@@ -1,9 +1,13 @@
 import { Dimensions, } from 'react-native';
 import { connect, } from 'react-redux';
+import { Navigation, } from 'react-native-navigation';
 
+import Fonts from 'src/theme/Fonts';
 import { selectors, actions, } from 'src/stores';
+import { ImageAssets, } from 'src/assets';
 
 import MapScreen from './MapScreen';
+import ScreenIDs from '../ScreenIDs';
 
 let { width, height, } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
@@ -15,6 +19,7 @@ const dataFake = [
     latitude: 10.7747201,
     longitude: 106.69930120000004,
     address: 'acv',
+    banner: ImageAssets.Card3,
     merchant: {
       name: 'HightLand',
       menu: [
@@ -30,6 +35,7 @@ const dataFake = [
     latitude: 10.78006,
     longitude: 106.69341,
     address: 'Turtle Lake',
+    banner: ImageAssets.Card2,
     merchant: {
       name: 'The coffe house',
       menu: [
@@ -44,6 +50,7 @@ const dataFake = [
     latitude: 10.7951612,
     longitude: 106.7195944,
     address: 'acv',
+    banner: ImageAssets.Card5,
     merchant: {
       name: 'Gongcha',
       menu: [
@@ -73,8 +80,39 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  getLocation: () => dispatch(actions.global.setPositionUser()),
-});
+// const mapDispatchToProps = dispatch => ({
+//   getLocation: () => dispatch(actions.global.setPositionUser())
+// });
+
+const mapDispatchToProps = (dispatch) => {
+  const getLocation = () => {
+    dispatch(actions.global.setPositionUser());
+  };
+  const onPressPush = async (componentId) => {
+    try {
+      await Navigation.push(componentId, {
+        component: {
+          name: ScreenIDs.StoreMenuScreen,
+          options: {
+            topBar: {
+              title: {
+                text: 'Menu',
+                alignment: 'center',
+                fontFamily: Fonts.Default.medium,
+              },
+            },
+          },
+        },
+      });
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(error);
+    }
+  };
+  return {
+    getLocation,
+    onPressPush,
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(MapScreen);
