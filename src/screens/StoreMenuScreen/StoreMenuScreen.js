@@ -14,11 +14,13 @@ export default class StoreMenuScreen extends Component {
   };
 
   render() {
-    const { componentId, } = this.props;
+    const { componentId, category, } = this.props;
+    // eslint-disable-next-line no-console
+    console.log('category, ', category);
     return (
       <ScrollView>
         <CoverStore />
-        <FilterTabView componentId={componentId} />
+        <FilterTabView componentId={componentId} category={category} />
       </ScrollView>
     );
   }

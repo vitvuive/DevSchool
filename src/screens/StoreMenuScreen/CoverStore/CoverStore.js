@@ -8,7 +8,7 @@ export default class CoverStore extends Component {
     return (
       <ImageBackground style={styles.conatainer} source={ImageAssets.Card3}>
         <View style={styles.viewTitle}>
-          <StyleText size={25} color={'#fff'}>
+          <StyleText size={20} color={'#fff'}>
             {'HighLand Coffee Hai Ba Trung'}
           </StyleText>
           <StyleText color={'#fff'} style={styles.border}>
@@ -24,7 +24,7 @@ export default class CoverStore extends Component {
 
 const styles = StyleSheet.create({
   conatainer: {
-    height: 160,
+    height: 140,
     backgroundColor: '#fff',
   },
   viewTitle: {

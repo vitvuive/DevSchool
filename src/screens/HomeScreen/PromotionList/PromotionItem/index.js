@@ -6,12 +6,13 @@ import Fonts from 'src/theme/Fonts';
 
 import PromotionItem from './PromotionItem';
 
-const mapDispatchToProps = () => {
-  const onRowPress = async (componentId) => {
+const mapDispatchToProps = (dispatch, { componentId, merchant, }) => {
+  const onRowPress = async () => {
     try {
       await Navigation.push(componentId, {
         component: {
           name: ScreenIDs.StoreMenuScreen,
+          passProps: { category: merchant.category, },
           options: {
             topBar: {
               title: {

@@ -28,7 +28,7 @@ export default class MarkerDetailScreen extends Component {
             title={'Add food'}
             textColor={'#fff'}
             icon={IconAssets.Add_order}
-            onPress={onPush}
+            onPress={() => onPush(name)}
           />
           <StyledButton
             title={'Direction'}

@@ -14,6 +14,9 @@ const mapDispatchToProps = (dispatch, { componentId, reponse, }) => {
       Navigation.push(componentId, {
         component: {
           name: ScreenIDs.StoreMenuScreen,
+          passProps: {
+            category: reponse.merchant.category,
+          },
           options: {
             topBar: {
               title: {

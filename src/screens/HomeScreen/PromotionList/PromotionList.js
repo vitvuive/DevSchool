@@ -1,5 +1,5 @@
 import React, { Component, } from 'react';
-import { View, } from 'react-native';
+import { View, FlatList, } from 'react-native';
 
 import { Metrics, } from 'src/theme';
 import { StyleText, } from 'src/shared-components';
@@ -7,18 +7,25 @@ import { StyleText, } from 'src/shared-components';
 import PromotionItem from './PromotionItem';
 
 export default class PromotionList extends Component {
-  state = {};
-  render() {
+  _keyExtractor = ({ address, }) => address;
+
+  _renderItem = ({ item, }) => {
     const { componentId, } = this.props;
+    return <PromotionItem {...item} componentId={componentId} />;
+  };
+
+  render() {
+    const { dataFake, } = this.props;
     return (
       <View style={{ marginHorizontal: Metrics.getBaseUnitFactor(2), }}>
         <StyleText primary size={20}>
           {'Promotion for you today'}
         </StyleText>
-        <PromotionItem componentId={componentId} />
-        <PromotionItem componentId={componentId} />
-        <PromotionItem componentId={componentId} />
-        <PromotionItem componentId={componentId} />
+        <FlatList
+          data={dataFake}
+          renderItem={this._renderItem}
+          keyExtractor={this._keyExtractor}
+        />
       </View>
     );
   }

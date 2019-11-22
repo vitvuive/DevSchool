@@ -6,12 +6,17 @@ import Fonts from 'src/theme/Fonts';
 
 import ScreenIDs from 'src/screens/ScreenIDs';
 
-const mapStateToProps = () => {
-  const onPressItem = async (componentId) => {
+const mapDispatchToProps = (dispatch, { componentId, name, price, url, }) => {
+  const onPressItem = async () => {
     try {
       await Navigation.push(componentId, {
         component: {
           name: ScreenIDs.OrderDetailScreen,
+          passProps: {
+            name,
+            price,
+            url,
+          },
           options: {
             topBar: {
               title: {
@@ -33,4 +38,4 @@ const mapStateToProps = () => {
   };
 };
 
-export default connect(mapStateToProps)(ItemMenu);
+export default connect(mapDispatchToProps)(ItemMenu);

@@ -10,10 +10,10 @@ import { StyleText, } from 'src/shared-components';
 export default class FilterTabView extends Component {
   constructor(props) {
     super(props);
-    const { routes, } = this.props;
+    const { category, } = this.props;
     this.state = {
       index: 0,
-      routes,
+      routes: category,
     };
   }
 
