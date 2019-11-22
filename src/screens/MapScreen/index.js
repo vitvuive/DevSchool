@@ -18,7 +18,7 @@ const dataFake = [
   {
     latitude: 10.7747201,
     longitude: 106.69930120000004,
-    address: 'acv',
+    address: '135 Nam Kỳ Khởi Nghĩa, Phường Bến Thành, Quận 1, Hồ Chí Minh',
     banner: ImageAssets.Card3,
     merchant: {
       name: 'HightLand',
@@ -34,7 +34,7 @@ const dataFake = [
   {
     latitude: 10.78006,
     longitude: 106.69341,
-    address: 'Turtle Lake',
+    address: 'Turtle Lake, phường 6, District 3, Ho Chi Minh City',
     banner: ImageAssets.Card2,
     merchant: {
       name: 'The coffe house',
@@ -49,7 +49,7 @@ const dataFake = [
   {
     latitude: 10.7951612,
     longitude: 106.7195944,
-    address: 'acv',
+    address: '208 Nguyễn Hữu Cảnh, Phường 22, Bình Thạnh, Hồ Chí Minh',
     banner: ImageAssets.Card5,
     merchant: {
       name: 'Gongcha',
@@ -84,19 +84,22 @@ const mapStateToProps = (state) => {
 //   getLocation: () => dispatch(actions.global.setPositionUser())
 // });
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, { componentId, }) => {
   const getLocation = () => {
     dispatch(actions.global.setPositionUser());
   };
-  const onPressPush = async (componentId) => {
+  const onPressPush = async (reponse) => {
     try {
       await Navigation.push(componentId, {
         component: {
-          name: ScreenIDs.StoreMenuScreen,
+          name: ScreenIDs.MarkerDetailScreen,
+          passProps: {
+            reponse,
+          },
           options: {
             topBar: {
               title: {
-                text: 'Menu',
+                text: reponse.merchant.name,
                 alignment: 'center',
                 fontFamily: Fonts.Default.medium,
               },

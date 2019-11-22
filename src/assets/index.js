@@ -14,6 +14,8 @@ export const IconAssets = {
   Soda: require('./icon-assets/soda-icon.png'),
   Like: require('./icon-assets/lile-icon.png'),
   Heart: require('./icon-assets/heart-icon.png'),
+  Direction: require('./icon-assets/direction-icon.png'),
+  Add_order: require('./icon-assets/Add-order-icon.png'),
 };
 
 export const ImageAssets = {

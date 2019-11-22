@@ -11,6 +11,7 @@ import ProfileScreen from './ProfileScreen';
 import StoreMenuScreen from './StoreMenuScreen';
 import MapScreen from './MapScreen';
 import OrderDetailScreen from './OrderDetailScreen';
+import MarkerDetailScreen from './MarkerDetailScreen';
 
 const screens = {
   [ScreenIDs.LoginScreen]: LoginScreen,
@@ -20,6 +21,7 @@ const screens = {
   [ScreenIDs.StoreMenuScreen]: StoreMenuScreen,
   [ScreenIDs.MapScreen]: MapScreen,
   [ScreenIDs.OrderDetailScreen]: OrderDetailScreen,
+  [ScreenIDs.MarkerDetailScreen]: MarkerDetailScreen,
 };
 
 const registerScreens = (Provider, store) => {
