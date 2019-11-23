@@ -16,6 +16,7 @@ export const IconAssets = {
   Heart: require('./icon-assets/heart-icon.png'),
   Direction: require('./icon-assets/direction-icon.png'),
   Add_order: require('./icon-assets/Add-order-icon.png'),
+  Facebook: require('./icon-assets/facebook-icon.png'),
 };
 
 export const ImageAssets = {

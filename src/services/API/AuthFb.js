@@ -24,4 +24,13 @@ function getInfoUserFb(token) {
     .catch();
 }
 
-export default { logInWithPermissions, getCurrentAccessToken, getInfoUserFb, };
+const logOut = () => {
+  return LoginManager.logOut();
+};
+
+export default {
+  logInWithPermissions,
+  getCurrentAccessToken,
+  getInfoUserFb,
+  logOut,
+};

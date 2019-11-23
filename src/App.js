@@ -13,8 +13,7 @@ async function startApp() {
   if (isExitsUser) {
     AppController.startMainApp();
   } else {
-    AppController.startMainApp();
-    // AppController.startLogin();
+    AppController.startLogin();
   }
 }
 
