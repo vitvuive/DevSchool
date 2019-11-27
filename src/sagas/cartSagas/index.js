@@ -3,6 +3,7 @@ import { take, call, } from 'redux-saga/effects';
 import { types, } from 'src/stores';
 
 import getCartData from './getCartData';
+import removeCartItem from './removeCartItem';
 
 function* watchGetCartData() {
   try {
@@ -16,4 +17,11 @@ function* watchGetCartData() {
   }
 }
 
-export default [watchGetCartData(),];
+function* watchRemoveCartItem() {
+  while (true) {
+    const action = yield take(types.cart.REMOVE_ITEM_FROM_CART);
+    yield call(removeCartItem, action);
+  }
+}
+
+export default [watchGetCartData(), watchRemoveCartItem(),];

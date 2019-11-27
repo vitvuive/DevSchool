@@ -2,9 +2,9 @@ const Types = {
   SET_CART_LOADING_STATUS: 'cart.SET_CART_LOADING_STATUS',
   SET_CART_DATA: 'cart.SET_CART_DATA',
   ADD_ITEM_TO_CART: 'cart.ADD_ITEM_TO_CART',
-  REMOVE_ITEM_FROM_CART: 'cart.REMOVE_ITEM_FROM_CART',
 
   //saga
+  REMOVE_ITEM_FROM_CART: 'cart@REMOVE_ITEM_FROM_CART',
   GET_CART_DATA: 'cart@GET_CART_DATA',
 };
 
@@ -21,6 +21,7 @@ const Actions = {
     type: Types.ADD_ITEM_TO_CART,
     payload: item,
   }),
+  //saga
   removeItemFromCart: (payload: Object = {}) => ({
     type: Types.REMOVE_ITEM_FROM_CART,
     payload,

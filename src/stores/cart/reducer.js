@@ -17,9 +17,6 @@ const reducer = createReducer(initState, {
   [Types.ADD_ITEM_TO_CART]: ({ state, action, }) => {
     return state.merge({ byId: action.payload, });
   },
-  [Types.REMOVE_ITEM_FROM_CART]: ({ state, action, }) => {
-    return state.withOut({ byId: action.payload, });
-  },
 });
 
 export default reducer;

@@ -1,2 +1,8 @@
+import { connect, } from 'react-redux';
+import { selectors, } from 'src/stores';
 import ListCart from './ListCart';
-export default ListCart;
+
+const mapStateToProps = (state) => ({
+  dataCart: selectors.cart.getCartData(state),
+});
+export default connect(mapStateToProps)(ListCart);

@@ -1,28 +1,38 @@
 import React, { Component, } from 'react';
 import { View, StyleSheet, Image, TouchableOpacity, } from 'react-native';
+import PropTypes from 'prop-types';
 
 import { StyleText, } from 'src/shared-components';
 import { Colors, Metrics, } from 'src/theme';
 import { IconAssets, } from 'src/assets';
 
 export default class ItemCart extends Component {
+  static propTypes = {
+    data: PropTypes.object.isRequired,
+    onRemoveItem: PropTypes.func.isRequired,
+  };
+
+  shouldComponentUpdate({ data, }) {
+    return this.props.data !== data;
+  }
+
   render() {
+    const { data, onRemoveItem, } = this.props;
     return (
       <View style={styles.container}>
         <Image
           source={{
-            uri:
-              'https://gongcha.com.vn/wp-content/uploads/2019/04/TS-Dong-Phuong-My-Nhan-tc-1.png',
+            uri: data.image,
           }}
           style={styles.image}
         />
         <View style={styles.info}>
-          <StyleText medium>{'Trà Phổ Nhĩ Mật Ong Latte'}</StyleText>
+          <StyleText medium>{data.name}</StyleText>
           <StyleText medium primary>
-            {'45000 đ'}
+            {`${data.price} đ`}
           </StyleText>
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => onRemoveItem(data.id)}>
           <Image source={IconAssets.Trash} style={styles.icon} />
         </TouchableOpacity>
       </View>
@@ -49,6 +59,9 @@ const styles = StyleSheet.create({
   image: {
     height: 100,
     width: 100,
+
+    borderTopRightRadius: 5,
+    borderBottomLeftRadius: 5,
   },
   info: {
     width: '55%',
