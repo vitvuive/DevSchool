@@ -7,5 +7,6 @@ export default {
   MapScreen: 'MapScreen',
   OrderDetailScreen: 'OrderDetailScreen',
   MarkerDetailScreen: 'MarkerDetailScreen',
+  CartScreen: 'CartScreen',
   //more
 };

@@ -17,6 +17,8 @@ export const IconAssets = {
   Direction: require('./icon-assets/direction-icon.png'),
   Add_order: require('./icon-assets/Add-order-icon.png'),
   Facebook: require('./icon-assets/facebook-icon.png'),
+  Cart: require('./icon-assets/cart-icon.png'),
+  Trash: require('./icon-assets/trash-icon.png'),
 };
 
 export const ImageAssets = {
