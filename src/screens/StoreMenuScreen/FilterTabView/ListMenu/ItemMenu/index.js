@@ -6,7 +6,10 @@ import Fonts from 'src/theme/Fonts';
 
 import ScreenIDs from 'src/screens/ScreenIDs';
 
-const mapDispatchToProps = (dispatch, { componentId, name, price, url, }) => {
+const mapDispatchToProps = (
+  dispatch,
+  { componentId, name, price, url, id, }
+) => {
   const onPressItem = async () => {
     try {
       await Navigation.push(componentId, {
@@ -16,6 +19,7 @@ const mapDispatchToProps = (dispatch, { componentId, name, price, url, }) => {
             name,
             price,
             url,
+            id,
           },
           options: {
             topBar: {

@@ -4,7 +4,7 @@ import { StyleText, StyledButton, } from 'src/shared-components';
 import { Metrics, Colors, } from 'src/theme';
 export default class OrderDetailScreen extends Component {
   render() {
-    const { name, price, url, } = this.props;
+    const { name, price, url, onAddCart, } = this.props;
     return (
       <View style={styles.container}>
         <View>
@@ -12,14 +12,13 @@ export default class OrderDetailScreen extends Component {
             <Image source={{ uri: url, }} style={styles.imageStyle} />
           </View>
           <View style={styles.info}>
-            <StyleText bold>{name}</StyleText>
-            <StyleText bold>{`${price} đ`}</StyleText>
+            <View style={styles.nameWrapper}>
+              <StyleText bold>{name}</StyleText>
+            </View>
+            <StyleText bold primary>{`${price} đ`}</StyleText>
           </View>
         </View>
-        <StyledButton
-          title={'Add to Cart'}
-          onPress={() => alert('viet dep trai')}
-        />
+        <StyledButton title={'Add to Cart'} onPress={onAddCart} />
       </View>
     );
   }
@@ -43,7 +42,10 @@ const styles = StyleSheet.create({
   },
   info: {
     flexDirection: 'row',
-    padding: Metrics.getBaseUnitFactor(),
+    padding: Metrics.getBaseUnitFactor(2),
     justifyContent: 'space-between',
+  },
+  nameWrapper: {
+    width: '70%',
   },
 });

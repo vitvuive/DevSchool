@@ -13,18 +13,21 @@ export const dataFake = [
           title: 'Coffee',
           menu: [
             {
+              id: 12,
               name: 'Cherry Macchiato',
               price: 55000,
               url:
                 'https://product.hstatic.net/1000075078/product/cherry_mac_6a3403fdb832464da88de8c6e6ddf662_master.jpg',
             },
             {
+              id: 13,
               name: 'Lemon Macchiato',
               price: 55000,
               url:
                 'https://product.hstatic.net/1000075078/product/xoai_mac_c4534cc7607f4d58addf470a162e8359_master.jpg',
             },
             {
+              id: 14,
               name: 'Cold Brew Milk Macchiato',
               price: 50000,
               url:
@@ -37,24 +40,28 @@ export const dataFake = [
           title: 'Tea',
           menu: [
             {
+              id: 15,
               name: 'Hồng Trà Royal Kem Cheese',
               price: 47000,
               url:
                 'http://royaltea.com.vn/wp-content/uploads/2017/05/20-600x450.jpg',
             },
             {
+              id: 16,
               name: 'Trà Earl Grey Kem Cheese',
               price: 47000,
               url:
                 'http://royaltea.com.vn/wp-content/uploads/2017/05/18-600x450.jpg',
             },
             {
+              id: 17,
               name: 'Trà Ô Long Royal Kem Cheese',
               price: 53000,
               url:
                 'http://royaltea.com.vn/wp-content/uploads/2017/04/jj-600x450.jpg',
             },
             {
+              id: 18,
               name: 'Trà Xanh Chanh Leo Kim Quất Mật Ong',
               price: 43000,
               url:
@@ -67,18 +74,21 @@ export const dataFake = [
           title: 'Yakult',
           menu: [
             {
+              id: 19,
               name: 'Yakult Chanh Leo',
               price: 42000,
               url:
                 'http://product.hstatic.net/1000360860/product/yakult-cday_ff8300d49a714625aa63d1125d50ab0d_master.png',
             },
             {
+              id: 20,
               name: 'Yakult Trà Xanh',
               price: 42000,
               url:
                 'http://product.hstatic.net/1000360860/product/yakult-tx_5e6fbdf13dab48f2b5c34fa9fcf6b034_master.png',
             },
             {
+              id: 21,
               name: 'Yakult Xoài',
               price: 42000,
               url:

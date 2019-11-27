@@ -1,0 +1,27 @@
+const Types = {
+  SET_CART_LOADING_STATUS: 'cart.SET_CART_LOADING_STATUS',
+  SET_CART_DATA: 'cart.SET_CART_DATA',
+  ADD_ITEM_TO_CART: 'cart.ADD_ITEM_TO_CART',
+  REMOVE_ITEM_FROM_CART: 'cart.REMOVE_ITEM_FROM_CART',
+};
+
+const Actions = {
+  setCartLoadingStatus: (payload: boolean = false) => ({
+    type: Types.SET_CART_LOADING_STATUS,
+    payload,
+  }),
+  setCartData: (item: Object = {}) => ({
+    type: Types.SET_CART_DATA,
+    payload: item,
+  }),
+  addItemToCard: (item: Object = {}) => ({
+    type: Types.ADD_ITEM_TO_CART,
+    payload: item,
+  }),
+  removeItemFromCart: (payload: Object = {}) => ({
+    type: Types.REMOVE_ITEM_FROM_CART,
+    payload,
+  }),
+};
+
+export { Types, Actions };
