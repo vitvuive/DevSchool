@@ -3,6 +3,9 @@ const Types = {
   SET_CART_DATA: 'cart.SET_CART_DATA',
   ADD_ITEM_TO_CART: 'cart.ADD_ITEM_TO_CART',
   REMOVE_ITEM_FROM_CART: 'cart.REMOVE_ITEM_FROM_CART',
+
+  //saga
+  GET_CART_DATA: 'cart@GET_CART_DATA',
 };
 
 const Actions = {
@@ -21,6 +24,9 @@ const Actions = {
   removeItemFromCart: (payload: Object = {}) => ({
     type: Types.REMOVE_ITEM_FROM_CART,
     payload,
+  }),
+  getCartData: () => ({
+    type: Types.GET_CART_DATA,
   }),
 };
 

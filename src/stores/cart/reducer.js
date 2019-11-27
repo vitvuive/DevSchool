@@ -12,7 +12,7 @@ const reducer = createReducer(initState, {
     return state.merge({ isLoading: action.payload, });
   },
   [Types.SET_CART_DATA]: ({ state, action, }) => {
-    return state.merge({ byId: state.id.merge(action.payload), });
+    return state.merge({ byId: action.payload, });
   },
   [Types.ADD_ITEM_TO_CART]: ({ state, action, }) => {
     return state.merge({ byId: action.payload, });
