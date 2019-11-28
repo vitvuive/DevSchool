@@ -21,6 +21,11 @@ const mapDispatchToProps = (dispatch, { componentId, merchant, }) => {
                 fontFamily: Fonts.Default.medium,
               },
             },
+            bottomTabs: {
+              visible: false,
+              drawBehind: true,
+              animate: true,
+            },
           },
         },
       });

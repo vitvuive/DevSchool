@@ -25,6 +25,11 @@ const mapDispatchToProps = (dispatch, { componentId, reponse, }) => {
                 fontFamily: Fonts.Default.medium,
               },
             },
+            bottomTabs: {
+              visible: false,
+              drawBehind: true,
+              animate: true,
+            },
           },
         },
       });

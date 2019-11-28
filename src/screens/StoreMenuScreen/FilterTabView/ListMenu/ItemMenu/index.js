@@ -29,6 +29,11 @@ const mapDispatchToProps = (
                 fontFamily: Fonts.Default.medium,
               },
             },
+            bottomTabs: {
+              visible: false,
+              drawBehind: true,
+              animate: true,
+            },
           },
         },
       });
