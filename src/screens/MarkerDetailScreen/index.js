@@ -4,7 +4,6 @@ import { Navigation, } from 'react-native-navigation';
 
 import { Metrics, } from 'src/theme';
 import ScreenIDs from 'src/screens/ScreenIDs';
-import Fonts from 'src/theme/Fonts';
 
 import MarkerDetailScreen from './MarkerDetailScreen';
 
@@ -19,11 +18,8 @@ const mapDispatchToProps = (dispatch, { componentId, reponse, }) => {
           },
           options: {
             topBar: {
-              title: {
-                text: reponse.merchant.name,
-                alignment: 'center',
-                fontFamily: Fonts.Default.medium,
-              },
+              visible: false,
+              height: 0,
             },
             bottomTabs: {
               visible: false,

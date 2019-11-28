@@ -2,7 +2,6 @@ import { connect, } from 'react-redux';
 import { Navigation, } from 'react-native-navigation';
 
 import ScreenIDs from 'src/screens/ScreenIDs';
-import Fonts from 'src/theme/Fonts';
 
 import PromotionItem from './PromotionItem';
 
@@ -15,11 +14,8 @@ const mapDispatchToProps = (dispatch, { componentId, merchant, }) => {
           passProps: { category: merchant.category, },
           options: {
             topBar: {
-              title: {
-                text: 'Menu',
-                alignment: 'center',
-                fontFamily: Fonts.Default.medium,
-              },
+              visible: false,
+              height: 0,
             },
             bottomTabs: {
               visible: false,

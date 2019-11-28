@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { StyleText, } from 'src/shared-components';
 import { Colors, Metrics, } from 'src/theme';
 import { IconAssets, } from 'src/assets';
+import { Formatters, } from 'src/services';
 
 export default class ItemCart extends Component {
   static propTypes = {
@@ -29,7 +30,7 @@ export default class ItemCart extends Component {
         <View style={styles.info}>
           <StyleText medium>{data.name}</StyleText>
           <StyleText medium primary>
-            {`${data.price} đ`}
+            {Formatters.displayPrice(data.price)}
           </StyleText>
         </View>
         <TouchableOpacity onPress={() => onRemoveItem(data.id)}>

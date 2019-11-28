@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import { Metrics, Colors, } from 'src/theme';
 import { StyleText, } from 'src/shared-components';
+import { Formatters, } from 'src/services';
 
 import CoverStore from './CoverStore';
 import FilterTabView from './FilterTabView';
@@ -11,34 +12,41 @@ import FilterTabView from './FilterTabView';
 export default class StoreMenuScreen extends Component {
   static propType = {
     onPush: PropTypes.func.isRequired,
+    numberItem: PropTypes.number.isRequired,
   };
+
+  shouldComponentUpdate({ numberItem, }) {
+    return this.props.numberItem !== numberItem;
+  }
+
   renderCart = () => {
-    const { onPush, } = this.props;
+    const { onPush, numberItem, sumPriceItem, } = this.props;
+
     return (
       <TouchableOpacity style={styles.wapperCart} onPress={onPush}>
         <View style={styles.text}>
           <StyleText primary bold>
-            {'5'}
+            {numberItem}
           </StyleText>
         </View>
         <StyleText white bold>
           {'View Order'}
         </StyleText>
         <StyleText white bold>
-          {'30000d'}
+          {Formatters.displayPrice(sumPriceItem)}
         </StyleText>
       </TouchableOpacity>
     );
   };
   render() {
-    const { componentId, category, } = this.props;
+    const { componentId, category, numberItem, } = this.props;
     return (
       <View style={styles.container}>
         <ScrollView>
-          <CoverStore />
+          <CoverStore componentId={componentId} />
           <FilterTabView componentId={componentId} category={category} />
         </ScrollView>
-        {this.renderCart()}
+        {numberItem > 0 && this.renderCart()}
       </View>
     );
   }

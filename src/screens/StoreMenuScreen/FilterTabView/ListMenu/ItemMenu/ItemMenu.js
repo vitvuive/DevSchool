@@ -9,6 +9,7 @@ import {
 
 import { Metrics, Colors, } from 'src/theme';
 import { StyleText, } from 'src/shared-components';
+import { Formatters, } from 'src/services';
 
 const WIDTH_ITEM =
   (Dimensions.get('window').width - Metrics.getBaseUnitFactor(6)) / 2;
@@ -24,7 +25,7 @@ export default class ItemMenu extends Component {
           </View>
           <View>
             <StyleText bold size={10}>
-              {price} {'đ'}
+              {Formatters.displayPrice(price)}
             </StyleText>
           </View>
         </View>

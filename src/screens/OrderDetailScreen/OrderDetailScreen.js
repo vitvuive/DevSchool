@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import { StyleText, StyledButton, } from 'src/shared-components';
 import { Metrics, Colors, } from 'src/theme';
+import { Formatters, } from 'src/services';
 export default class OrderDetailScreen extends Component {
   static propTypes = {
     onAddCart: PropTypes.func.isRequired,
@@ -21,7 +22,9 @@ export default class OrderDetailScreen extends Component {
             <View style={styles.nameWrapper}>
               <StyleText bold>{name}</StyleText>
             </View>
-            <StyleText bold primary>{`${price} đ`}</StyleText>
+            <StyleText bold primary>
+              {Formatters.displayPrice(price)}
+            </StyleText>
           </View>
         </View>
         <StyledButton title={'Add to Cart'} onPress={onAddCart} />

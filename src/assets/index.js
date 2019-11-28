@@ -20,6 +20,8 @@ export const IconAssets = {
   Cart: require('./icon-assets/cart-icon.png'),
   Trash: require('./icon-assets/trash-icon.png'),
   Order: require('./icon-assets/order-icon.png'),
+  Back: require('./icon-assets/back-icon.png'),
+  Cancel: require('./icon-assets/cancel-icon.png'),
 };
 
 export const ImageAssets = {
