@@ -1,7 +1,7 @@
 export default {
   LoginScreen: 'LoginScreen',
   HomeScreen: 'HomeScreen',
-  SearchScreen: 'SearchScreen',
+  MyOrderScreen: 'MyOrderScreen',
   ProfileScreen: 'ProfileScreen',
   StoreMenuScreen: 'StoreMenuScreen',
   MapScreen: 'MapScreen',

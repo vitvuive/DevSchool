@@ -102,6 +102,39 @@ export const startMainApp = () => {
               children: [
                 {
                   component: {
+                    name: ScreenIDs.MyOrderScreen,
+                    passProps: {
+                      text: 'This is tab 2',
+                    },
+                    options: {
+                      topBar: {
+                        title: {
+                          text: 'Your Order',
+                          alignment: 'center',
+                          fontSize: 17,
+                          fontFamily: Fonts.Default.medium,
+                        },
+                      },
+                      bottomTab: {
+                        text: 'Order',
+                        icon: IconAssets.Order,
+                        fontSize: 10,
+                        fontFamily: Fonts.Default.regular,
+                        selectedIconColor: Colors.primary,
+                        selectedTextColor: Colors.primary,
+                        iconColor: Colors.inActiveBtmTabColor,
+                      },
+                    },
+                  },
+                },
+              ],
+            },
+          },
+          {
+            stack: {
+              children: [
+                {
+                  component: {
                     name: ScreenIDs.ProfileScreen,
                     passProps: {
                       text: 'This is tab 2',
