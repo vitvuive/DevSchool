@@ -29,6 +29,7 @@ export default class ListCart extends Component {
     );
   }
 }
+
 const styles = StyleSheet.create({
   container: {
     marginTop: Metrics.getBaseUnitFactor(),

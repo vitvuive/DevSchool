@@ -4,6 +4,7 @@ import { types, } from 'src/stores';
 
 import getCartData from './getCartData';
 import removeCartItem from './removeCartItem';
+import addCartItem from './addCartItem';
 
 function* watchGetCartData() {
   try {
@@ -24,4 +25,11 @@ function* watchRemoveCartItem() {
   }
 }
 
-export default [watchGetCartData(), watchRemoveCartItem(),];
+function* watchAddCartItem() {
+  while (true) {
+    const action = yield take(types.cart.ADD_ITEM_TO_CART);
+    yield call(addCartItem, action);
+  }
+}
+
+export default [watchGetCartData(), watchRemoveCartItem(), watchAddCartItem(),];

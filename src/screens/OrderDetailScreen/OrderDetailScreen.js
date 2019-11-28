@@ -1,8 +1,14 @@
 import React, { Component, } from 'react';
 import { View, StyleSheet, Image, } from 'react-native';
+import PropTypes from 'prop-types';
+
 import { StyleText, StyledButton, } from 'src/shared-components';
 import { Metrics, Colors, } from 'src/theme';
 export default class OrderDetailScreen extends Component {
+  static propTypes = {
+    onAddCart: PropTypes.func.isRequired,
+  };
+
   render() {
     const { name, price, url, onAddCart, } = this.props;
     return (

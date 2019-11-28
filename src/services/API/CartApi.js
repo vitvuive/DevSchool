@@ -32,4 +32,26 @@ const removeCartItem = (id) => {
     });
 };
 
-export default { getCartData, removeCartItem, };
+const addCartItem = ({ name, price, url, }) => {
+  return fetch('http://5dbaa6563ec5fb0014319176.mockapi.io/api/v1/cart', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name,
+      price,
+      image: url,
+    }),
+  })
+    .then((reponse) => reponse.json())
+    .then((json) => {
+      return json;
+    })
+    .catch((e) => {
+      return e;
+    });
+};
+
+export default { getCartData, removeCartItem, addCartItem, };
