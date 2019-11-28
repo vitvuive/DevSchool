@@ -59,12 +59,8 @@ export default class FilterTabView extends Component {
         onIndexChange={(index) => this.setState({ index, })}
         initialLayout={{ width: Dimensions.get('window').width, }}
         renderTabBar={this._renderTabBar}
+        // style={styles.container}
       />
     );
   }
 }
-// const styles = StyleSheet.create({
-//   scene: {
-//     flex: 1,
-//   },
-// });

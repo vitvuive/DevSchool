@@ -43,7 +43,7 @@ export default class ItemCart extends Component {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    height: 100,
+    height: 90,
     borderRadius: 5,
 
     elevation: 2,
@@ -57,10 +57,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   image: {
-    height: 100,
-    width: 100,
+    height: 90,
+    width: 90,
 
-    borderTopRightRadius: 5,
+    borderTopLeftRadius: 5,
     borderBottomLeftRadius: 5,
   },
   info: {

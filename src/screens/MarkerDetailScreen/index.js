@@ -11,7 +11,7 @@ import MarkerDetailScreen from './MarkerDetailScreen';
 const mapDispatchToProps = (dispatch, { componentId, reponse, }) => {
   const onPush = async () => {
     try {
-      Navigation.push(componentId, {
+      await Navigation.push(componentId, {
         component: {
           name: ScreenIDs.StoreMenuScreen,
           passProps: {

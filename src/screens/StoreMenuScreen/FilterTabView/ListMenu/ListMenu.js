@@ -1,5 +1,5 @@
 import React, { Component, } from 'react';
-import { View, FlatList, StyleSheet, } from 'react-native';
+import { FlatList, StyleSheet, } from 'react-native';
 import ItemMenu from './ItemMenu';
 import { Metrics, Colors, } from 'src/theme';
 export default class ListMenu extends Component {
@@ -12,16 +12,14 @@ export default class ListMenu extends Component {
   render() {
     const { menu, } = this.props;
     return (
-      <View>
-        <FlatList
-          data={menu}
-          keyExtractor={this._keyExtractor}
-          renderItem={this._renderItem}
-          style={styles.flatlistStyle}
-          numColumns={2}
-          columnWrapperStyle={styles.row}
-        />
-      </View>
+      <FlatList
+        data={menu}
+        keyExtractor={this._keyExtractor}
+        renderItem={this._renderItem}
+        style={styles.flatlistStyle}
+        numColumns={2}
+        columnWrapperStyle={styles.row}
+      />
     );
   }
 }
@@ -31,7 +29,7 @@ const styles = StyleSheet.create({
     flex: 1,
 
     paddingHorizontal: Metrics.getBaseUnitFactor(2),
-    paddingBottom: Metrics.getBaseUnitFactor(2),
+    paddingBottom: Metrics.getBaseUnitFactor(7),
     backgroundColor: Colors.background,
   },
   row: {

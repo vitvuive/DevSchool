@@ -102,32 +102,6 @@ export const startMainApp = () => {
               children: [
                 {
                   component: {
-                    name: ScreenIDs.CartScreen,
-                    options: {
-                      topBar: {
-                        visible: false,
-                        height: 0,
-                      },
-                      bottomTab: {
-                        text: 'Cart',
-                        icon: IconAssets.Cart,
-                        fontSize: 10,
-                        fontFamily: Fonts.Default.regular,
-                        selectedIconColor: Colors.primary,
-                        selectedTextColor: Colors.primary,
-                        iconColor: Colors.inActiveBtmTabColor,
-                      },
-                    },
-                  },
-                },
-              ],
-            },
-          },
-          {
-            stack: {
-              children: [
-                {
-                  component: {
                     name: ScreenIDs.ProfileScreen,
                     passProps: {
                       text: 'This is tab 2',

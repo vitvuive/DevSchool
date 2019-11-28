@@ -1,8 +1,14 @@
 import { connect, } from 'react-redux';
-import { selectors, } from 'src/stores';
+import { selectors, actions, } from 'src/stores';
 import ListCart from './ListCart';
 
 const mapStateToProps = (state) => ({
   dataCart: selectors.cart.getCartData(state),
+  isLoading: selectors.cart.getLoadingStatus(state),
 });
-export default connect(mapStateToProps)(ListCart);
+
+const mapDispatchToProps = (dispatch) => ({
+  onGetData: () => dispatch(actions.cart.getCartData()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListCart);
