@@ -147,9 +147,16 @@ android {
             }
         }
     }
+    packagingOptions {
+       pickFirst '**/libjsc.so'
+       pickFirst '**/libc++_shared.so'
+    }
 }
 
 dependencies {
+    // Make sure to put android-jsc at the top
+    implementation "org.webkit:android-jsc-intl:r245459"
+
     implementation project(':react-native-gesture-handler')
     implementation project(':react-native-reanimated')
     implementation fileTree(dir: "libs", include: ["*.jar"])
