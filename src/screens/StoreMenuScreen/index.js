@@ -10,11 +10,11 @@ import StoreMenuScreen from './StoreMenuScreen';
 const mapStateToProps = (state) => {
   const dataCart = selectors.cart.getCartData(state);
   //get number item of cart
-  const numberItem = dataCart.length;
+  const numberItem = Array.isArray(dataCart) ? dataCart.length : 0;
   // get total price
-  const sumPriceItem = dataCart
-    .map((item) => item.price)
-    .reduce((prev, curr) => prev + curr, 0);
+  const sumPriceItem = Array.isArray(dataCart)
+    ? dataCart.map((item) => item.price).reduce((prev, curr) => prev + curr, 0)
+    : 0;
   return { numberItem, sumPriceItem, };
 };
 
