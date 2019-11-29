@@ -5,6 +5,7 @@ import { Types, } from './actions';
 const initState = Immutable({
   isLoading: false,
   byId: {},
+  transaction: {},
 });
 
 const reducer = createReducer(initState, {
@@ -13,6 +14,9 @@ const reducer = createReducer(initState, {
   },
   [Types.SET_CART_DATA]: ({ state, action, }) => {
     return state.merge({ byId: action.payload, });
+  },
+  [Types.SET_TRANSACTION]: ({ state, action, }) => {
+    return state.merge({ transaction: action.payload, });
   },
 });
 

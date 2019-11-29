@@ -44,7 +44,7 @@ const getCorrectColor = ({
     case dark || black:
       return '#000000';
     case gray || grey:
-      return '#414141';
+      return '#AAAAAA';
     case white:
       return '#FFFFFF';
     case primary:

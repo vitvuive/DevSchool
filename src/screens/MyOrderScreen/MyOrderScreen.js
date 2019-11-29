@@ -17,6 +17,16 @@ export default class MyOrderScreen extends Component {
     ],
   };
 
+  orderActive = () => {
+    const { componentId, } = this.props;
+    return <OrderActive componentId={componentId} />;
+  };
+
+  orderHistory = () => {
+    const { componentId, } = this.props;
+    return <OrderHistory componentId={componentId} />;
+  };
+
   _renderTabBar = (props) => {
     return (
       <TabBar
@@ -50,8 +60,8 @@ export default class MyOrderScreen extends Component {
       <TabView
         navigationState={this.state}
         renderScene={SceneMap({
-          first: OrderActive,
-          second: OrderHistory,
+          first: this.orderActive,
+          second: this.orderHistory,
         })}
         onIndexChange={(index) => this.setState({ index, })}
         initialLayout={{ width: Dimensions.get('window').width, }}

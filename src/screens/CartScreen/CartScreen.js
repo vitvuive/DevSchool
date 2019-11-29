@@ -8,11 +8,12 @@ import ListCart from './ListCart';
 
 export default class CartScreen extends Component {
   render() {
+    const { onCheckout, } = this.props;
     return (
       <View style={styles.container}>
         <ListCart />
         <View style={styles.buttonContainer}>
-          <StyledButton title={'CHECK OUT'} />
+          <StyledButton title={'CHECK OUT'} onPress={onCheckout} />
         </View>
       </View>
     );

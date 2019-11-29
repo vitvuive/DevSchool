@@ -32,10 +32,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-// const mapDispatchToProps = dispatch => ({
-//   getLocation: () => dispatch(actions.global.setPositionUser())
-// });
-
 const mapDispatchToProps = (dispatch, { componentId, }) => {
   const getLocation = () => {
     dispatch(actions.global.setPositionUser());

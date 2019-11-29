@@ -2,13 +2,14 @@ import React, { Component, } from 'react';
 import { View, StyleSheet, } from 'react-native';
 import { Colors, } from 'src/theme';
 
-import CardOrderItem from '../CardOrderItem';
+import OrderList from '../OrderList';
 
 export default class OrderActive extends Component {
   render() {
+    const { componentId, } = this.props;
     return (
       <View style={styles.container}>
-        <CardOrderItem />
+        <OrderList componentId={componentId} />
       </View>
     );
   }

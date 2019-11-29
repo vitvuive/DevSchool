@@ -8,5 +8,6 @@ export default {
   OrderDetailScreen: 'OrderDetailScreen',
   MarkerDetailScreen: 'MarkerDetailScreen',
   CartScreen: 'CartScreen',
+  QRCodeScreen: 'QRCodeScreen',
   //more
 };

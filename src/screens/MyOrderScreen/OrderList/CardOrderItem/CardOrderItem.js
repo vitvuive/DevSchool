@@ -1,20 +1,27 @@
 import React, { Component, } from 'react';
 import { View, StyleSheet, TouchableOpacity, } from 'react-native';
+import PropTypes from 'prop-types';
+
 import { Metrics, } from 'src/theme';
 import { StyleText, } from 'src/shared-components';
 export default class CardOrderItem extends Component {
+  static propTypes = {
+    onPush: PropTypes.func.isRequired,
+  };
+
   render() {
+    const { onPush, data, } = this.props;
     return (
       <View style={styles.constainer}>
         <View style={styles.title}>
-          <StyleText bold>{'Hight Land Hai Ba Trung'}</StyleText>
+          <StyleText bold>{data.nameMerchant}</StyleText>
           <StyleText medium size={13}>
-            {'208 Nguyễn Hữu Cảnh, Phường 22,'}
+            {data.address}
           </StyleText>
-          <StyleText size={11}>{'28/12/2020, 14:14'}</StyleText>
+          <StyleText size={11}>{data.createdAt}</StyleText>
         </View>
         <View style={styles.action}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={onPush}>
             <StyleText primary medium>
               {'View detail'}
             </StyleText>

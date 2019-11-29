@@ -13,6 +13,7 @@ import MapScreen from './MapScreen';
 import OrderDetailScreen from './OrderDetailScreen';
 import MarkerDetailScreen from './MarkerDetailScreen';
 import CartScreen from './CartScreen';
+import QRCodeScreen from './QRCodeScreen';
 
 const screens = {
   [ScreenIDs.LoginScreen]: LoginScreen,
@@ -24,6 +25,7 @@ const screens = {
   [ScreenIDs.OrderDetailScreen]: OrderDetailScreen,
   [ScreenIDs.MarkerDetailScreen]: MarkerDetailScreen,
   [ScreenIDs.CartScreen]: CartScreen,
+  [ScreenIDs.QRCodeScreen]: QRCodeScreen,
 };
 
 const registerScreens = (Provider, store) => {
