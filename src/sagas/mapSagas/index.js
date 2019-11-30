@@ -6,7 +6,7 @@ import getCurrentPosition from './getCurrentPosition';
 
 function* watchGetCurrentPosition() {
   while (true) {
-    const actions = yield take(types.global.SET_POSITION);
+    const actions = yield take(types.map.SET_POSITION);
     yield call(getCurrentPosition, actions);
   }
 }

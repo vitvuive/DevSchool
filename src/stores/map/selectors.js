@@ -1,6 +1,6 @@
 import R from 'ramda';
 
-const storeName = 'global';
+const storeName = 'map';
 
 export const getPosLoadingStatus = R.pathOr(false, [storeName, 'isLoading',]);
 

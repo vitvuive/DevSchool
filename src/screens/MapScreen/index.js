@@ -15,8 +15,8 @@ const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
 const mapStateToProps = (state) => {
-  const longitude = selectors.global.getLongitude(state);
-  const latitude = selectors.global.getLatitude(state);
+  const longitude = selectors.map.getLongitude(state);
+  const latitude = selectors.map.getLatitude(state);
 
   const region = {
     latitude: latitude,
@@ -34,7 +34,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, { componentId, }) => {
   const getLocation = () => {
-    dispatch(actions.global.setPositionUser());
+    dispatch(actions.map.setPositionUser());
   };
   const onPressPush = async (reponse) => {
     try {
