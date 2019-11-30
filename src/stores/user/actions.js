@@ -1,38 +1,43 @@
 const Types = {
   //Auth
-  SET_AUTH_LOADING_STATUS: 'user.SET_AUTH_LOADING_STATUS',
-  SET_PROFILE: 'user.SET_AUTH_PROFILE',
-  SET_AUTH_DATA: 'user.SET_AUTH_DATA',
+  SET_AUTH_LOADING_STATUS: "user.SET_AUTH_LOADING_STATUS",
+  SET_PROFILE: "user.SET_AUTH_PROFILE",
+  SET_AUTH_DATA: "user.SET_AUTH_DATA",
   //TODO: Set update data
   //sagas
-  LOGIN_WITH_FB: 'user@LOGIN_WITH_FB',
-  LOGIN: 'user@LOGIN',
-  LOGOUT: 'user@LOGOUT',
+  LOGIN_WITH_FB: "user@LOGIN_WITH_FB",
+  LOGIN: "user@LOGIN",
+  LOGOUT: "user@LOGOUT",
+  REGISTER: "user@REGISTER"
 };
 
 const Actions = {
   setAuthLoadingStatus: (payload: boolean = false) => ({
     type: Types.SET_AUTH_LOADING_STATUS,
-    payload,
+    payload
   }),
   setProfile: (payload: Object = {}) => ({
     type: Types.SET_PROFILE,
-    payload,
+    payload
   }),
   setAuthData: (payload: Object = {}) => ({
     type: Types.SET_AUTH_DATA,
-    payload,
+    payload
   }),
   login: (payload: { username: String, password: String }) => ({
     type: Types.LOGIN,
-    payload,
+    payload
+  }),
+  register: (payload: { username: String, password: String }) => ({
+    type: Types.REGISTER,
+    payload
   }),
   loginWithFb: () => ({
-    type: Types.LOGIN_WITH_FB,
+    type: Types.LOGIN_WITH_FB
   }),
   logout: () => ({
-    type: Types.LOGOUT,
-  }),
+    type: Types.LOGOUT
+  })
 };
 
 export { Types, Actions };

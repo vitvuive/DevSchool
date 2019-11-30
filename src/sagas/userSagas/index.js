@@ -1,8 +1,10 @@
-import { call, take, } from 'redux-saga/effects';
+import { call, take } from "redux-saga/effects";
 
-import { types, } from 'src/stores';
-import handleLogin from './handleLogin';
-import handleLogout from './handleLogout';
+import { types } from "src/stores";
+import handleLogin from "./handleLogin";
+import handleLogout from "./handleLogout";
+import handleLoginFirebase from "./handleLoginFirebase";
+import handelRegisterFirebase from "./handleRegisterFirebase";
 
 function* watchLogin() {
   while (true) {
@@ -18,4 +20,23 @@ function* watchLogout() {
   }
 }
 
-export default [watchLogin(), watchLogout(),];
+function* watchLoginFirebase() {
+  while (true) {
+    const action = yield take(types.user.LOGIN);
+    yield call(handleLoginFirebase, action);
+  }
+}
+
+function* watchRegisterFirebase() {
+  while (true) {
+    const action = yield take(types.user.REGISTER);
+    yield call(handelRegisterFirebase, action);
+  }
+}
+
+export default [
+  watchLogin(),
+  watchLogout(),
+  watchLoginFirebase(),
+  watchRegisterFirebase()
+];

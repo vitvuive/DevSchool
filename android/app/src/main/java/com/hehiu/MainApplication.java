@@ -20,6 +20,8 @@ import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import java.util.Arrays;
 import java.util.List;
 
+import io.invertase.firebase.RNFirebasePackage;
+
 public class MainApplication extends NavigationApplication {
     private static CallbackManager callbackManager = CallbackManager.Factory.create();
     protected static CallbackManager getCallbackManager(){
@@ -47,11 +49,12 @@ public class MainApplication extends NavigationApplication {
         // No need to add RnnPackage and MainReactPackage
         return Arrays.<ReactPackage>asList(
                 new MainReactPackage(),
+                new RNFirebasePackage(),
                 new AsyncStoragePackage(),
                 new FBSDKPackage(callbackManager),
-                new MapsPackage()
+                new MapsPackage()       
         );
-    }
+    }       
   
     @Override
     public List<ReactPackage> createAdditionalReactPackages() {
