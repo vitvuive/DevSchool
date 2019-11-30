@@ -10,6 +10,7 @@ import com.facebook.soloader.SoLoader;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.facebook.CallbackManager;
 
+import com.horcrux.svg.SvgPackage;
 import com.reactnativenavigation.NavigationApplication;
 import com.reactnativenavigation.react.NavigationReactNativeHost;
 import com.reactnativenavigation.react.ReactGateway;
@@ -50,6 +51,7 @@ public class MainApplication extends NavigationApplication {
         // No need to add RnnPackage and MainReactPackage
         return Arrays.<ReactPackage>asList(
                 new MainReactPackage(),
+                new SvgPackage(),
                 new AsyncStoragePackage(),
                 new FBSDKPackage(callbackManager),
                 new MapsPackage(),

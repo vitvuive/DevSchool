@@ -3,7 +3,6 @@ import {
   View,
   StyleSheet,
   Dimensions,
-  Text,
   Image,
   TouchableOpacity,
 } from 'react-native';
@@ -13,6 +12,7 @@ import Propstype from 'prop-types';
 
 import { IconAssets, } from 'src/assets';
 import { Metrics, } from 'src/theme';
+import { StyleText, } from 'src/shared-components';
 
 let { width, height, } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
@@ -24,6 +24,7 @@ export default class MapScreen extends Component {
   static propsType = {
     region: Propstype.object.isRequired,
     dataFake: Propstype.object.isRequired,
+    onPressPush: Propstype.func.isRequired,
   };
 
   constructor(props) {
@@ -71,9 +72,9 @@ export default class MapScreen extends Component {
   };
 
   _renderItem = ({ item, }) => {
-    const { onPressPush, componentId, } = this.props;
+    const { onPressPush, } = this.props;
     return (
-      <TouchableOpacity onPress={() => onPressPush(componentId)}>
+      <TouchableOpacity onPress={() => onPressPush(item)}>
         <Image style={styles.cardCarousel} source={item.banner} />
       </TouchableOpacity>
     );
@@ -94,7 +95,7 @@ export default class MapScreen extends Component {
         onPress={() => this._onMarkerPress(marker, index)}
       >
         <Callout>
-          <Text>{marker.merchant.name}</Text>
+          <StyleText>{marker.merchant.name}</StyleText>
         </Callout>
       </Marker>
     ));
@@ -110,8 +111,6 @@ export default class MapScreen extends Component {
           style={styles.map}
           initialRegion={this.state.region}
           showsUserLocation
-          // onRegionChange={this.onRegionChange}
-          // onRegionChangeComplete={(region) => this.setState({ region, })}
           showsMyLocationButton
         >
           {this._renderMarker()}

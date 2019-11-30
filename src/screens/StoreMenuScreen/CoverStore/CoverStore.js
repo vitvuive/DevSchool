@@ -1,21 +1,27 @@
 import React, { Component, } from 'react';
-import { View, StyleSheet, ImageBackground, } from 'react-native';
-import { Colors, Metrics, } from 'src/theme';
+import {
+  View,
+  StyleSheet,
+  ImageBackground,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
+import { Metrics, } from 'src/theme';
 import { StyleText, } from 'src/shared-components';
-import { ImageAssets, } from 'src/assets';
+import { ImageAssets, IconAssets, } from 'src/assets';
 export default class CoverStore extends Component {
   render() {
+    const { onBackButton, } = this.props;
     return (
-      <ImageBackground style={styles.conatainer} source={ImageAssets.Card3}>
+      <ImageBackground style={styles.container} source={ImageAssets.Card3}>
         <View style={styles.viewTitle}>
-          <StyleText size={25} color={'#fff'}>
-            {'HighLand Coffee Hai Ba Trung'}
+          <TouchableOpacity onPress={onBackButton}>
+            <Image source={IconAssets.Back} style={styles.iconBackStyle} />
+          </TouchableOpacity>
+          <StyleText medium size={18} color={'#fff'}>
+            {'HighLand Coffee'}
           </StyleText>
-          <StyleText color={'#fff'} style={styles.border}>
-            {
-              'Ưu đãi coffee khi nhập mã VIETDEPTRAI, áp dụng khung  từ 8:00 đến 17:00'
-            }
-          </StyleText>
+          <View />
         </View>
       </ImageBackground>
     );
@@ -23,26 +29,21 @@ export default class CoverStore extends Component {
 }
 
 const styles = StyleSheet.create({
-  conatainer: {
-    height: 160,
+  container: {
+    height: 100,
     backgroundColor: '#fff',
   },
   viewTitle: {
-    flex: 3,
-    borderBottomWidth: 1,
-
-    shadowOffset: { height: 3, width: 13, },
-
+    flex: 1,
+    paddingHorizontal: Metrics.getBaseUnitFactor(2),
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    justifyContent: 'flex-end',
-    paddingHorizontal: Metrics.getBaseUnitFactor(4),
-    borderBottomColor: Colors.inActiveBtmTabColor,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
-  border: {
-    borderTopWidth: 1,
-    paddingTop: Metrics.getBaseUnitFactor(),
-    marginTop: Metrics.getBaseUnitFactor(),
-    borderTopColor: '#fff',
+  iconBackStyle: {
+    height: 20,
+    width: 20,
+    tintColor: '#fff',
   },
 });

@@ -44,13 +44,15 @@ const getCorrectColor = ({
     case dark || black:
       return '#000000';
     case gray || grey:
-      return '#414141';
-    case light || white:
+      return '#AAAAAA';
+    case white:
       return '#FFFFFF';
     case primary:
       return Colors.primary;
     case accent:
       return Colors.accent;
+    case light:
+      return Colors.light;
     default:
       return '#4a4a4a';
   }

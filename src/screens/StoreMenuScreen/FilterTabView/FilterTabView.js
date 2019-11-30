@@ -10,10 +10,10 @@ import { StyleText, } from 'src/shared-components';
 export default class FilterTabView extends Component {
   constructor(props) {
     super(props);
-    const { routes, } = this.props;
+    const { category, } = this.props;
     this.state = {
       index: 0,
-      routes,
+      routes: category,
     };
   }
 
@@ -59,12 +59,8 @@ export default class FilterTabView extends Component {
         onIndexChange={(index) => this.setState({ index, })}
         initialLayout={{ width: Dimensions.get('window').width, }}
         renderTabBar={this._renderTabBar}
+        // style={styles.container}
       />
     );
   }
 }
-// const styles = StyleSheet.create({
-//   scene: {
-//     flex: 1,
-//   },
-// });

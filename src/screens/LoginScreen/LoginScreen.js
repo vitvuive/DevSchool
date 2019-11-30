@@ -2,21 +2,24 @@
 import React, { Component, } from 'react';
 import { View, StyleSheet, Text, } from 'react-native';
 
-import { StyledButton, StyleText, } from '../../shared-components';
+import { StyledButton, StyleText, } from 'src/shared-components';
 import { Colors, } from 'src/theme';
+import { IconAssets, } from 'src/assets';
 export default class LoginScreen extends Component {
   render() {
-    const { isLoading, onPress, } = this.props;
-    console.log('viet' + isLoading);
+    const { onPress, isLoading, } = this.props;
     return (
       <View style={styles.container}>
         <StyleText>{''}</StyleText>
         <Text style={styles.logo}>{'DRINKING'}</Text>
         <StyledButton
+          isLoading={isLoading}
           onPress={onPress}
           title={'Login with Facebook'}
+          icon={IconAssets.Facebook}
           textColor={'white'}
           backgroundColor={Colors.accent}
+          loadingColor={Colors.primary}
         />
       </View>
     );

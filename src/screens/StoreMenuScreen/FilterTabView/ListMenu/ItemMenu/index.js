@@ -6,12 +6,21 @@ import Fonts from 'src/theme/Fonts';
 
 import ScreenIDs from 'src/screens/ScreenIDs';
 
-const mapStateToProps = () => {
-  const onPressItem = async (componentId) => {
+const mapDispatchToProps = (
+  dispatch,
+  { componentId, name, price, url, id, }
+) => {
+  const onPressItem = async () => {
     try {
       await Navigation.push(componentId, {
         component: {
           name: ScreenIDs.OrderDetailScreen,
+          passProps: {
+            name,
+            price,
+            url,
+            id,
+          },
           options: {
             topBar: {
               title: {
@@ -19,6 +28,11 @@ const mapStateToProps = () => {
                 alignment: 'center',
                 fontFamily: Fonts.Default.medium,
               },
+            },
+            bottomTabs: {
+              visible: false,
+              drawBehind: true,
+              animate: true,
             },
           },
         },
@@ -33,4 +47,4 @@ const mapStateToProps = () => {
   };
 };
 
-export default connect(mapStateToProps)(ItemMenu);
+export default connect(mapDispatchToProps)(ItemMenu);

@@ -1,17 +1,17 @@
 import React, { Component, } from 'react';
 import { TouchableOpacity, View, Image, StyleSheet, } from 'react-native';
 
-import { ImageAssets, IconAssets, } from 'src/assets';
+import { IconAssets, } from 'src/assets';
 import { Metrics, Colors, } from 'src/theme';
 import { StyleText, } from 'src/shared-components';
 
 export default class PromotionItem extends Component {
   render() {
-    const { onRowPress, componentId, } = this.props;
+    const { onRowPress, banner, } = this.props;
     return (
-      <TouchableOpacity onPress={() => onRowPress(componentId)}>
+      <TouchableOpacity onPress={onRowPress}>
         <View style={styles.container}>
-          <Image source={ImageAssets.Card3} style={styles.imageStyle} />
+          <Image source={banner} style={styles.imageStyle} />
           <View style={{ paddingHorizontal: Metrics.getBaseUnitFactor(3), }}>
             <View style={styles.viewContent}>
               <StyleText size={17}>
