@@ -4,6 +4,7 @@ import OrderList from './OrderList';
 
 const mapStateToProps = (state) => ({
   dataTransaction: selectors.cart.getTransaction(state),
+  isLoading: selectors.cart.getLoadingStatus(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

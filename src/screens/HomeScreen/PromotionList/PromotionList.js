@@ -18,7 +18,7 @@ export default class PromotionList extends Component {
     const { dataFake, } = this.props;
     return (
       <View style={{ marginHorizontal: Metrics.getBaseUnitFactor(2), }}>
-        <StyleText primary size={20}>
+        <StyleText primary size={16}>
           {'Promotion for you today'}
         </StyleText>
         <FlatList

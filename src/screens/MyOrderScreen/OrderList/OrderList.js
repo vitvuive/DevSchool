@@ -6,8 +6,13 @@ import CardOrderItem from './CardOrderItem';
 export default class OrderList extends Component {
   static propTypes = {
     onGetTransaction: PropTypes.func.isRequired,
-    dataTransaction: PropTypes.array,
+    dataTransaction: PropTypes.array.isRequired,
+    isLoading: PropTypes.bool.isRequired,
   };
+
+  shouldComponentUpdate({ isLoading, }) {
+    return this.props.isLoading !== isLoading;
+  }
 
   _keyExtractor = ({ id, }) => id;
 
@@ -22,13 +27,15 @@ export default class OrderList extends Component {
   }
 
   render() {
-    const { dataTransaction, } = this.props;
+    const { dataTransaction, onGetTransaction, isLoading, } = this.props;
     return (
       <View>
         <FlatList
           data={dataTransaction}
           keyExtractor={this._keyExtractor}
           renderItem={this._renderItem}
+          onRefresh={onGetTransaction}
+          refreshing={isLoading}
         />
       </View>
     );
