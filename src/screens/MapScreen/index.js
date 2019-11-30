@@ -33,9 +33,14 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch, { componentId, }) => {
+  const getShop = () => {
+    dispatch(actions.map.getShopByLocation());
+  };
+
   const getLocation = () => {
     dispatch(actions.map.setPositionUser());
   };
+
   const onPressPush = async (reponse) => {
     try {
       await Navigation.push(componentId, {
@@ -68,6 +73,7 @@ const mapDispatchToProps = (dispatch, { componentId, }) => {
   return {
     getLocation,
     onPressPush,
+    getShop,
   };
 };
 
