@@ -1,10 +1,16 @@
-const Types = {
+const TypesReducer = {
   SET_AUTH_LOADING_STATUS: 'map.SET_AUTH_LOADING_STATUS',
   SET_POSITION: 'map.SET_POSITION',
 };
 
-const Actions = {
-  setAuthLoadingStatus: (payload: boolean = false) => ({
+const TypesSaga = {
+  GET_SHOP_BY_LOCATION: 'map@GET_SHOP_BY_LOCATION',
+};
+
+const Types = { ...TypesReducer, ...TypesSaga, };
+
+const ActionsReducer = {
+  setMapLoadingStatus: (payload: boolean = false) => ({
     type: Types.SET_AUTH_LOADING_STATUS,
     payload,
   }),
@@ -14,4 +20,11 @@ const Actions = {
   }),
 };
 
+const ActionsSaga = {
+  getShopByLocation: () => ({
+    type: TypesSaga.GET_SHOP_BY_LOCATION,
+  }),
+};
+
+const Actions = { ...ActionsReducer, ...ActionsSaga, };
 export { Types, Actions };
