@@ -5,6 +5,7 @@ function getCurrentPosition() {
         resolve(position);
       },
       (error) => {
+        alert('You need turn on Location to use app');
         reject(error.message);
       }
     );

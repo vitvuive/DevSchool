@@ -125,7 +125,7 @@ export default class MapScreen extends Component {
           sliderWidth={width}
           itemWidth={300}
           onSnapToItem={(index) => this._onCarouselItemChange(index)}
-          layout={'stack'}
+          layout={'default'}
         />
       </View>
     );

@@ -9,7 +9,9 @@ export default function* getCurrentPosition() {
     yield put(actions.map.setMapLoadingStatus(true));
     const position = yield call(API.MapApi.getCurrentPosition);
 
-    if (position === 'No location provider available.') alert('viet dep trai');
+    if (typeof position !== Object) {
+      // console.log('viet dep trai: ', position);
+    }
 
     yield put(actions.map.setPositionUser(position));
   } catch (error) {
