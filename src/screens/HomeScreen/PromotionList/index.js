@@ -1,7 +1,10 @@
 import { connect, } from 'react-redux';
 
-import { dataFake, } from 'src/values';
+import { ValueApi, } from 'src/values';
 import PromotionList from './PromotionList';
 
-const mapStateToProps = () => ({ dataFake, });
+const mapStateToProps = () => ({
+  dataFake: ValueApi.dataFake,
+  DATA_LOCALHOST: ValueApi.DATA_LOCALHOST,
+});
 export default connect(mapStateToProps)(PromotionList);

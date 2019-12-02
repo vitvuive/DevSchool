@@ -8,7 +8,7 @@ import ScreenIDs from 'src/screens/ScreenIDs';
 
 const mapDispatchToProps = (
   dispatch,
-  { componentId, name, price, url, id, }
+  { componentId, name, price, img_url, id, }
 ) => {
   const onPressItem = async () => {
     try {
@@ -18,7 +18,7 @@ const mapDispatchToProps = (
           passProps: {
             name,
             price,
-            url,
+            img_url,
             id,
           },
           options: {

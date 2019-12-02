@@ -7,11 +7,14 @@ import { StyleText, } from 'src/shared-components';
 
 export default class PromotionItem extends Component {
   render() {
-    const { onRowPress, banner, } = this.props;
+    const { onRowPress, dataShop, } = this.props;
     return (
       <TouchableOpacity onPress={onRowPress}>
         <View style={styles.container}>
-          <Image source={banner} style={styles.imageStyle} />
+          <Image
+            source={{ uri: dataShop.merchant.promotion_img_path, }}
+            style={styles.imageStyle}
+          />
           <View style={{ paddingHorizontal: Metrics.getBaseUnitFactor(3), }}>
             <View style={styles.viewContent}>
               <StyleText size={17}>

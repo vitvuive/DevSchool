@@ -7,6 +7,21 @@ import { Fonts, } from 'src/theme';
 import ScreenIDs from '../ScreenIDs';
 import StoreMenuScreen from './StoreMenuScreen';
 
+const categoryByShopId = [
+  {
+    id: 1,
+    name: 'Coffee',
+  },
+  {
+    id: 2,
+    name: 'Tea',
+  },
+  {
+    id: 3,
+    name: 'Yakult',
+  },
+];
+
 const mapStateToProps = (state) => {
   const dataCart = selectors.cart.getCartData(state);
   //get number item of cart
@@ -15,7 +30,7 @@ const mapStateToProps = (state) => {
   const sumPriceItem = Array.isArray(dataCart)
     ? dataCart.map((item) => item.price).reduce((prev, curr) => prev + curr, 0)
     : 0;
-  return { numberItem, sumPriceItem, };
+  return { numberItem, sumPriceItem, categoryByShopId, };
 };
 
 const mapDispatchToProps = (dispatch, { componentId, }) => {

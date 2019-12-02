@@ -15,10 +15,10 @@ const WIDTH_ITEM =
   (Dimensions.get('window').width - Metrics.getBaseUnitFactor(6)) / 2;
 export default class ItemMenu extends Component {
   render() {
-    const { name, price, url, onPressItem, } = this.props;
+    const { name, price, img_url, onPressItem, } = this.props;
     return (
       <TouchableOpacity style={styles.container} onPress={onPressItem}>
-        <Image source={{ uri: url, }} style={styles.imageStyle} />
+        <Image source={{ uri: img_url, }} style={styles.imageStyle} />
         <View style={styles.nameItem}>
           <View style={styles.name}>
             <StyleText size={12}>{name}</StyleText>

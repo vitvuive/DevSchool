@@ -19,9 +19,16 @@ export default class FilterTabView extends Component {
 
   _renderScene = () => {
     const { routes, index, } = this.state;
-    const { componentId, } = this.props;
-    let select = routes[index];
-    return <ListMenu menu={select.menu} componentId={componentId} />;
+    const { componentId, merchantId, } = this.props;
+    const categoryId = routes[index].id;
+    return (
+      <ListMenu
+        key={categoryId}
+        categoryId={categoryId}
+        merchantId={merchantId}
+        componentId={componentId}
+      />
+    );
   };
 
   _renderTabBar = (props) => {
@@ -38,13 +45,14 @@ export default class FilterTabView extends Component {
         tabStyle={{ minHeight: 10, }}
         renderLabel={({ route, focused, }) => (
           <StyleText
+            key={route.id}
             medium
             style={{
               fontSize: 15,
             }}
             color={focused ? Colors.primary : null}
           >
-            {route.title}
+            {route.name}
           </StyleText>
         )}
       />

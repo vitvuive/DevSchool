@@ -11,12 +11,12 @@ export default class OrderDetailScreen extends Component {
   };
 
   render() {
-    const { name, price, url, onAddCart, } = this.props;
+    const { name, price, img_url, onAddCart, } = this.props;
     return (
       <View style={styles.container}>
         <View>
           <View style={styles.wapperImage}>
-            <Image source={{ uri: url, }} style={styles.imageStyle} />
+            <Image source={{ uri: img_url, }} style={styles.imageStyle} />
           </View>
           <View style={styles.info}>
             <View style={styles.nameWrapper}>

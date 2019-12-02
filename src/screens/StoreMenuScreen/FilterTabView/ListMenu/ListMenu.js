@@ -1,19 +1,31 @@
 import React, { Component, } from 'react';
 import { FlatList, StyleSheet, } from 'react-native';
-import ItemMenu from './ItemMenu';
+import PropTypes from 'prop-types';
+
 import { Metrics, Colors, } from 'src/theme';
+import ItemMenu from './ItemMenu';
 export default class ListMenu extends Component {
-  _keyExtractor = ({ name, }) => name;
+  static propTypes = {
+    onGetMenu: PropTypes.func.isRequired,
+  };
+
+  componentWillMount() {
+    const { onGetMenu, } = this.props;
+    onGetMenu && onGetMenu();
+  }
+
+  _keyExtractor = ({ id, }) => id;
 
   _renderItem = ({ item, }) => {
     const { componentId, } = this.props;
     return <ItemMenu {...item} componentId={componentId} />;
   };
   render() {
-    const { menu, } = this.props;
+    const { results, } = this.props;
+
     return (
       <FlatList
-        data={menu}
+        data={results}
         keyExtractor={this._keyExtractor}
         renderItem={this._renderItem}
         style={styles.flatlistStyle}

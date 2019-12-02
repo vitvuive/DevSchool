@@ -5,13 +5,13 @@ import ScreenIDs from 'src/screens/ScreenIDs';
 
 import PromotionItem from './PromotionItem';
 
-const mapDispatchToProps = (dispatch, { componentId, merchant, }) => {
+const mapDispatchToProps = (dispatch, { componentId, dataShop, }) => {
   const onRowPress = async () => {
     try {
       await Navigation.push(componentId, {
         component: {
-          name: ScreenIDs.StoreMenuScreen,
-          passProps: { category: merchant.category, },
+          name: ScreenIDs.MarkerDetailScreen,
+          passProps: { dataShop, },
           options: {
             topBar: {
               visible: false,

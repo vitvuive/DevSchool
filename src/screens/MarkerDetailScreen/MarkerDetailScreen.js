@@ -7,41 +7,38 @@ import { IconAssets, } from 'src/assets';
 import { Colors, Metrics, } from 'src/theme';
 export default class MarkerDetailScreen extends Component {
   static propTypes = {
-    menu: PropTypes.object,
-    name: PropTypes.string,
-    address: PropTypes.string,
-    banner: PropTypes.func,
-
     onDirection: PropTypes.func.isRequired,
-    onPush: PropTypes.func.isRequired,
+    onPushToMenu: PropTypes.func.isRequired,
   };
   render() {
-    const { reponse, onDirection, onPush, } = this.props;
-    const { merchant, banner, latitude, longitude, } = reponse;
-    const { name, } = merchant;
+    const { dataShop, onPushToMenu, } = this.props;
+    const { address, merchant, } = dataShop;
+    const { name, promotion_img_path, promotion_detail, } = merchant;
 
     return (
       <View style={styles.container}>
-        <Image source={banner} style={styles.imageStyle} />
+        <Image source={{ uri: promotion_img_path, }} style={styles.imageStyle} />
         <View style={styles.actionView}>
           <StyledButton
             title={'Add food'}
             textColor={'#fff'}
             icon={IconAssets.Add_order}
-            onPress={() => onPush(name)}
+            onPress={() => onPushToMenu(name)}
           />
           <StyledButton
             title={'Direction'}
             textColor={'#fff'}
             icon={IconAssets.Direction}
-            onPress={() => onDirection(latitude, longitude, name)}
+            // onPress={() => onDirection(latitude, longitude, name)}
+            onPress={() => alert('Open map direction')} // TODO: Format again lat long
           />
         </View>
         <View style={styles.infoMerchant}>
           <StyleText medium size={18} light>
-            {reponse.merchant.name}
+            {name}
           </StyleText>
-          <StyleText>{reponse.address}</StyleText>
+          <StyleText>{address}</StyleText>
+          <StyleText>{promotion_detail}</StyleText>
         </View>
       </View>
     );

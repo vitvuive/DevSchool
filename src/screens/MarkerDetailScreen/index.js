@@ -7,14 +7,14 @@ import ScreenIDs from 'src/screens/ScreenIDs';
 
 import MarkerDetailScreen from './MarkerDetailScreen';
 
-const mapDispatchToProps = (dispatch, { componentId, reponse, }) => {
-  const onPush = async () => {
+const mapDispatchToProps = (dispatch, { componentId, dataShop, }) => {
+  const onPushToMenu = async () => {
     try {
       await Navigation.push(componentId, {
         component: {
           name: ScreenIDs.StoreMenuScreen,
           passProps: {
-            category: reponse.merchant.category,
+            category: dataShop,
           },
           options: {
             topBar: {
@@ -43,7 +43,7 @@ const mapDispatchToProps = (dispatch, { componentId, reponse, }) => {
       : `maps:0,0?q=${latLng}(${name})`;
     Linking.openURL(url);
   };
-  return { onDirection, onPush, };
+  return { onDirection, onPushToMenu, };
 };
 
 export default connect(mapDispatchToProps)(MarkerDetailScreen);

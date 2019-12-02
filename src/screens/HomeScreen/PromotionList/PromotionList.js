@@ -7,15 +7,18 @@ import { StyleText, } from 'src/shared-components';
 import PromotionItem from './PromotionItem';
 
 export default class PromotionList extends Component {
-  _keyExtractor = ({ address, }) => address;
+  _keyExtractor = ({ id, }) => id;
 
   _renderItem = ({ item, }) => {
     const { componentId, } = this.props;
-    return <PromotionItem {...item} componentId={componentId} />;
+    return <PromotionItem dataShop={item} componentId={componentId} />;
   };
 
   render() {
-    const { dataFake, } = this.props;
+    const { DATA_LOCALHOST, } = this.props;
+    const dataFake = DATA_LOCALHOST.results;
+    // eslint-disable-next-line no-console
+    console.log('vv', dataFake);
     return (
       <View style={{ marginHorizontal: Metrics.getBaseUnitFactor(2), }}>
         <StyleText primary size={16}>
