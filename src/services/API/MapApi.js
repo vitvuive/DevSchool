@@ -1,3 +1,5 @@
+import { ConfigApi, } from 'src/values';
+
 function getCurrentPosition() {
   return new Promise((resolve, reject) => {
     navigator.geolocation.getCurrentPosition(
@@ -15,12 +17,13 @@ function getCurrentPosition() {
 const getShopByLocation = () => {
   // console.log('location:', lat, long);
   return fetch(
-    'http://127.0.0.1:8000/api/v1/shops/scan?lat=106.7135243&long=10.8015427&rad=10',
+    `http://${ConfigApi.portIP}:8000/api/v1/shops/scan?lat=129.2810962991772&long=35.70755716786023&rad=10000`,
     {
       method: 'GET',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${ConfigApi.token}`,
       },
     }
   )

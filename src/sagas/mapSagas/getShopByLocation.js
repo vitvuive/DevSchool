@@ -12,10 +12,10 @@ export default function* getShopByLocation() {
 
     const result = yield call(API.MapApi.getShopByLocation);
     // eslint-disable-next-line no-console
-    console.log('location:', result);
+    console.log('getShopByLocation:', result);
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.log(error);
+    console.error(error);
   } finally {
     yield put(actions.map.setMapLoadingStatus());
   }

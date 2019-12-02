@@ -4,7 +4,7 @@ import { Navigation, } from 'react-native-navigation';
 
 import { Fonts, } from 'src/theme';
 import { selectors, actions, } from 'src/stores';
-import { dataFake, } from 'src/values';
+import { ValueApi, } from 'src/values';
 
 import MapScreen from './MapScreen';
 import ScreenIDs from '../ScreenIDs';
@@ -28,17 +28,14 @@ const mapStateToProps = (state) => {
     region,
     longitude,
     latitude,
-    dataFake,
+    dataFake: ValueApi.dataFake,
   };
 };
 
 const mapDispatchToProps = (dispatch, { componentId, }) => {
-  const getShop = () => {
-    dispatch(actions.map.getShopByLocation());
-  };
-
-  const getLocation = () => {
+  const callback = () => {
     dispatch(actions.map.setPositionUser());
+    dispatch(actions.map.getShopByLocation());
   };
 
   const onPressPush = async (reponse) => {
@@ -71,9 +68,8 @@ const mapDispatchToProps = (dispatch, { componentId, }) => {
     }
   };
   return {
-    getLocation,
+    callback,
     onPressPush,
-    getShop,
   };
 };
 

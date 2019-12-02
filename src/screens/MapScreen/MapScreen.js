@@ -25,6 +25,7 @@ export default class MapScreen extends Component {
     region: Propstype.object.isRequired,
     dataFake: Propstype.object.isRequired,
     onPressPush: Propstype.func.isRequired,
+    callback: Propstype.func.isRequired,
   };
 
   constructor(props) {
@@ -41,8 +42,8 @@ export default class MapScreen extends Component {
   }
 
   componentDidMount() {
-    const { getLocation, } = this.props;
-    getLocation && getLocation();
+    const { callback, } = this.props;
+    callback && callback();
   }
 
   _onCarouselItemChange = (index) => {

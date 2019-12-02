@@ -1,2 +1,3 @@
-import { dataFake, routes, } from './ValueApi';
-export { dataFake, routes };
+import ValueApi from './ValueApi';
+import ConfigApi from './ConfigApi';
+export { ValueApi, ConfigApi };
