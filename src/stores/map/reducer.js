@@ -5,6 +5,7 @@ import { Types, } from './actions';
 const initState = Immutable({
   isLoading: false,
   position: {},
+  shop: [],
 });
 
 const reducer = createReducer(initState, {
@@ -13,6 +14,10 @@ const reducer = createReducer(initState, {
   },
   [Types.SET_POSITION]: ({ state, action, }) => {
     return state.merge({ position: action.payload, });
+  },
+  [Types.SET_SHOP_DATA]: ({ state, action, }) => {
+    if (!Array.isArray(action.payload)) return state;
+    return state.set({ shop: action.payload, });
   },
 });
 

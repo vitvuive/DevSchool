@@ -1,6 +1,6 @@
 import { ConfigApi, } from 'src/values';
 
-const getMenuByCategory = ({ categoryId, merchantId, }) => {
+const getMenuByCategory = ({ categoryId, merchantId, tokenUser, }) => {
   return fetch(
     `http://${ConfigApi.portIP}:8000/api/v1/items/${merchantId}?category=${categoryId}`,
     {
@@ -8,7 +8,7 @@ const getMenuByCategory = ({ categoryId, merchantId, }) => {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${ConfigApi.token}`,
+        Authorization: `Bearer ${tokenUser}`,
       },
     }
   )

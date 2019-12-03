@@ -1,4 +1,5 @@
 import { LoginManager, AccessToken, } from 'react-native-fbsdk';
+import { ConfigApi, } from 'src/values';
 
 const logInWithPermissions = () => {
   return LoginManager.logInWithPermissions(['public_profile',]);
@@ -28,9 +29,31 @@ const logOut = () => {
   return LoginManager.logOut();
 };
 
+const loginWithAccount = ({ username, password, }) => {
+  return fetch(`http://${ConfigApi.portIP}:8000/auth/jwt/create`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      username,
+      password,
+    }),
+  })
+    .then((reponse) => reponse.json())
+    .then((json) => {
+      return json;
+    })
+    .catch((e) => {
+      return e;
+    });
+};
+
 export default {
   logInWithPermissions,
   getCurrentAccessToken,
   getInfoUserFb,
   logOut,
+  loginWithAccount,
 };

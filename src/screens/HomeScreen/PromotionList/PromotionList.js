@@ -15,10 +15,7 @@ export default class PromotionList extends Component {
   };
 
   render() {
-    const { DATA_LOCALHOST, } = this.props;
-    const dataFake = DATA_LOCALHOST.results;
-    // eslint-disable-next-line no-console
-    console.log('vv', dataFake);
+    const { dataFake, } = this.props;
     return (
       <View style={{ marginHorizontal: Metrics.getBaseUnitFactor(2), }}>
         <StyleText primary size={16}>

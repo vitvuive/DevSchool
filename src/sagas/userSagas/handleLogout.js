@@ -11,6 +11,8 @@ export default function* handleLogout() {
     AppController.startLogin();
     yield put(actions.user.setAuthData());
     yield put(actions.user.setProfile());
+    yield put(actions.cart.setCartData());
+    yield put(actions.cart.setTransaction());
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log(error);

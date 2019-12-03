@@ -7,6 +7,8 @@ import * as AppController from 'src/AppController';
 import { API, } from 'src/services';
 
 export default function* handleLogin() {
+  let username = 'vietqb9779@gmail.com';
+  let password = 'de32wsaq1';
   try {
     yield put(actions.user.setAuthLoadingStatus(true));
 
@@ -14,15 +16,21 @@ export default function* handleLogin() {
 
     if (isLogin.isCancelled === true) return;
 
-    const token = yield call(API.AuthFb.getCurrentAccessToken);
+    const tokenFb = yield call(API.AuthFb.getCurrentAccessToken);
 
-    yield put(actions.user.setAuthData(token));
+    // yield put(actions.user.setAuthData(tokenFb));
 
-    const result = yield call(API.AuthFb.getInfoUserFb, token.accessToken);
-
-    console.log('result in saga is: ' + result);
+    const result = yield call(API.AuthFb.getInfoUserFb, tokenFb.accessToken);
 
     yield put(actions.user.setProfile(result));
+
+    const resultMyServer = yield call(API.AuthFb.loginWithAccount, {
+      username,
+      password,
+    });
+
+    console.log('resultMyServer ', resultMyServer);
+    yield put(actions.user.setAuthData(resultMyServer));
 
     AppController.startMainApp();
   } catch (error) {

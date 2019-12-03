@@ -1,10 +1,9 @@
 import { connect, } from 'react-redux';
 
-import { ValueApi, } from 'src/values';
+import { selectors, } from 'src/stores';
 import PromotionList from './PromotionList';
 
-const mapStateToProps = () => ({
-  dataFake: ValueApi.dataFake,
-  DATA_LOCALHOST: ValueApi.DATA_LOCALHOST,
+const mapStateToProps = (state) => ({
+  dataFake: selectors.map.getListShopNearTo(state),
 });
 export default connect(mapStateToProps)(PromotionList);

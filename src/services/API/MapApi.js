@@ -14,8 +14,7 @@ function getCurrentPosition() {
   });
 }
 
-const getShopByLocation = () => {
-  // console.log('location:', lat, long);
+const getShopByLocation = ({ tokenUser, }) => {
   return fetch(
     `http://${ConfigApi.portIP}:8000/api/v1/shops/scan?lat=129.2810962991772&long=35.70755716786023&rad=10000`,
     {
@@ -23,7 +22,7 @@ const getShopByLocation = () => {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${ConfigApi.token}`,
+        Authorization: `Bearer ${tokenUser}`,
       },
     }
   )

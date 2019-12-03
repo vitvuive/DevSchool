@@ -1,6 +1,7 @@
 const TypesReducer = {
   SET_AUTH_LOADING_STATUS: 'map.SET_AUTH_LOADING_STATUS',
   SET_POSITION: 'map.SET_POSITION',
+  SET_SHOP_DATA: 'map.SET_SHOP_DATA',
 };
 
 const TypesSaga = {
@@ -16,6 +17,10 @@ const ActionsReducer = {
   }),
   setPositionUser: (payload: Object = {}) => ({
     type: Types.SET_POSITION,
+    payload,
+  }),
+  setShopData: (payload: Array = []) => ({
+    type: TypesReducer.SET_SHOP_DATA,
     payload,
   }),
 };
