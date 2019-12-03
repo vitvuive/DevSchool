@@ -1,3 +1,4 @@
+import { ToastAndroid, } from 'react-native';
 import { call, put, select, } from 'redux-saga/effects';
 import { actions, selectors, } from 'src/stores';
 import { API, } from 'src/services';
@@ -16,9 +17,8 @@ export default function* getShopByLocation() {
 
     const result = yield call(API.MapApi.getShopByLocation, { tokenUser, });
     // eslint-disable-next-line no-console
-    console.log('getShopByLocation:', result);
     if (result.code === 'token_not_valid') {
-      alert('You need login again.');
+      ToastAndroid.show('You need login again.', 2);
       yield put(actions.user.logout());
     } //TODO: create a fetchAPI common
 
