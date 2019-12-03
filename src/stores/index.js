@@ -4,12 +4,19 @@ import { userActions, userReducers, userSelectors, userTypes, } from './user';
 import { cartActions, cartReducers, cartTypes, cartSelectors, } from './cart';
 import { mapActions, mapReducer, mapSelectors, mapTypes, } from './map';
 import { menuActions, menuReducer, menuSelectors, menuTypes, } from './menu';
+import {
+  transactionReducer,
+  transactionsAction,
+  transactionsSelector,
+  transactionsType,
+} from './transaction';
 
 const rootReducer = combineReducers({
   user: userReducers,
   map: mapReducer,
   cart: cartReducers,
   menu: menuReducer,
+  transaction: transactionReducer,
 });
 
 const types = {
@@ -17,6 +24,7 @@ const types = {
   map: mapTypes,
   cart: cartTypes,
   menu: menuTypes,
+  transaction: transactionsType,
 };
 
 const actions = {
@@ -24,6 +32,7 @@ const actions = {
   map: mapActions,
   cart: cartActions,
   menu: menuActions,
+  transaction: transactionsAction,
 };
 
 const selectors = {
@@ -31,6 +40,7 @@ const selectors = {
   map: mapSelectors,
   cart: cartSelectors,
   menu: menuSelectors,
+  transaction: transactionsSelector,
 };
 
 export { rootReducer, types, actions, selectors };

@@ -1,16 +1,16 @@
 import React, { Component, } from 'react';
-import { View, StyleSheet, } from 'react-native';
+import { StyleSheet, ScrollView, } from 'react-native';
 import { Colors, } from 'src/theme';
 
-import OrderList from '../OrderList';
+import QRCodeScreen from 'src/screens/QRCodeScreen';
 
 export default class OrderActive extends Component {
   render() {
-    const { componentId, } = this.props;
+    const { dataTransaction, } = this.props;
     return (
-      <View style={styles.container}>
-        <OrderList componentId={componentId} />
-      </View>
+      <ScrollView style={styles.container}>
+        <QRCodeScreen dataTransaction={dataTransaction} />
+      </ScrollView>
     );
   }
 }

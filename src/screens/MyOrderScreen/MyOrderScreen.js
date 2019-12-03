@@ -1,6 +1,7 @@
 import React, { Component, } from 'react';
 import { Dimensions, } from 'react-native';
 import { TabView, SceneMap, TabBar, } from 'react-native-tab-view';
+import PropTypes from 'prop-types';
 
 import { Colors, } from 'src/theme';
 import { StyleText, } from 'src/shared-components';
@@ -9,6 +10,15 @@ import OrderActive from './OrderActive';
 import OrderHistory from './OrderHistory';
 
 export default class MyOrderScreen extends Component {
+  static propTypes = {
+    onGetTransaction: PropTypes.func.isRequired,
+  };
+
+  componentDidMount() {
+    const { onGetTransaction, } = this.props;
+    onGetTransaction && onGetTransaction();
+  }
+
   state = {
     index: 0,
     routes: [
@@ -18,8 +28,13 @@ export default class MyOrderScreen extends Component {
   };
 
   orderActive = () => {
-    const { componentId, } = this.props;
-    return <OrderActive componentId={componentId} />;
+    const { componentId, dataTransaction, } = this.props;
+    return (
+      <OrderActive
+        componentId={componentId}
+        dataTransaction={dataTransaction}
+      />
+    );
   };
 
   orderHistory = () => {

@@ -4,7 +4,7 @@ import { Metrics, } from 'src/theme';
 import { StyleText, } from 'src/shared-components';
 export default class InfoOrder extends Component {
   render() {
-    const { data, } = this.props;
+    // const { data, } = this.props;
     return (
       <View style={styles.container}>
         <View style={styles.row}>
@@ -12,7 +12,7 @@ export default class InfoOrder extends Component {
             {'Number order: '}
           </StyleText>
           <StyleText size={23} bold primary>
-            {data.id}
+            {'data.id'}
           </StyleText>
         </View>
         <View style={styles.row}>
@@ -20,7 +20,7 @@ export default class InfoOrder extends Component {
             {'Merchant: '}
           </StyleText>
           <StyleText medium size={15}>
-            {data.nameMerchant}
+            {'data.nameMerchant'}
           </StyleText>
         </View>
 
@@ -29,7 +29,7 @@ export default class InfoOrder extends Component {
             {'Address: '}
           </StyleText>
           <StyleText medium size={15}>
-            {data.address}
+            {'data.address'}
           </StyleText>
         </View>
       </View>
