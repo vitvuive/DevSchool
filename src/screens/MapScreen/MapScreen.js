@@ -92,8 +92,8 @@ export default class MapScreen extends Component {
           longitude: marker.longitude,
         }}
         title={marker.merchant.name}
-        image={IconAssets.Soda}
         onPress={() => this._onMarkerPress(marker, index)}
+        icon={IconAssets.Favorite}
       >
         <Callout>
           <StyleText>{marker.merchant.name}</StyleText>

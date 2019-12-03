@@ -11,7 +11,6 @@ export const IconAssets = {
   Condition: require('./icon-assets/conditions-icon.png'),
   Feedback: require('./icon-assets/feedback-icon.png'),
   Logo: require('./icon-assets/Drinking.png'),
-  Soda: require('./icon-assets/soda-icon.png'),
   Like: require('./icon-assets/lile-icon.png'),
   Heart: require('./icon-assets/heart-icon.png'),
   Direction: require('./icon-assets/direction-icon.png'),
@@ -22,6 +21,9 @@ export const IconAssets = {
   Order: require('./icon-assets/order-icon.png'),
   Back: require('./icon-assets/back-icon.png'),
   Cancel: require('./icon-assets/cancel-icon.png'),
+  Favorite: require('./icon-assets/favorite-icon.png'),
+  Recommend: require('./icon-assets/recommend-icon.png'),
+  Popular: require('./icon-assets/popular-icon.png'),
 };
 
 export const ImageAssets = {
