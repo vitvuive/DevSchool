@@ -1,17 +1,17 @@
 /* eslint-disable no-console */
 import React, { Component, } from 'react';
-import { View, StyleSheet, Text, } from 'react-native';
+import { View, StyleSheet, Image, } from 'react-native';
 
 import { StyledButton, StyleText, } from 'src/shared-components';
 import { Colors, } from 'src/theme';
-import { IconAssets, } from 'src/assets';
+import { IconAssets, ImageAssets, } from 'src/assets';
 export default class LoginScreen extends Component {
   render() {
     const { onPress, isLoading, } = this.props;
     return (
       <View style={styles.container}>
         <StyleText>{''}</StyleText>
-        <Text style={styles.logo}>{'DRINKING'}</Text>
+        <Image source={ImageAssets.Logo} style={styles.imageLogo} />
         <StyledButton
           isLoading={isLoading}
           onPress={onPress}
@@ -31,9 +31,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: Colors.primary,
   },
-  logo: {
+  imageLogo: {
+    height: 70,
+    width: 125,
     alignSelf: 'center',
-    color: '#fff',
-    fontSize: 40,
   },
 });

@@ -35,4 +35,5 @@ export const ImageAssets = {
   Card5: require('./image-assets/card5.jpg'),
   Card6: require('./image-assets/card6.jpg'),
   Banner: require('./image-assets/backgroundBanner.jpg'),
+  Logo: require('./image-assets/logoMeety.png'),
 };
