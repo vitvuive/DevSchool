@@ -10,6 +10,12 @@ export default class MarkerDetailScreen extends Component {
     onDirection: PropTypes.func.isRequired,
     onPushToMenu: PropTypes.func.isRequired,
   };
+
+  componentDidMount() {
+    const { onGetCategoryList, } = this.props;
+    onGetCategoryList && onGetCategoryList();
+  }
+
   render() {
     const { dataShop, onPushToMenu, } = this.props;
     const { address, merchant, } = dataShop;

@@ -7,26 +7,15 @@ import { Fonts, } from 'src/theme';
 import ScreenIDs from '../ScreenIDs';
 import StoreMenuScreen from './StoreMenuScreen';
 
-const categoryByShopId = [
-  {
-    id: 1,
-    name: 'Coffee',
-  },
-  {
-    id: 2,
-    name: 'Tea',
-  },
-  {
-    id: 3,
-    name: 'Yakult',
-  },
-];
-
 const mapStateToProps = (state) => {
   const isLoading = selectors.menu.getLoadingStatus(state);
 
+  //get list category for tabview
+  const categoryByShopId = selectors.menu.getListCategory(state);
+
   const dataCart = selectors.cart.getCartData(state);
   //get number item of cart
+
   const numberItem = Array.isArray(dataCart) ? dataCart.length : 0;
   // get total price
   const sumPriceItem = Array.isArray(dataCart)

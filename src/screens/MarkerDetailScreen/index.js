@@ -2,6 +2,7 @@ import { connect, } from 'react-redux';
 import { Linking, } from 'react-native';
 import { Navigation, } from 'react-native-navigation';
 
+import { actions, } from 'src/stores';
 import { Metrics, } from 'src/theme';
 import ScreenIDs from 'src/screens/ScreenIDs';
 
@@ -43,7 +44,12 @@ const mapDispatchToProps = (dispatch, { componentId, dataShop, }) => {
       : `maps:0,0?q=${latLng}(${name})`;
     Linking.openURL(url);
   };
-  return { onDirection, onPushToMenu, };
+
+  const onGetCategoryList = () => {
+    dispatch(actions.menu.getListCategoryByMerchant(dataShop.merchant.id));
+  };
+
+  return { onDirection, onPushToMenu, onGetCategoryList, };
 };
 
-export default connect(mapDispatchToProps)(MarkerDetailScreen);
+export default connect(undefined, mapDispatchToProps)(MarkerDetailScreen);
