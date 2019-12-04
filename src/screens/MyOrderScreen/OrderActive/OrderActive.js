@@ -7,6 +7,7 @@ import QRCodeScreen from 'src/screens/QRCodeScreen';
 export default class OrderActive extends Component {
   render() {
     const { dataTransaction, } = this.props;
+
     return (
       <ScrollView style={styles.container}>
         <QRCodeScreen dataTransaction={dataTransaction} />

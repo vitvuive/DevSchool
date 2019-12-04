@@ -13,6 +13,9 @@ export default function* handleLogout() {
     yield put(actions.user.setProfile());
     yield put(actions.cart.setCartData());
     yield put(actions.cart.setTransaction());
+    yield put(actions.menu.setMenuDataById());
+    yield put(actions.transaction.setTransactionData());
+    yield put(actions.transaction.setHistoryData());
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log(error);

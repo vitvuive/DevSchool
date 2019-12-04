@@ -10,7 +10,7 @@ export default class QRCodeScreen extends Component {
     return (
       <View style={styles.container}>
         <QRCode value={`${dataTransaction.id}`} size={200} />
-        <CardOrder data={dataTransaction} />
+        <CardOrder dataTransaction={dataTransaction} />
       </View>
     );
   }

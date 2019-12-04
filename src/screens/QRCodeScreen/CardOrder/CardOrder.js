@@ -6,11 +6,12 @@ import InfoOrder from './InfoOrder';
 import MenuItem from './MenuItem';
 export default class CardOrder extends Component {
   render() {
-    // const { data, } = this.props;
+    const { dataTransaction, } = this.props;
+
     return (
       <View style={styles.container}>
-        <InfoOrder />
-        <MenuItem />
+        <InfoOrder dataTransaction={dataTransaction} />
+        <MenuItem dataTransaction={dataTransaction} />
       </View>
     );
   }
