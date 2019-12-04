@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch, { componentId, dataShop, }) => {
         component: {
           name: ScreenIDs.StoreMenuScreen,
           passProps: {
-            category: dataShop,
+            dataShop,
           },
           options: {
             topBar: {

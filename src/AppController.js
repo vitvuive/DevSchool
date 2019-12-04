@@ -114,6 +114,8 @@ export const startMainApp = () => {
                           fontSize: 17,
                           fontFamily: Fonts.Default.medium,
                         },
+                        visible: false,
+                        height: 0,
                       },
                       bottomTab: {
                         text: 'Order',

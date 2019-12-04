@@ -11,15 +11,15 @@ import { StyleText, } from 'src/shared-components';
 import { ImageAssets, IconAssets, } from 'src/assets';
 export default class CoverStore extends Component {
   render() {
-    const { onBackButton, } = this.props;
+    const { onBackButton, title, } = this.props;
     return (
       <ImageBackground style={styles.container} source={ImageAssets.Card3}>
         <View style={styles.viewTitle}>
           <TouchableOpacity onPress={onBackButton}>
             <Image source={IconAssets.Back} style={styles.iconBackStyle} />
           </TouchableOpacity>
-          <StyleText medium size={18} color={'#fff'}>
-            {'HighLand Coffee'}
+          <StyleText medium size={16} color={'#fff'}>
+            {title}
           </StyleText>
           <View />
         </View>
@@ -30,7 +30,7 @@ export default class CoverStore extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: 100,
+    height: 80,
     backgroundColor: '#fff',
   },
   viewTitle: {
@@ -42,8 +42,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   iconBackStyle: {
-    height: 20,
-    width: 20,
+    height: 24,
+    width: 24,
     tintColor: '#fff',
   },
 });

@@ -39,15 +39,18 @@ export default class StoreMenuScreen extends Component {
     );
   };
   render() {
-    const { componentId, categoryByShopId, numberItem, category, } = this.props;
+    const { componentId, categoryByShopId, numberItem, dataShop, } = this.props;
     return (
       <View style={styles.container}>
         <ScrollView>
-          <CoverStore componentId={componentId} />
+          <CoverStore
+            title={dataShop.merchant.name}
+            componentId={componentId}
+          />
           <FilterTabView
             componentId={componentId}
             category={categoryByShopId}
-            merchantId={category.merchant.id}
+            merchantId={dataShop.merchant.id}
           />
         </ScrollView>
         {numberItem > 0 && this.renderCart()}

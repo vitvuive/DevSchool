@@ -29,7 +29,6 @@ export default function* handleLogin() {
       password,
     });
 
-    console.log('resultMyServer ', resultMyServer);
     yield put(actions.user.setAuthData(resultMyServer));
 
     AppController.startMainApp();

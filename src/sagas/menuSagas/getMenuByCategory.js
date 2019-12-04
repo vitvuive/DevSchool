@@ -18,7 +18,6 @@ export default function* getMenuByCategory({ payload, }) {
     });
 
     if (result.code === 'token_not_valid') {
-      alert('You need login again.');
       yield put(actions.user.logout());
     } //TODO: create a fetchAPI common
 

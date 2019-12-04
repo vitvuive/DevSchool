@@ -18,7 +18,7 @@ export default function* getShopByLocation() {
     const result = yield call(API.MapApi.getShopByLocation, { tokenUser, });
     // eslint-disable-next-line no-console
     if (result.code === 'token_not_valid') {
-      ToastAndroid.show('You need login again.', 2);
+      ToastAndroid.show('Please login again', 2);
       yield put(actions.user.logout());
     } //TODO: create a fetchAPI common
 

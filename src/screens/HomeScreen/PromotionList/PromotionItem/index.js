@@ -3,6 +3,7 @@ import { Navigation, } from 'react-native-navigation';
 
 import ScreenIDs from 'src/screens/ScreenIDs';
 
+import { Fonts, } from 'src/theme';
 import PromotionItem from './PromotionItem';
 
 const mapDispatchToProps = (dispatch, { componentId, dataShop, }) => {
@@ -14,8 +15,12 @@ const mapDispatchToProps = (dispatch, { componentId, dataShop, }) => {
           passProps: { dataShop, },
           options: {
             topBar: {
-              visible: false,
-              height: 0,
+              title: {
+                text: 'Detail promotion',
+                alignment: 'center',
+                fontFamily: Fonts.Default.medium,
+                fontSize: 15,
+              },
             },
             bottomTabs: {
               visible: false,

@@ -46,6 +46,7 @@ const mapDispatchToProps = (dispatch, { componentId, }) => {
                 text: 'Cart Food',
                 alignment: 'center',
                 fontFamily: Fonts.Default.medium,
+                fontSize: 15,
               },
             },
             bottomTabs: {

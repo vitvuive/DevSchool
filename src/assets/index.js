@@ -24,6 +24,7 @@ export const IconAssets = {
   Favorite: require('./icon-assets/favorite-icon.png'),
   Recommend: require('./icon-assets/recommend-icon.png'),
   Popular: require('./icon-assets/popular-icon.png'),
+  Bookmark: require('./icon-assets/bookmark-icon.png'),
 };
 
 export const ImageAssets = {

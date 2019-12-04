@@ -27,6 +27,7 @@ const mapDispatchToProps = (
                 text: 'Detail drink',
                 alignment: 'center',
                 fontFamily: Fonts.Default.medium,
+                fontSize: 15,
               },
             },
             bottomTabs: {

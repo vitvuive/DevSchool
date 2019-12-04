@@ -52,6 +52,7 @@ const mapDispatchToProps = (dispatch, { componentId, }) => {
                 text: reponse.merchant.name,
                 alignment: 'center',
                 fontFamily: Fonts.Default.medium,
+                fontSize: 15,
               },
             },
             bottomTabs: {

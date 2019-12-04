@@ -41,7 +41,7 @@ export default class FilterTabView extends Component {
           backgroundColor: Colors.primary,
           height: 2,
         }}
-        style={{ backgroundColor: '#fff', height: 35, }}
+        style={{ backgroundColor: '#fff', height: 40, }}
         tabStyle={{ minHeight: 10, }}
         renderLabel={({ route, focused, }) => (
           <StyleText
