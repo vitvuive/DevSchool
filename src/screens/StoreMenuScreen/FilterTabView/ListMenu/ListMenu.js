@@ -7,7 +7,12 @@ import ItemMenu from './ItemMenu';
 export default class ListMenu extends Component {
   static propTypes = {
     onGetMenu: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool.isRequired,
   };
+
+  shouldComponentUpdate({ isLoading, }) {
+    return this.props.isLoading !== isLoading;
+  }
 
   componentWillMount() {
     const { onGetMenu, } = this.props;
@@ -21,7 +26,7 @@ export default class ListMenu extends Component {
     return <ItemMenu {...item} componentId={componentId} />;
   };
   render() {
-    const { results, } = this.props;
+    const { results, onGetMenu, isLoading, } = this.props;
 
     return (
       <FlatList
@@ -31,6 +36,8 @@ export default class ListMenu extends Component {
         style={styles.flatlistStyle}
         numColumns={2}
         columnWrapperStyle={styles.row}
+        onRefresh={onGetMenu}
+        refreshing={isLoading}
       />
     );
   }

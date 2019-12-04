@@ -17,7 +17,7 @@ const reducer = createReducer(initState, {
   },
   [Types.SET_SHOP_DATA]: ({ state, action, }) => {
     if (!Array.isArray(action.payload)) return state;
-    return state.set({ shop: action.payload, });
+    return state.set('shop', action.payload);
   },
 });
 

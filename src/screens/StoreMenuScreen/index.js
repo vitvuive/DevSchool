@@ -23,6 +23,8 @@ const categoryByShopId = [
 ];
 
 const mapStateToProps = (state) => {
+  const isLoading = selectors.menu.getLoadingStatus(state);
+
   const dataCart = selectors.cart.getCartData(state);
   //get number item of cart
   const numberItem = Array.isArray(dataCart) ? dataCart.length : 0;
@@ -30,7 +32,7 @@ const mapStateToProps = (state) => {
   const sumPriceItem = Array.isArray(dataCart)
     ? dataCart.map((item) => item.price).reduce((prev, curr) => prev + curr, 0)
     : 0;
-  return { numberItem, sumPriceItem, categoryByShopId, };
+  return { isLoading, numberItem, sumPriceItem, categoryByShopId, };
 };
 
 const mapDispatchToProps = (dispatch, { componentId, }) => {

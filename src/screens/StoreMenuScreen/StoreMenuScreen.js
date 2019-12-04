@@ -3,7 +3,7 @@ import { ScrollView, View, StyleSheet, TouchableOpacity, } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { Metrics, Colors, } from 'src/theme';
-import { StyleText, } from 'src/shared-components';
+import { StyleText, OverlaySpinner, } from 'src/shared-components';
 import { Formatters, } from 'src/services';
 
 import CoverStore from './CoverStore';
@@ -13,10 +13,13 @@ export default class StoreMenuScreen extends Component {
   static propType = {
     onPush: PropTypes.func.isRequired,
     numberItem: PropTypes.number.isRequired,
+    isLoading: PropTypes.bool.isRequired,
   };
 
-  shouldComponentUpdate({ numberItem, }) {
-    return this.props.numberItem !== numberItem;
+  shouldComponentUpdate({ numberItem, isLoading, }) {
+    return (
+      this.props.numberItem !== numberItem || this.props.isLoading !== isLoading
+    );
   }
 
   renderCart = () => {
@@ -39,7 +42,13 @@ export default class StoreMenuScreen extends Component {
     );
   };
   render() {
-    const { componentId, categoryByShopId, numberItem, dataShop, } = this.props;
+    const {
+      isLoading,
+      componentId,
+      categoryByShopId,
+      numberItem,
+      dataShop,
+    } = this.props;
     return (
       <View style={styles.container}>
         <ScrollView>
@@ -54,6 +63,7 @@ export default class StoreMenuScreen extends Component {
           />
         </ScrollView>
         {numberItem > 0 && this.renderCart()}
+        {!!isLoading && <OverlaySpinner />}
       </View>
     );
   }

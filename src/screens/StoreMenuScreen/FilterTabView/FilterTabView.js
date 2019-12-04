@@ -1,11 +1,11 @@
 import React, { Component, } from 'react';
-import { Dimensions, } from 'react-native';
+import { Dimensions, StyleSheet, View, } from 'react-native';
 import { TabView, TabBar, } from 'react-native-tab-view';
 
 import { Colors, } from 'src/theme';
+import { StyleText, } from 'src/shared-components';
 
 import ListMenu from './ListMenu';
-import { StyleText, } from 'src/shared-components';
 
 export default class FilterTabView extends Component {
   constructor(props) {
@@ -61,14 +61,22 @@ export default class FilterTabView extends Component {
 
   render() {
     return (
-      <TabView
-        navigationState={this.state}
-        renderScene={this._renderScene}
-        onIndexChange={(index) => this.setState({ index, })}
-        initialLayout={{ width: Dimensions.get('window').width, }}
-        renderTabBar={this._renderTabBar}
-        // style={styles.container}
-      />
+      <View>
+        <TabView
+          navigationState={this.state}
+          renderScene={this._renderScene}
+          onIndexChange={(index) => this.setState({ index, })}
+          initialLayout={{ width: Dimensions.get('window').width, }}
+          renderTabBar={this._renderTabBar}
+          style={styles.container}
+        />
+      </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
