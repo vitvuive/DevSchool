@@ -1,70 +1,29 @@
 import React, { Component, } from 'react';
-import { TouchableOpacity, View, Image, } from 'react-native';
+import { TouchableOpacity, View, Image, StyleSheet, } from 'react-native';
 
-import { ImageAssets, IconAssets, } from 'src/assets';
+import { IconAssets, } from 'src/assets';
 import { Metrics, Colors, } from 'src/theme';
 import { StyleText, } from 'src/shared-components';
 
 export default class PromotionItem extends Component {
-  state = {};
   render() {
+    const { onRowPress, banner, } = this.props;
     return (
-      <TouchableOpacity>
-        <View
-          style={{
-            height: 300,
-            marginVertical: Metrics.getBaseUnitFactor(),
-            borderRadius: 10,
-            shadowOffset: { height: 3, width: 13, },
-            elevation: 8,
-            shadowColor: 'black',
-            backgroundColor: '#fff',
-          }}
-        >
-          <Image
-            source={ImageAssets.Card3}
-            style={{
-              height: 200,
-              width: '100%',
-              borderTopLeftRadius: 10,
-              borderTopRightRadius: 10,
-            }}
-          />
+      <TouchableOpacity onPress={onRowPress}>
+        <View style={styles.container}>
+          <Image source={banner} style={styles.imageStyle} />
           <View style={{ paddingHorizontal: Metrics.getBaseUnitFactor(3), }}>
-            <View
-              style={{
-                backgroundColor: '#fff',
-                height: 60,
-                borderTopColor: Colors.inActiveBtmTabColor,
-                borderBottomWidth: 0.5,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <StyleText size={20}>
+            <View style={styles.viewContent}>
+              <StyleText size={17}>
                 {'10 giải đặc biệt, Du lịch Phú Quốc '}
               </StyleText>
               <StyleText>
                 {'Đến Highland Coffee ngay! để có cơ hội trúng thưởng '}
               </StyleText>
             </View>
-            <View
-              style={{
-                height: 40,
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                backgroundColor: '#fff',
-              }}
-            >
-              <Image
-                source={IconAssets.Like}
-                style={{ height: 25, width: 25, }}
-              />
-              <Image
-                source={IconAssets.Heart}
-                style={{ height: 25, width: 25, }}
-              />
+            <View style={styles.viewAction}>
+              <Image source={IconAssets.Like} style={styles.iconStyle} />
+              <Image source={IconAssets.Heart} style={styles.iconStyle} />
             </View>
           </View>
         </View>
@@ -72,3 +31,38 @@ export default class PromotionItem extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    marginVertical: Metrics.getBaseUnitFactor(),
+    borderRadius: 10,
+    shadowOffset: { height: 3, width: 13, },
+    elevation: 8,
+    shadowColor: 'black',
+    backgroundColor: '#fff',
+  },
+  imageStyle: {
+    height: 200,
+    width: '100%',
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+  },
+  viewContent: {
+    backgroundColor: '#fff',
+    borderTopColor: Colors.inActiveBtmTabColor,
+    borderBottomWidth: 0.5,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  viewAction: {
+    height: 40,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  iconStyle: {
+    height: 25,
+    width: 25,
+  },
+});

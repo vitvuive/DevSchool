@@ -9,8 +9,9 @@ import {
 } from "react-native";
 import { API } from "src/services";
 
-import { StyledButton, StyleText } from "../../shared-components";
+import { StyledButton, StyleText } from "src/shared-components";
 import { Colors } from "src/theme";
+import { IconAssets } from "src/assets";
 export default class LoginScreen extends Component {
   constructor(props) {
     super(props),
@@ -33,8 +34,7 @@ export default class LoginScreen extends Component {
   };
 
   render() {
-    const { isLoading, onPress } = this.props;
-    console.log("viet" + isLoading);
+    const { onPress, isLoading } = this.props;
     return (
       <View style={styles.container}>
         <StyleText>{""}</StyleText>
@@ -68,18 +68,24 @@ export default class LoginScreen extends Component {
           />
           <Text style={{ color: "white", fontSize: 15 }}>- or -</Text>
           <StyledButton
+            isLoading={isLoading}
             onPress={onPress}
             title={"Login with Facebook"}
+            icon={IconAssets.Facebook}
             textColor={"white"}
             backgroundColor={Colors.accent}
-            containerStyle={styles.login_facebook_btn}
+            loadingColor={Colors.primary}
           />
         </View>
         <StyledButton
           onPress={this._Register}
           title={"Create an account"}
           textColor={"white"}
-          containerStyle={styles.register_btn}
+          containerStyle={styles.register_btn}onPress={onPress}
+          title={"Login with Facebook"}
+          textColor={"white"}
+          backgroundColor={Colors.accent}
+          containerStyle={styles.login_facebook_btn}
         />
       </View>
     );

@@ -4,12 +4,12 @@ import { StyleSheet, ScrollView, } from 'react-native';
 import PromotionList from './PromotionList';
 import BannerHome from './BannerHome';
 export default class HomeScreen extends Component {
-  state = {};
   render() {
+    const { componentId, } = this.props;
     return (
       <ScrollView style={styles.container}>
         <BannerHome />
-        <PromotionList />
+        <PromotionList componentId={componentId} />
       </ScrollView>
     );
   }

@@ -10,6 +10,7 @@ import com.facebook.soloader.SoLoader;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.facebook.CallbackManager;
 
+import com.horcrux.svg.SvgPackage;
 import com.reactnativenavigation.NavigationApplication;
 import com.reactnativenavigation.react.NavigationReactNativeHost;
 import com.reactnativenavigation.react.ReactGateway;
@@ -17,6 +18,9 @@ import com.reactnativenavigation.react.ReactGateway;
 import com.airbnb.android.react.maps.MapsPackage;
 
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+import com.swmansion.reanimated.ReanimatedPackage;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,7 +28,8 @@ import io.invertase.firebase.RNFirebasePackage;
 
 public class MainApplication extends NavigationApplication {
     private static CallbackManager callbackManager = CallbackManager.Factory.create();
-    protected static CallbackManager getCallbackManager(){
+
+    protected static CallbackManager getCallbackManager() {
         return callbackManager;
     }
 
@@ -47,24 +52,19 @@ public class MainApplication extends NavigationApplication {
     protected List<ReactPackage> getPackages() {
         // Add additional packages you require here
         // No need to add RnnPackage and MainReactPackage
-        return Arrays.<ReactPackage>asList(
-                new MainReactPackage(),
-                new RNFirebasePackage(),
-                new AsyncStoragePackage(),
-                new FBSDKPackage(callbackManager),
-                new MapsPackage()       
-        );
-    }       
-  
+        return Arrays.<ReactPackage>asList(new MainReactPackage(), new SvgPackage(), new AsyncStoragePackage(),
+                new FBSDKPackage(callbackManager), new MapsPackage(), new RNGestureHandlerPackage(),
+                new ReanimatedPackage(), new RNFirebasePackage());
+    }
+
     @Override
     public List<ReactPackage> createAdditionalReactPackages() {
         return getPackages();
     }
 
-
-  @Override
-  public void onCreate() {
-    super.onCreate();
-    SoLoader.init(this, /* native exopackage */ false);
-  }
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        SoLoader.init(this, /* native exopackage */ false);
+    }
 }

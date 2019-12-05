@@ -1,31 +1,31 @@
 import { combineReducers, } from 'redux';
 
 import { userActions, userReducers, userSelectors, userTypes, } from './user';
-import {
-  globalActions,
-  globalReducer,
-  globalSelectors,
-  globalTypes,
-} from './global';
+import { cartActions, cartReducers, cartTypes, cartSelectors, } from './cart';
+import { mapActions, mapReducer, mapSelectors, mapTypes, } from './map';
 
 const rootReducer = combineReducers({
   user: userReducers,
-  global: globalReducer,
+  map: mapReducer,
+  cart: cartReducers,
 });
 
 const types = {
   user: userTypes,
-  global: globalTypes,
+  map: mapTypes,
+  cart: cartTypes,
 };
 
 const actions = {
   user: userActions,
-  global: globalActions,
+  map: mapActions,
+  cart: cartActions,
 };
 
 const selectors = {
   user: userSelectors,
-  global: globalSelectors,
+  map: mapSelectors,
+  cart: cartSelectors,
 };
 
 export { rootReducer, types, actions, selectors };

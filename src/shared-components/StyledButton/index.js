@@ -1,5 +1,5 @@
 import React, { Component, } from 'react';
-import { View, ActivityIndicator, StyleSheet, } from 'react-native';
+import { View, ActivityIndicator, StyleSheet, Image, } from 'react-native';
 import PropTypes from 'prop-types';
 
 import StyleTouchable from '../StyleTouchable';
@@ -10,6 +10,7 @@ export default class StyledButton extends Component {
   static propTypes = {
     onPress: PropTypes.func.isRequired,
     title: PropTypes.string.isRequired, // maybe change
+    icon: PropTypes.any,
     isLoading: PropTypes.bool.isRequired, // will change
 
     backgroundColor: PropTypes.any.isRequired,
@@ -46,6 +47,7 @@ export default class StyledButton extends Component {
       textColor,
       loadingColor,
       containerStyle,
+      icon,
     } = this.props;
     return (
       <StyleTouchable onPress={this._onPress}>
@@ -53,9 +55,17 @@ export default class StyledButton extends Component {
           {isLoading ? (
             <ActivityIndicator size={'large'} color={loadingColor} />
           ) : (
-            <StyleText size={20} color={textColor} bold>
-              {title}
-            </StyleText>
+            <View style={styles.wrapper}>
+              {icon && (
+                <Image
+                  source={icon}
+                  style={[styles.iconStyle, { tintColor: textColor, },]}
+                />
+              )}
+              <StyleText medium size={15} color={textColor}>
+                {title}
+              </StyleText>
+            </View>
           )}
         </View>
       </StyleTouchable>
@@ -72,13 +82,21 @@ const styles = StyleSheet.create({
     marginBottom: Metrics.getBaseUnitFactor(2),
     paddingHorizontal: Metrics.getBaseUnitFactor(),
 
-    shadowOffset: { width: 1, height: 13, },
+    shadowOffset: { width: 10, height: 10, },
     elevation: 6,
-    shadowRadius: 15,
+    shadowRadius: 5,
     shadowOpacity: 0.8,
-    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowColor: Colors.primary,
 
-    borderRadius: 25,
+    borderRadius: 5,
     backgroundColor: Colors.primary,
+  },
+  wrapper: {
+    flexDirection: 'row',
+  },
+  iconStyle: {
+    height: 20,
+    width: 20,
+    marginRight: Metrics.getBaseUnitFactor(0.5),
   },
 });

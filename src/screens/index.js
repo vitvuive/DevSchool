@@ -1,28 +1,39 @@
 import { Navigation, } from 'react-native-navigation';
+import { gestureHandlerRootHOC, } from 'react-native-gesture-handler';
 
 import ScreenIDs from './ScreenIDs';
 import { screenHOC, } from '../custom-navigation';
 
 import LoginScreen from './LoginScreen';
 import HomeScreen from './HomeScreen';
-import SearchScreen from './SearchSreen';
+import MyOrderScreen from './MyOrderScreen';
 import ProfileScreen from './ProfileScreen';
-import NotificationScreen from './NotificationScreen';
+import StoreMenuScreen from './StoreMenuScreen';
 import MapScreen from './MapScreen';
+import OrderDetailScreen from './OrderDetailScreen';
+import MarkerDetailScreen from './MarkerDetailScreen';
+import CartScreen from './CartScreen';
+import QRCodeScreen from './QRCodeScreen';
 
 const screens = {
   [ScreenIDs.LoginScreen]: LoginScreen,
   [ScreenIDs.HomeScreen]: HomeScreen,
-  [ScreenIDs.SearchScreen]: SearchScreen,
+  [ScreenIDs.MyOrderScreen]: MyOrderScreen,
   [ScreenIDs.ProfileScreen]: ProfileScreen,
-  [ScreenIDs.NotificationScreen]: NotificationScreen,
+  [ScreenIDs.StoreMenuScreen]: StoreMenuScreen,
   [ScreenIDs.MapScreen]: MapScreen,
+  [ScreenIDs.OrderDetailScreen]: OrderDetailScreen,
+  [ScreenIDs.MarkerDetailScreen]: MarkerDetailScreen,
+  [ScreenIDs.CartScreen]: CartScreen,
+  [ScreenIDs.QRCodeScreen]: QRCodeScreen,
 };
 
 const registerScreens = (Provider, store) => {
   const enhancers = screenHOC(Provider, store);
   Object.keys(screens).map((screenID) => {
-    Navigation.registerComponent(screenID, () => enhancers(screens[screenID]));
+    Navigation.registerComponent(screenID, () =>
+      gestureHandlerRootHOC(enhancers(screens[screenID]))
+    );
   });
 };
 

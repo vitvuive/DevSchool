@@ -1,11 +1,18 @@
 import React, { Component, } from 'react';
-import { View, StyleSheet, Dimensions, Text, } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Dimensions,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker, Callout, } from 'react-native-maps';
 import Carousel from 'react-native-snap-carousel';
 import Propstype from 'prop-types';
 
 import { IconAssets, } from 'src/assets';
-import { Metrics, Colors, } from 'src/theme';
+import { Metrics, } from 'src/theme';
+import { StyleText, } from 'src/shared-components';
 
 let { width, height, } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
@@ -17,6 +24,7 @@ export default class MapScreen extends Component {
   static propsType = {
     region: Propstype.object.isRequired,
     dataFake: Propstype.object.isRequired,
+    onPressPush: Propstype.func.isRequired,
   };
 
   constructor(props) {
@@ -64,10 +72,11 @@ export default class MapScreen extends Component {
   };
 
   _renderItem = ({ item, }) => {
+    const { onPressPush, } = this.props;
     return (
-      <View style={styles.cardCarousel}>
-        <Text>{item.merchant.name}</Text>
-      </View>
+      <TouchableOpacity onPress={() => onPressPush(item)}>
+        <Image style={styles.cardCarousel} source={item.banner} />
+      </TouchableOpacity>
     );
   };
 
@@ -86,7 +95,7 @@ export default class MapScreen extends Component {
         onPress={() => this._onMarkerPress(marker, index)}
       >
         <Callout>
-          <Text>{marker.merchant.name}</Text>
+          <StyleText>{marker.merchant.name}</StyleText>
         </Callout>
       </Marker>
     ));
@@ -102,8 +111,6 @@ export default class MapScreen extends Component {
           style={styles.map}
           initialRegion={this.state.region}
           showsUserLocation
-          // onRegionChange={this.onRegionChange}
-          // onRegionChangeComplete={(region) => this.setState({ region, })}
           showsMyLocationButton
         >
           {this._renderMarker()}
@@ -140,7 +147,6 @@ const styles = StyleSheet.create({
     height: 150,
     width: '100%',
 
-    borderRadius: 15,
-    backgroundColor: Colors.light,
+    borderRadius: 10,
   },
 });

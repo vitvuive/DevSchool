@@ -1,63 +1,22 @@
 import { Dimensions, } from 'react-native';
 import { connect, } from 'react-redux';
+import { Navigation, } from 'react-native-navigation';
 
+import { Fonts, } from 'src/theme';
 import { selectors, actions, } from 'src/stores';
+import { dataFake, } from 'src/values';
 
 import MapScreen from './MapScreen';
+import ScreenIDs from '../ScreenIDs';
 
 let { width, height, } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
-const dataFake = [
-  {
-    latitude: 10.7747201,
-    longitude: 106.69930120000004,
-    address: 'acv',
-    merchant: {
-      name: 'HightLand',
-      menu: [
-        { name: 'cafe', price: 40000, categories: 'cf', merchant: 'TCH', },
-        { name: 'tra sua', price: 20000, categories: 'ts', merchant: 'TCH', },
-        { name: 'match', price: 50000, categories: 'mt', merchant: 'TCH', },
-        { name: 'sinh to', price: 70000, categories: 'st', merchant: 'TCH', },
-      ],
-    },
-  },
-
-  {
-    latitude: 10.78006,
-    longitude: 106.69341,
-    address: 'Turtle Lake',
-    merchant: {
-      name: 'The coffe house',
-      menu: [
-        { name: 'cafe', price: 40000, categories: 'cf', merchant: 'TCH', },
-        { name: 'tra sua', price: 20000, categories: 'ts', merchant: 'TCH', },
-        { name: 'match', price: 50000, categories: 'mt', merchant: 'TCH', },
-        { name: 'sinh to', price: 70000, categories: 'st', merchant: 'TCH', },
-      ],
-    },
-  },
-  {
-    latitude: 10.7951612,
-    longitude: 106.7195944,
-    address: 'acv',
-    merchant: {
-      name: 'Gongcha',
-      menu: [
-        { name: 'cafe', price: 40000, categories: 'cf', merchant: 'TCH', },
-        { name: 'tra sua', price: 20000, categories: 'ts', merchant: 'TCH', },
-        { name: 'match', price: 50000, categories: 'mt', merchant: 'TCH', },
-        { name: 'sinh to', price: 70000, categories: 'st', merchant: 'TCH', },
-      ],
-    },
-  },
-];
 const mapStateToProps = (state) => {
-  const longitude = selectors.global.getLongitude(state);
-  const latitude = selectors.global.getLatitude(state);
+  const longitude = selectors.map.getLongitude(state);
+  const latitude = selectors.map.getLatitude(state);
 
   const region = {
     latitude: latitude,
@@ -73,8 +32,43 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  getLocation: () => dispatch(actions.global.setPositionUser()),
-});
+const mapDispatchToProps = (dispatch, { componentId, }) => {
+  const getLocation = () => {
+    dispatch(actions.map.setPositionUser());
+  };
+  const onPressPush = async (reponse) => {
+    try {
+      await Navigation.push(componentId, {
+        component: {
+          name: ScreenIDs.MarkerDetailScreen,
+          passProps: {
+            reponse,
+          },
+          options: {
+            topBar: {
+              title: {
+                text: reponse.merchant.name,
+                alignment: 'center',
+                fontFamily: Fonts.Default.medium,
+              },
+            },
+            bottomTabs: {
+              visible: false,
+              drawBehind: true,
+              animate: true,
+            },
+          },
+        },
+      });
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(error);
+    }
+  };
+  return {
+    getLocation,
+    onPressPush,
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(MapScreen);
