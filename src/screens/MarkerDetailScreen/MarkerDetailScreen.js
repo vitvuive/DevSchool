@@ -26,14 +26,16 @@ export default class MarkerDetailScreen extends Component {
         <Image source={{ uri: promotion_img_path, }} style={styles.imageStyle} />
         <View style={styles.actionView}>
           <StyledButton
-            title={'Add food'}
-            textColor={'#fff'}
+            title={'Go to Menu'}
+            textColor={Colors.primary}
+            backgroundColor={Colors.background}
             icon={IconAssets.Add_order}
             onPress={() => onPushToMenu(name)}
           />
           <StyledButton
             title={'Direction'}
-            textColor={'#fff'}
+            textColor={Colors.primary}
+            backgroundColor={Colors.background}
             icon={IconAssets.Direction}
             // onPress={() => onDirection(latitude, longitude, name)}
             onPress={() => alert('Open map direction')} // TODO: Format again lat long
@@ -43,8 +45,10 @@ export default class MarkerDetailScreen extends Component {
           <StyleText medium size={18} light>
             {name}
           </StyleText>
-          <StyleText>{address}</StyleText>
-          <StyleText>{promotion_detail}</StyleText>
+          <StyleText size={12}>{`Address: ${address}`}</StyleText>
+          <StyleText size={15} style={styles.wapperDetail}>
+            {promotion_detail}
+          </StyleText>
         </View>
       </View>
     );
@@ -67,5 +71,11 @@ const styles = StyleSheet.create({
   },
   infoMerchant: {
     paddingHorizontal: Metrics.getBaseUnitFactor(2),
+  },
+  wapperDetail: {
+    borderTopColor: Colors.border,
+    borderTopWidth: 0.5,
+    marginTop: Metrics.getBaseUnitFactor(),
+    paddingTop: Metrics.getBaseUnitFactor(),
   },
 });

@@ -126,6 +126,11 @@ export const startMainApp = () => {
                         selectedTextColor: Colors.primary,
                         iconColor: Colors.inActiveBtmTabColor,
                       },
+
+                      statusBar: {
+                        backgroundColor: Colors.background,
+                        style: 'dark',
+                      },
                     },
                   },
                 },

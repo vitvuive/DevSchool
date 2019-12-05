@@ -61,14 +61,13 @@ export default class FilterTabView extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <TabView
           navigationState={this.state}
           renderScene={this._renderScene}
           onIndexChange={(index) => this.setState({ index, })}
           initialLayout={{ width: Dimensions.get('window').width, }}
           renderTabBar={this._renderTabBar}
-          style={styles.container}
         />
       </View>
     );

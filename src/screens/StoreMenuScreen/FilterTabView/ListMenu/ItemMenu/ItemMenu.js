@@ -39,11 +39,11 @@ const styles = StyleSheet.create({
     // height: 140,
     width: WIDTH_ITEM,
 
-    marginTop: Metrics.getBaseUnitFactor(2),
+    marginBottom: Metrics.getBaseUnitFactor(2),
 
     borderRadius: 10,
 
-    elevation: 3,
+    elevation: 2,
     justifyContent: 'space-between',
     shadowColor: Colors.primary,
     shadowRadius: 5,

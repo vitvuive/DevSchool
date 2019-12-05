@@ -27,9 +27,9 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   buttonContainer: {
+    position: 'absolute',
     bottom: 0,
     left: 0,
     right: 0,
-    position: 'absolute',
   },
 });

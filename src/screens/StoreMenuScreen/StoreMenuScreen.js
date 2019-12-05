@@ -1,5 +1,5 @@
 import React, { Component, } from 'react';
-import { ScrollView, View, StyleSheet, TouchableOpacity, } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { Metrics, Colors, } from 'src/theme';
@@ -51,17 +51,12 @@ export default class StoreMenuScreen extends Component {
     } = this.props;
     return (
       <View style={styles.container}>
-        <ScrollView>
-          <CoverStore
-            title={dataShop.merchant.name}
-            componentId={componentId}
-          />
-          <FilterTabView
-            componentId={componentId}
-            category={categoryByShopId}
-            merchantId={dataShop.merchant.id}
-          />
-        </ScrollView>
+        <CoverStore title={dataShop.merchant.name} componentId={componentId} />
+        <FilterTabView
+          componentId={componentId}
+          category={categoryByShopId}
+          merchantId={dataShop.merchant.id}
+        />
         {numberItem > 0 && this.renderCart()}
         {!!isLoading && <OverlaySpinner />}
       </View>

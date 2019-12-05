@@ -1,5 +1,5 @@
 import React, { Component, } from 'react';
-import { FlatList, StyleSheet, } from 'react-native';
+import { FlatList, StyleSheet, View, } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { Metrics, Colors, } from 'src/theme';
@@ -29,16 +29,17 @@ export default class ListMenu extends Component {
     const { results, onGetMenu, isLoading, } = this.props;
 
     return (
-      <FlatList
-        data={results}
-        keyExtractor={this._keyExtractor}
-        renderItem={this._renderItem}
-        style={styles.flatlistStyle}
-        numColumns={2}
-        columnWrapperStyle={styles.row}
-        onRefresh={onGetMenu}
-        refreshing={isLoading}
-      />
+      <View style={styles.flatlistStyle}>
+        <FlatList
+          data={results}
+          keyExtractor={this._keyExtractor}
+          renderItem={this._renderItem}
+          numColumns={2}
+          columnWrapperStyle={styles.row}
+          onRefresh={onGetMenu}
+          refreshing={isLoading}
+        />
+      </View>
     );
   }
 }
@@ -49,6 +50,8 @@ const styles = StyleSheet.create({
 
     paddingHorizontal: Metrics.getBaseUnitFactor(2),
     paddingBottom: Metrics.getBaseUnitFactor(7),
+    marginTop: Metrics.getBaseUnitFactor(2),
+
     backgroundColor: Colors.background,
   },
   row: {
