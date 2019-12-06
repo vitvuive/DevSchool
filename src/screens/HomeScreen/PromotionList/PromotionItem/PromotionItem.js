@@ -17,8 +17,11 @@ export default class PromotionItem extends Component {
           />
           <View style={{ paddingHorizontal: Metrics.getBaseUnitFactor(3), }}>
             <View style={styles.viewContent}>
-              <StyleText size={13} numberOfLines={2}>
+              <StyleText size={13} numberOfLines={3}>
                 {dataShop.merchant.promotion_detail}
+              </StyleText>
+              <StyleText accent bold style={styles.orderNow}>
+                {'Order now!'}
               </StyleText>
             </View>
             <View style={styles.viewAction}>
@@ -42,14 +45,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   imageStyle: {
-    height: 200,
+    height: 150,
     width: '100%',
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
   },
   viewContent: {
-    borderTopColor: Colors.border,
-    borderBottomWidth: 0.3,
+    borderBottomColor: Colors.border,
+    borderBottomWidth: 0.5,
     justifyContent: 'center',
     alignItems: 'center',
 
@@ -65,7 +68,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   iconStyle: {
-    height: 25,
-    width: 25,
+    height: 20,
+    width: 20,
+    tintColor: Colors.inActiveBtmTabColor,
+  },
+  orderNow: {
+    paddingVertical: Metrics.getBaseUnitFactor(),
   },
 });

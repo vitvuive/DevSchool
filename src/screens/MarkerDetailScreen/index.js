@@ -13,7 +13,7 @@ MarkerDetailScreen.navigationStyle = {
   ...NavigationStyles.HideBottomTabStyle,
   ...NavigationStyles.HideBottomTabAndNormalTopBar,
 };
-MarkerDetailScreen.title = 'Detail promotion';
+MarkerDetailScreen.title = 'Info promotion';
 
 const mapDispatchToProps = (dispatch, { componentId, dataShop, }) => {
   const onPushToMenu = async () => {

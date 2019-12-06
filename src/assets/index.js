@@ -36,4 +36,5 @@ export const ImageAssets = {
   Card6: require('./image-assets/card6.jpg'),
   Banner: require('./image-assets/backgroundBanner.jpg'),
   Logo: require('./image-assets/logoMeety.png'),
+  ImageDefault: require('./image-assets/backgroundBanner.jpg'),
 };

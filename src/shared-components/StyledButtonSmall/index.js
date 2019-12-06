@@ -6,7 +6,7 @@ import StyleTouchable from '../StyleTouchable';
 import StyleText from '../StyleText';
 import { Metrics, Colors, } from '../../theme';
 
-export default class StyledButton extends Component {
+export default class StyledButtonSmall extends Component {
   static propTypes = {
     onPress: PropTypes.func.isRequired,
     title: PropTypes.string.isRequired, // maybe change
@@ -62,7 +62,7 @@ export default class StyledButton extends Component {
                   style={[styles.iconStyle, { tintColor: textColor, },]}
                 />
               )}
-              <StyleText medium size={15} color={textColor}>
+              <StyleText medium size={12} color={textColor}>
                 {title}
               </StyleText>
             </View>
@@ -75,11 +75,10 @@ export default class StyledButton extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    height: Metrics.getBaseUnitFactor(3),
     justifyContent: 'center',
     alignItems: 'center',
-    height: Metrics.hoverBtmButtonHeight,
-    marginHorizontal: Metrics.getBaseUnitFactor(3),
-    marginBottom: Metrics.getBaseUnitFactor(2),
+    margin: Metrics.getBaseUnitFactor(),
     paddingHorizontal: Metrics.getBaseUnitFactor(),
 
     shadowOffset: { width: 10, height: 10, },
@@ -88,15 +87,15 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowColor: Colors.primary,
 
-    borderRadius: 5,
+    borderRadius: 3,
     backgroundColor: Colors.primary,
   },
   wrapper: {
     flexDirection: 'row',
   },
   iconStyle: {
-    height: 20,
-    width: 20,
+    height: 15,
+    width: 15,
     marginRight: Metrics.getBaseUnitFactor(0.5),
   },
 });

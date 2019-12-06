@@ -77,7 +77,7 @@ export const HideBottomTabAndNormalTopBar = {
   topBar: {
     title: {
       color: '#414141',
-      fontSize: 15,
+      fontSize: 16,
       fontFamily: Fonts.Default.medium,
       alignment: 'center',
     },
