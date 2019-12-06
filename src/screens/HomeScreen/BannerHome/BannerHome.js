@@ -14,7 +14,7 @@ export default class BannerHome extends Component {
       <View style={styles.container}>
         <View style={styles.wrapper}>
           <StyleText size={17} color={'white'}>
-            {'Xin chào'}
+            {'Hi'}
           </StyleText>
           <StyleText medium size={20} color={'white'}>
             {this.props.name}

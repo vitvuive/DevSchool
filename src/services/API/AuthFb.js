@@ -50,10 +50,33 @@ const loginWithAccount = ({ username, password, }) => {
     });
 };
 
+const createWithAccount = ({ username, password, email, }) => {
+  return fetch(`http://${ConfigApi.portIP}:8000/auth/users/`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      username,
+      password,
+      email,
+    }),
+  })
+    .then((reponse) => reponse.json())
+    .then((json) => {
+      return json;
+    })
+    .catch((e) => {
+      return e;
+    });
+};
+
 export default {
   logInWithPermissions,
   getCurrentAccessToken,
   getInfoUserFb,
   logOut,
   loginWithAccount,
+  createWithAccount,
 };
