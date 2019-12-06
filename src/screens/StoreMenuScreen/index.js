@@ -2,10 +2,14 @@ import { connect, } from 'react-redux';
 import { Navigation, } from 'react-native-navigation';
 
 import { selectors, } from 'src/stores';
-import { Fonts, } from 'src/theme';
+import { NavigationStyles, } from 'src/custom-navigation';
 
 import ScreenIDs from '../ScreenIDs';
 import StoreMenuScreen from './StoreMenuScreen';
+
+StoreMenuScreen.navigationStyle = {
+  ...NavigationStyles.StatusLightBehind,
+};
 
 const mapStateToProps = (state) => {
   const isLoading = selectors.menu.getLoadingStatus(state);
@@ -33,22 +37,6 @@ const mapDispatchToProps = (dispatch, { componentId, }) => {
       Navigation.push(componentId, {
         component: {
           name: ScreenIDs.CartScreen,
-
-          options: {
-            topBar: {
-              title: {
-                text: 'Cart Food',
-                alignment: 'center',
-                fontFamily: Fonts.Default.medium,
-                fontSize: 15,
-              },
-            },
-            bottomTabs: {
-              visible: false,
-              drawBehind: true,
-              animate: true,
-            },
-          },
         },
       });
     } catch (error) {

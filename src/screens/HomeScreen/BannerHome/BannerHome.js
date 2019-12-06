@@ -35,14 +35,14 @@ const styles = StyleSheet.create({
     // backgroundColor: Colors.light,
   },
   wrapper: {
-    height: 80,
+    height: 70,
     width: '70%',
     paddingVertical: Metrics.getBaseUnitFactor(),
     alignItems: 'center',
     justifyContent: 'space-around',
 
     position: 'absolute',
-    top: 20,
+    top: 35,
 
     borderRadius: 15,
     shadowOffset: { height: 3, width: 13, },
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
   },
   view1: {
-    height: 80,
+    height: 100,
     width: '100%',
 
     backgroundColor: Colors.light,

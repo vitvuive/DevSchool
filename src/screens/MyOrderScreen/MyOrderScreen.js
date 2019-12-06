@@ -1,9 +1,9 @@
 import React, { Component, } from 'react';
-import { Dimensions, } from 'react-native';
+import { Dimensions, StyleSheet, } from 'react-native';
 import { TabView, SceneMap, TabBar, } from 'react-native-tab-view';
 import PropTypes from 'prop-types';
 
-import { Colors, } from 'src/theme';
+import { Colors, Metrics, } from 'src/theme';
 import { StyleText, } from 'src/shared-components';
 
 import OrderActive from './OrderActive';
@@ -81,7 +81,14 @@ export default class MyOrderScreen extends Component {
         onIndexChange={(index) => this.setState({ index, })}
         initialLayout={{ width: Dimensions.get('window').width, }}
         renderTabBar={this._renderTabBar}
+        style={styles.container}
       />
     );
   }
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: Metrics.getBaseUnitFactor(3),
+  },
+});

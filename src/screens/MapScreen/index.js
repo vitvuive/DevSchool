@@ -2,7 +2,6 @@ import { Dimensions, } from 'react-native';
 import { connect, } from 'react-redux';
 import { Navigation, } from 'react-native-navigation';
 
-import { Fonts, } from 'src/theme';
 import { selectors, actions, } from 'src/stores';
 import { ValueApi, } from 'src/values';
 
@@ -45,21 +44,6 @@ const mapDispatchToProps = (dispatch, { componentId, }) => {
           name: ScreenIDs.MarkerDetailScreen,
           passProps: {
             reponse,
-          },
-          options: {
-            topBar: {
-              title: {
-                text: reponse.merchant.name,
-                alignment: 'center',
-                fontFamily: Fonts.Default.medium,
-                fontSize: 15,
-              },
-            },
-            bottomTabs: {
-              visible: false,
-              drawBehind: true,
-              animate: true,
-            },
           },
         },
       });

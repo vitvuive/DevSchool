@@ -2,7 +2,6 @@ import { connect, } from 'react-redux';
 import { Navigation, } from 'react-native-navigation';
 
 import ItemMenu from './ItemMenu';
-import Fonts from 'src/theme/Fonts';
 
 import ScreenIDs from 'src/screens/ScreenIDs';
 
@@ -20,21 +19,6 @@ const mapDispatchToProps = (
             price,
             img_url,
             id,
-          },
-          options: {
-            topBar: {
-              title: {
-                text: 'Detail drink',
-                alignment: 'center',
-                fontFamily: Fonts.Default.medium,
-                fontSize: 15,
-              },
-            },
-            bottomTabs: {
-              visible: false,
-              drawBehind: true,
-              animate: true,
-            },
           },
         },
       });

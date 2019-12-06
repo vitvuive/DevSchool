@@ -2,7 +2,7 @@ import React, { Component, } from 'react';
 import { View, StyleSheet, Image, } from 'react-native';
 import StyleTouchable from '../StyleTouchable';
 import StyleText from '../StyleText';
-import { Metrics, } from 'src/theme';
+import { Metrics, Colors, } from 'src/theme';
 export default class StyledCardItem extends Component {
   state = {};
   _onPress = () => {
@@ -33,7 +33,7 @@ export default class StyledCardItem extends Component {
               { tintColor: tintColor, },
             ]}
           />
-          <StyleText color={textColor} size={12}>
+          <StyleText color={textColor} size={14}>
             {title}
           </StyleText>
         </View>
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
 
-    borderBottomColor: '#D0D0D0',
+    borderBottomColor: Colors.border,
 
     backgroundColor: '#fff',
   },

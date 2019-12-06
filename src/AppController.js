@@ -36,6 +36,7 @@ export const startMainApp = () => {
           bottomTabs: {
             backgroundColor: 'white',
             animate: true,
+            titleDisplayMode: 'alwaysShow',
           },
         },
         children: [
@@ -125,11 +126,6 @@ export const startMainApp = () => {
                         selectedIconColor: Colors.primary,
                         selectedTextColor: Colors.primary,
                         iconColor: Colors.inActiveBtmTabColor,
-                      },
-
-                      statusBar: {
-                        backgroundColor: Colors.background,
-                        style: 'dark',
                       },
                     },
                   },

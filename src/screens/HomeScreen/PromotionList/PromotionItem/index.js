@@ -3,7 +3,6 @@ import { Navigation, } from 'react-native-navigation';
 
 import ScreenIDs from 'src/screens/ScreenIDs';
 
-import { Fonts, } from 'src/theme';
 import PromotionItem from './PromotionItem';
 
 const mapDispatchToProps = (dispatch, { componentId, dataShop, }) => {
@@ -13,21 +12,6 @@ const mapDispatchToProps = (dispatch, { componentId, dataShop, }) => {
         component: {
           name: ScreenIDs.MarkerDetailScreen,
           passProps: { dataShop, },
-          options: {
-            topBar: {
-              title: {
-                text: 'Detail promotion',
-                alignment: 'center',
-                fontFamily: Fonts.Default.medium,
-                fontSize: 15,
-              },
-            },
-            bottomTabs: {
-              visible: false,
-              drawBehind: true,
-              animate: true,
-            },
-          },
         },
       });
     } catch (error) {

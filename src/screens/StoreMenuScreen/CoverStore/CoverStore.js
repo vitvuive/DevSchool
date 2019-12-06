@@ -18,7 +18,7 @@ export default class CoverStore extends Component {
           <TouchableOpacity onPress={onBackButton}>
             <Image source={IconAssets.Back} style={styles.iconBackStyle} />
           </TouchableOpacity>
-          <StyleText medium size={16} color={'#fff'}>
+          <StyleText medium size={20} color={'#fff'}>
             {title}
           </StyleText>
           <View />
@@ -30,7 +30,7 @@ export default class CoverStore extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: 80,
+    height: 120,
     backgroundColor: '#fff',
   },
   viewTitle: {

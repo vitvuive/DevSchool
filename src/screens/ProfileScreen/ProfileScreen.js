@@ -12,30 +12,34 @@ export default class ProfileScreen extends Component {
           <View style={styles.banner}>
             <View style={styles.info}>
               <Image source={{ uri: urlAvatar, }} style={styles.imageStyle} />
-              <StyleText white bold size={25}>
+              <StyleText primary medium size={22}>
                 {'Hi ' + name}
               </StyleText>
             </View>
-            <StyleText white>{email}</StyleText>
+            <StyleText primary>{email}</StyleText>
           </View>
           <View style={styles.containerSection}>
             <StyledCardItem
               title={'Send us some app feedback'}
+              tintColor={Colors.primary}
               icon={IconAssets.Feedback}
               borderBottomWidth={0.5}
             />
             <StyledCardItem
               title={'Terms and conditions'}
+              tintColor={Colors.primary}
               icon={IconAssets.Condition}
               borderBottomWidth={0.5}
             />
             <StyledCardItem
               title={'Privacy Policy'}
+              tintColor={Colors.primary}
               icon={IconAssets.Privacy}
               borderBottomWidth={0.5}
             />
             <StyledCardItem
               title={'About us'}
+              tintColor={Colors.primary}
               icon={IconAssets.Info}
               borderBottomWidth={0.5}
             />
@@ -63,17 +67,17 @@ const styles = StyleSheet.create({
     height: 200,
     borderRadius: 8,
 
-    elevation: 4,
+    // elevation: 4,
     shadowOffset: { width: 1, height: 13, },
     shadowColor: 'rgba(0,0,1,0.1)',
     shadowOpacity: 0.8,
 
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.background,
   },
   containerSection: {
-    elevation: 4,
+    elevation: 1,
     shadowOffset: { width: 1, height: 13, },
     shadowOpacity: 0.8,
     borderRadius: 8,
@@ -89,6 +93,8 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 50,
+
+    marginBottom: Metrics.getBaseUnitFactor(2),
 
     resizeMode: 'contain',
   },

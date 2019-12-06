@@ -5,8 +5,15 @@ import { Navigation, } from 'react-native-navigation';
 import { actions, } from 'src/stores';
 import { Metrics, } from 'src/theme';
 import ScreenIDs from 'src/screens/ScreenIDs';
+import { NavigationStyles, } from 'src/custom-navigation';
 
 import MarkerDetailScreen from './MarkerDetailScreen';
+
+MarkerDetailScreen.navigationStyle = {
+  ...NavigationStyles.HideBottomTabStyle,
+  ...NavigationStyles.HideBottomTabAndNormalTopBar,
+};
+MarkerDetailScreen.title = 'Detail promotion';
 
 const mapDispatchToProps = (dispatch, { componentId, dataShop, }) => {
   const onPushToMenu = async () => {
@@ -16,17 +23,6 @@ const mapDispatchToProps = (dispatch, { componentId, dataShop, }) => {
           name: ScreenIDs.StoreMenuScreen,
           passProps: {
             dataShop,
-          },
-          options: {
-            topBar: {
-              visible: false,
-              height: 0,
-            },
-            bottomTabs: {
-              visible: false,
-              drawBehind: true,
-              animate: true,
-            },
           },
         },
       });
