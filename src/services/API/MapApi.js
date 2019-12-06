@@ -16,7 +16,7 @@ function getCurrentPosition() {
 
 const getShopByLocation = ({ tokenUser, }) => {
   return fetch(
-    `http://${ConfigApi.portIP}:8000/api/v1/shops/scan?lat=129.2810962991772&long=35.70755716786023&rad=10000`,
+    `http://${ConfigApi.portIP}/api/v1/shops/scan?lat=129.2810962991772&long=35.70755716786023&rad=10000`,
     {
       method: 'GET',
       headers: {

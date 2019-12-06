@@ -30,7 +30,7 @@ const logOut = () => {
 };
 
 const loginWithAccount = ({ username, password, }) => {
-  return fetch(`http://${ConfigApi.portIP}:8000/auth/jwt/create`, {
+  return fetch(`http://${ConfigApi.portIP}/auth/jwt/create`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -51,7 +51,7 @@ const loginWithAccount = ({ username, password, }) => {
 };
 
 const createWithAccount = ({ username, password, email, }) => {
-  return fetch(`http://${ConfigApi.portIP}:8000/auth/users/`, {
+  return fetch(`http://${ConfigApi.portIP}/auth/users/`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',

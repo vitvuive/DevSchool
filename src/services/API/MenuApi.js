@@ -2,7 +2,7 @@ import { ConfigApi, } from 'src/values';
 
 const getMenuByCategory = ({ categoryId, merchantId, tokenUser, }) => {
   return fetch(
-    `http://${ConfigApi.portIP}:8000/api/v1/items/${merchantId}?category=${categoryId}`,
+    `http://${ConfigApi.portIP}/api/v1/items/${merchantId}?category=${categoryId}`,
     {
       method: 'GET',
       headers: {
@@ -23,7 +23,7 @@ const getMenuByCategory = ({ categoryId, merchantId, tokenUser, }) => {
 
 const getCategoryByMerchant = ({ merchantId, tokenUser, }) => {
   return fetch(
-    `http://${ConfigApi.portIP}:8000/api/v1/merchants/${merchantId}/category`,
+    `http://${ConfigApi.portIP}/api/v1/merchants/${merchantId}/category`,
     {
       method: 'GET',
       headers: {

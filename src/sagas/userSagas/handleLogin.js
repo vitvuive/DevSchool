@@ -12,7 +12,10 @@ export default function* handleLogin() {
   try {
     yield put(actions.user.setAuthLoadingStatus(true));
 
+    yield call(API.AuthFb.logOut);
+
     const isLogin = yield call(API.AuthFb.logInWithPermissions);
+    console.log('abc', isLogin);
 
     if (isLogin.isCancelled === true) return;
 

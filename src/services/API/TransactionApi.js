@@ -1,7 +1,7 @@
 import { ConfigApi, } from 'src/values';
 
 const getTransactionData = ({ tokenUser, }) => {
-  return fetch(`http://${ConfigApi.portIP}:8000/api/v1/transactions/1`, {
+  return fetch(`http://${ConfigApi.portIP}/api/v1/transactions/1`, {
     method: 'GET',
     headers: {
       Accept: 'application/json',

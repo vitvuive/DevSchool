@@ -15,7 +15,7 @@ export const getUrlAvatar = R.pathOr(DEFAULT_AVATAR, [
   'url',
 ]);
 
-export const getID = R.pathOr(undefined, [storeName, 'profile', 'id',]);
+export const getID = R.pathOr(undefined, [storeName, 'auth', 'access',]);
 export const isUserExists = (state) => !!getID(state);
 
 export const getTokenUser = R.pathOr('', [storeName, 'auth', 'access',]);
