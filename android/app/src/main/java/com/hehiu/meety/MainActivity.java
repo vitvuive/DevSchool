@@ -1,4 +1,4 @@
-package com.hehiu;
+package com.hehiu.meety;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -18,7 +18,7 @@ public class MainActivity extends NavigationActivity {
      * This is used to schedule rendering of the component.
      */
     protected String getMainComponentName() {
-        return "hehiu";
+        return "meety";
     }
 
     @Override

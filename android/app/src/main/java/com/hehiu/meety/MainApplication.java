@@ -1,4 +1,4 @@
-package com.hehiu;
+package com.hehiu.meety;
 
 import android.app.Application;
 
@@ -56,7 +56,8 @@ public class MainApplication extends NavigationApplication {
                 new FBSDKPackage(callbackManager),
                 new MapsPackage(),
                 new RNGestureHandlerPackage(),
-                new ReanimatedPackage()
+                new ReanimatedPackage(),
+                new NativeModules()
         );
     }
   

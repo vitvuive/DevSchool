@@ -102,7 +102,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.hehiu"
+        applicationId "com.hehiu.meety"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         missingDimensionStrategy "RNN.reactNativeVersion", "reactNative57_5"
@@ -181,6 +181,8 @@ dependencies {
     implementation "com.google.android.gms:play-services-maps:${rootProject.ext.playServicesVersion}"
 
     implementation project(':react-native-svg')
+
+    implementation 'com.google.android.gms:play-services-location:15.0.1'
 
 
 }
