@@ -1,3 +1,4 @@
+// import { Linking, NativeModules, } from 'react-native';
 import { ConfigApi, } from 'src/values';
 
 function getCurrentPosition() {
