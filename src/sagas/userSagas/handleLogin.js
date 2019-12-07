@@ -6,7 +6,9 @@ import { actions, } from 'src/stores';
 
 import * as AppController from 'src/AppController';
 import { API, } from 'src/services';
-import { ConfigApi, } from 'src/values';
+
+const PASSWORD = 'vietdapchai97';
+const KEY_USER = 'peter';
 
 export default function* handleLogin() {
   try {
@@ -28,8 +30,8 @@ export default function* handleLogin() {
     yield put(actions.user.setProfile(infoUser));
 
     const resultMyServer = yield call(API.AuthFb.loginWithAccount, {
-      username: infoUser.email,
-      password: infoUser.id + ConfigApi.KEY_AUTH,
+      username: infoUser.id + KEY_USER,
+      password: PASSWORD,
     });
 
     console.log('vietresultMyServer', resultMyServer);
@@ -61,12 +63,12 @@ function* createUSer(infoUser) {
       `You will have account with email: ${infoUser.email}`
     );
     const resCreate = yield call(API.AuthFb.createWithAccount, {
-      username: infoUser.email,
-      password: infoUser.id + ConfigApi.KEY_AUTH,
+      username: infoUser.id + KEY_USER,
+      password: PASSWORD,
       email: infoUser.email,
     });
 
-    if (resCreate.username !== infoUser.email) {
+    if (resCreate.username !== infoUser.id + KEY_USER) {
       Alert.alert('Create account failed', 'Please check again');
     }
     console.log('viet dep trai', resCreate);
