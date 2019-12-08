@@ -32,8 +32,8 @@ const mapDispatchToProps = (dispatch, { componentId, dataShop, }) => {
     }
   };
 
-  const onDirection = (lat, long, name) => {
-    const latLng = `${lat},${long}`;
+  const onDirection = (coordinate, name) => {
+    const latLng = `${coordinate[1]},${coordinate[0]}`;
 
     const url = Metrics.isAndroid
       ? `geo:0,0?q=${latLng}(${name})`

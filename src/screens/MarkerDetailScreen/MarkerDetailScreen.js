@@ -21,8 +21,8 @@ export default class MarkerDetailScreen extends Component {
   }
 
   render() {
-    const { dataShop, onPushToMenu, } = this.props;
-    const { address, merchant, } = dataShop;
+    const { dataShop, onPushToMenu, onDirection, } = this.props;
+    const { address, merchant, coordinate, } = dataShop;
     const { name, promotion_img_path, promotion_detail, } = merchant;
 
     return (
@@ -44,8 +44,7 @@ export default class MarkerDetailScreen extends Component {
               textColor={Colors.background}
               backgroundColor={Colors.primary}
               icon={IconAssets.Direction}
-              // onPress={() => onDirection(latitude, longitude, name)}
-              onPress={() => alert('Open map direction')}
+              onPress={() => onDirection(coordinate, name)}
             />
           </View>
           <ScrollView>
