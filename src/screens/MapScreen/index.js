@@ -35,6 +35,7 @@ const mapDispatchToProps = (dispatch, { componentId, }) => {
   const callback = () => {
     dispatch(actions.map.setPositionUser());
     dispatch(actions.map.getShopByLocation());
+    dispatch(actions.transaction.createTransaction());
   };
 
   const onPressPush = async (dataShop) => {

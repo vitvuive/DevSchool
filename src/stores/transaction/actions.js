@@ -5,7 +5,8 @@ const TypesReducer = {
 };
 
 const TypesSaga = {
-  GET_TRANSACTION_DATA: 'transaction.GET_TRANSACTION_DATA',
+  POST_TRANSACTION: 'transaction@POST_TRANSACTION',
+  GET_TRANSACTION_DATA: 'transaction@GET_TRANSACTION_DATA',
 };
 
 const ActionsReducer = {
@@ -26,6 +27,9 @@ const ActionsReducer = {
 };
 
 const ActionsSaga = {
+  createTransaction: () => ({
+    type: TypesSaga.POST_TRANSACTION,
+  }),
   getTransactionData: () => ({
     type: TypesSaga.GET_TRANSACTION_DATA,
   }),

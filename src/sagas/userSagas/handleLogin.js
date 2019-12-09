@@ -58,10 +58,6 @@ export default function* handleLogin() {
 
 function* createUSer(infoUser) {
   try {
-    Alert.alert(
-      'Create account successfully',
-      `You will have account with email: ${infoUser.email}`
-    );
     const resCreate = yield call(API.AuthFb.createWithAccount, {
       username: infoUser.id + KEY_USER,
       password: PASSWORD,
@@ -70,8 +66,13 @@ function* createUSer(infoUser) {
 
     if (resCreate.username !== infoUser.id + KEY_USER) {
       Alert.alert('Create account failed', 'Please check again');
+      throw new Error('Create account failed');
     }
-    console.log('viet dep trai', resCreate);
+
+    Alert.alert(
+      'Create account successfully',
+      `with email: ${infoUser.email}, please login again`
+    );
   } catch (error) {
     console.log(error);
   }

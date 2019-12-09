@@ -72,6 +72,24 @@ const createWithAccount = ({ username, password, email, }) => {
     });
 };
 
+const createProfile = ({ tokenUser, }) => {
+  return fetch(`http://${ConfigApi.portIP}/api/v1/profile/`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${tokenUser}`,
+    },
+  })
+    .then((reponse) => reponse.json())
+    .then((json) => {
+      return json;
+    })
+    .catch((e) => {
+      return e;
+    });
+};
+
 export default {
   logInWithPermissions,
   getCurrentAccessToken,
@@ -79,4 +97,5 @@ export default {
   logOut,
   loginWithAccount,
   createWithAccount,
+  createProfile,
 };
