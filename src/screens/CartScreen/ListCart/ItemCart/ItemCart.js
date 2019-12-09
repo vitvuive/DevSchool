@@ -23,7 +23,7 @@ export default class ItemCart extends Component {
       <View style={styles.container}>
         <Image
           source={{
-            uri: data.image,
+            uri: data.img_url,
           }}
           style={styles.image}
         />

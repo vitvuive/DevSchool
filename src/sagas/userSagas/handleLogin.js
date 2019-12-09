@@ -71,7 +71,7 @@ function* createUSer(infoUser) {
 
     Alert.alert(
       'Create account successfully',
-      `with email: ${infoUser.email}, please login again`
+      `with email: ${infoUser.email}, Session expired, please login again`
     );
   } catch (error) {
     console.log(error);

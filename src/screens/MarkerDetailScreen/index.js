@@ -17,6 +17,8 @@ MarkerDetailScreen.title = 'Info promotion';
 
 const mapDispatchToProps = (dispatch, { componentId, dataShop, }) => {
   const onPushToMenu = async () => {
+    dispatch(actions.cart.setCartData());
+    dispatch(actions.cart.setTransaction());
     try {
       await Navigation.push(componentId, {
         component: {

@@ -23,15 +23,13 @@ export default class ListCart extends Component {
   _keyExtractor = ({ id, }) => id;
 
   render() {
-    const { dataCart, onGetData, isLoading, } = this.props;
+    const { dataCart, } = this.props;
     return (
       <FlatList
         data={dataCart}
         renderItem={this._renderItem}
         keyExtractor={this._keyExtractor}
         style={styles.flatList}
-        onRefresh={onGetData}
-        refreshing={isLoading}
       />
     );
   }

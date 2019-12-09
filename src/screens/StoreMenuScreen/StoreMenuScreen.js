@@ -56,6 +56,7 @@ export default class StoreMenuScreen extends Component {
           componentId={componentId}
           category={categoryByShopId}
           merchantId={dataShop.merchant.id}
+          shopId={dataShop.id}
         />
         {numberItem > 0 && this.renderCart()}
         {!!isLoading && <OverlaySpinner />}

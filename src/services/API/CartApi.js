@@ -1,3 +1,5 @@
+import { ConfigApi, } from 'src/values';
+
 const getCartData = () => {
   return fetch('http://5dbaa6563ec5fb0014319176.mockapi.io/api/v1/cart', {
     method: 'GET',
@@ -32,19 +34,22 @@ const removeCartItem = (id) => {
     });
 };
 
-const addCartItem = ({ name, price, url, }) => {
-  return fetch('http://5dbaa6563ec5fb0014319176.mockapi.io/api/v1/cart', {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      name,
-      price,
-      image: url,
-    }),
-  })
+const addCartItem = ({ shopId, item, tokenUser, idTransaction, }) => {
+  return fetch(
+    `http://${ConfigApi.portIP}/api/v1/transactions/${idTransaction}`,
+    {
+      method: 'PUT',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${tokenUser}`,
+      },
+      body: JSON.stringify({
+        shop: shopId,
+        item,
+      }),
+    }
+  )
     .then((reponse) => reponse.json())
     .then((json) => {
       return json;

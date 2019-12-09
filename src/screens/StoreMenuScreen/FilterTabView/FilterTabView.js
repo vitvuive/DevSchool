@@ -19,7 +19,7 @@ export default class FilterTabView extends Component {
 
   _renderScene = () => {
     const { routes, index, } = this.state;
-    const { componentId, merchantId, } = this.props;
+    const { componentId, merchantId, shopId, } = this.props;
     const categoryId = routes[index].id;
     return (
       <ListMenu
@@ -27,6 +27,7 @@ export default class FilterTabView extends Component {
         categoryId={categoryId}
         merchantId={merchantId}
         componentId={componentId}
+        shopId={shopId}
       />
     );
   };

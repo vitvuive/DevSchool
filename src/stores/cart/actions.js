@@ -30,7 +30,7 @@ const ActionsReducer = {
 };
 
 const ActionsSaga = {
-  addItemToCart: (payload: { name: String, price: Number, url: String }) => ({
+  addItemToCart: (payload: { id: Number, shopId: Number }) => ({
     type: Types.ADD_ITEM_TO_CART,
     payload,
   }),
