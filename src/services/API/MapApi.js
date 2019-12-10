@@ -1,5 +1,6 @@
-// import { Linking, NativeModules, } from 'react-native';
+import { Alert, } from 'react-native';
 import { ConfigApi, } from 'src/values';
+import { LocationService, } from 'src/services';
 
 function getCurrentPosition() {
   return new Promise((resolve, reject) => {
@@ -8,16 +9,21 @@ function getCurrentPosition() {
         resolve(position);
       },
       (error) => {
-        alert('You need turn on Location to use app');
+        Alert.alert(
+          'Allow Meety use your GPS',
+          'We need your location to find shop around you',
+          [{ text: 'OK', onPress: () => LocationService.checkLocation(), },]
+        );
+
         reject(error.message);
       }
     );
   });
 }
 
-const getShopByLocation = ({ tokenUser, }) => {
+const getShopByLocation = ({ tokenUser, lat, long, }) => {
   return fetch(
-    `http://${ConfigApi.portIP}/api/v1/shops/scan?lat=129.2810962991772&long=35.70755716786023&rad=10000`,
+    `http://${ConfigApi.portIP}/api/v1/shops/scan?lat=${long}&long=${lat}&rad=100`,
     {
       method: 'GET',
       headers: {

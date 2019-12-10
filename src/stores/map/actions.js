@@ -6,6 +6,7 @@ const TypesReducer = {
 
 const TypesSaga = {
   GET_SHOP_BY_LOCATION: 'map@GET_SHOP_BY_LOCATION',
+  GET_CURRENT_LOCATION: 'map@GET_CURRENT_LOCATION',
 };
 
 const Types = { ...TypesReducer, ...TypesSaga, };
@@ -28,6 +29,9 @@ const ActionsReducer = {
 const ActionsSaga = {
   getShopByLocation: () => ({
     type: TypesSaga.GET_SHOP_BY_LOCATION,
+  }),
+  getCurrentPosition: () => ({
+    type: TypesSaga.GET_CURRENT_LOCATION,
   }),
 };
 

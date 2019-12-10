@@ -41,24 +41,25 @@ public class LocationService extends ReactContextBaseJavaModule {
     @ReactMethod
     public void toastText() {
         Log.d("viet", "viet dep trai");
-        Toast.makeText(getReactApplicationContext(), "Viet dep trai", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getReactApplicationContext(), "viet dep trai", Toast.LENGTH_SHORT).show();
     }
 
     @ReactMethod
     public void checkLocation(Promise promise) {
         Activity _activity = getCurrentActivity();
 
-        Toast.makeText(getReactApplicationContext(), "Viet dep trai", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getReactApplicationContext(), "Turned on Location", Toast.LENGTH_SHORT).show();
         final LocationManager manager = (LocationManager) reactContext.getSystemService(reactContext.LOCATION_SERVICE);
 
         if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            Toast.makeText(getReactApplicationContext(), "Vo nha", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getReactApplicationContext(), "Please turn on GPS", Toast.LENGTH_SHORT).show();
 //            Intent enableLocation = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 //            _activity.startActivityForResult(enableLocation, REQUEST_ENABLE_BT);
 //            promise.resolve(true);
 
             Intent intent = new Intent();
             intent.setAction(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             _activity.startActivity(intent);
 
         }

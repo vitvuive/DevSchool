@@ -10,7 +10,7 @@ export default function* getCurrentPosition() {
     const position = yield call(API.MapApi.getCurrentPosition);
 
     if (typeof position !== Object) {
-      // console.log('viet dep trai: ', position);
+      yield put(actions.map.getCurrentPosition());
     }
 
     yield put(actions.map.setPositionUser(position));

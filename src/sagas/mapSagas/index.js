@@ -7,7 +7,7 @@ import getShopByLocation from './getShopByLocation';
 
 function* watchGetCurrentPosition() {
   while (true) {
-    const actions = yield take(types.map.SET_POSITION);
+    const actions = yield take(types.map.GET_CURRENT_LOCATION);
     yield call(getCurrentPosition, actions);
   }
 }
