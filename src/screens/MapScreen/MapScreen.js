@@ -91,7 +91,7 @@ export default class MapScreen extends Component {
         }}
         title={marker.merchant.name}
         onPress={() => this._onMarkerPress(marker, index)}
-        icon={IconAssets.Favorite}
+        icon={IconAssets.Popular}
       >
         <Callout>
           <StyleText>{marker.merchant.name}</StyleText>

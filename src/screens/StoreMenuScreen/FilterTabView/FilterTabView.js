@@ -1,5 +1,5 @@
 import React, { Component, } from 'react';
-import { Dimensions, StyleSheet, View, } from 'react-native';
+import { Dimensions, StyleSheet, } from 'react-native';
 import { TabView, TabBar, } from 'react-native-tab-view';
 
 import { Colors, } from 'src/theme';
@@ -62,21 +62,18 @@ export default class FilterTabView extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <TabView
-          navigationState={this.state}
-          renderScene={this._renderScene}
-          onIndexChange={(index) => this.setState({ index, })}
-          initialLayout={{ width: Dimensions.get('window').width, }}
-          renderTabBar={this._renderTabBar}
-        />
-      </View>
+      <TabView
+        navigationState={this.state}
+        renderScene={this._renderScene}
+        onIndexChange={(index) => this.setState({ index, })}
+        initialLayout={{ width: Dimensions.get('window').width, }}
+        renderTabBar={this._renderTabBar}
+        style={styles.container}
+      />
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
+  container: {},
 });

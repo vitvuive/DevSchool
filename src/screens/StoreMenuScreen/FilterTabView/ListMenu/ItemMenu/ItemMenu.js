@@ -26,10 +26,12 @@ export default class ItemMenu extends Component {
         />
         <View style={styles.nameItem}>
           <View style={styles.name}>
-            <StyleText size={12}>{name}</StyleText>
+            <StyleText medium size={12}>
+              {name}
+            </StyleText>
           </View>
           <View>
-            <StyleText bold size={10}>
+            <StyleText bold primary size={10}>
               {Formatters.displayPrice(price)}
             </StyleText>
           </View>

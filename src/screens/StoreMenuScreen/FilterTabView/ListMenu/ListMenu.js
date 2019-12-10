@@ -50,12 +50,11 @@ const styles = StyleSheet.create({
 
     paddingHorizontal: Metrics.getBaseUnitFactor(2),
     paddingBottom: Metrics.getBaseUnitFactor(7),
-    marginTop: Metrics.getBaseUnitFactor(2),
+    marginTop: Metrics.getBaseUnitFactor(),
 
     backgroundColor: Colors.background,
   },
   row: {
-    // flex: 1,
     justifyContent: 'space-between',
   },
 });
