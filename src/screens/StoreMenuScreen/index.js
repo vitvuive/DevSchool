@@ -30,12 +30,16 @@ const mapStateToProps = (state) => {
   return { isLoading, numberItem, sumPriceItem, categoryByShopId, };
 };
 
-const mapDispatchToProps = (dispatch, { componentId, }) => {
+const mapDispatchToProps = (dispatch, { componentId, dataShop, }) => {
   const onPush = async () => {
     try {
       Navigation.push(componentId, {
         component: {
           name: ScreenIDs.CartScreen,
+          passProps: {
+            coordinate: dataShop.coordinate,
+            name: dataShop.merchant.name,
+          },
         },
       });
     } catch (error) {

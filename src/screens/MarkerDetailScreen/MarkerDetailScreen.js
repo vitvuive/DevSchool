@@ -34,7 +34,7 @@ export default class MarkerDetailScreen extends Component {
           />
 
           <View style={styles.infoMerchant}>
-            <StyleText medium size={19} color={Colors.dark}>
+            <StyleText medium size={25} color={Colors.dark}>
               {name}
             </StyleText>
             <View style={styles.actionView}>
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   },
   borderText: {
     borderTopColor: Colors.border,
-    borderTopWidth: 0.5,
+    borderTopWidth: 0.8,
     marginTop: Metrics.getBaseUnitFactor(),
     paddingTop: Metrics.getBaseUnitFactor(),
   },
