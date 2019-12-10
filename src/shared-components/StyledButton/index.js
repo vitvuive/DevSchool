@@ -65,7 +65,7 @@ export default class StyledButton extends Component {
                   ]}
                 />
               )}
-              <StyleText medium size={15} color={textColor}>
+              <StyleText semiBold size={15} color={textColor}>
                 {title}
               </StyleText>
             </View>

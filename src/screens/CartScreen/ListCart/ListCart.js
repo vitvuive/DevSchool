@@ -38,6 +38,7 @@ export default class ListCart extends Component {
 const styles = StyleSheet.create({
   flatList: {
     flex: 1,
-    marginBottom: Metrics.getBaseUnitFactor(6),
+    marginTop: Metrics.getBaseUnitFactor(3),
+    marginBottom: Metrics.getBaseUnitFactor(),
   },
 });
