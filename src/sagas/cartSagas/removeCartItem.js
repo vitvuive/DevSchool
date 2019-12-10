@@ -1,5 +1,6 @@
 import Immutable from 'seamless-immutable';
 import R from 'ramda';
+import { ToastAndroid, } from 'react-native';
 import { put, call, select, } from 'redux-saga/effects';
 import { actions, selectors, } from 'src/stores';
 import { API, } from 'src/services';
@@ -31,6 +32,12 @@ export default function* removeCartItem({ payload, }) {
       tokenUser,
       idTransaction,
     });
+
+    if (result.code === 'token_not_valid') {
+      ToastAndroid.show('Session expired, please login again', 2);
+      yield put(actions.user.logout());
+    } //TODO: create a fetchAPI common
+
     yield put(actions.cart.setCartData(item));
     yield put(actions.cart.setTransaction(result));
   } catch (error) {
