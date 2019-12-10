@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   imageStyle: {
-    height: 170,
+    height: 190,
     width: '100%',
   },
   infoMerchant: {

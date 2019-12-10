@@ -11,9 +11,11 @@ export default function* handleLogout() {
     AppController.startLogin();
     yield put(actions.user.setAuthData());
     yield put(actions.user.setProfile());
+    yield put(actions.map.setShopData());
     yield put(actions.cart.setCartData());
     yield put(actions.cart.setTransaction());
     yield put(actions.menu.setMenuDataById());
+    yield put(actions.menu.setCategoryByMerchant());
     yield put(actions.transaction.setTransactionData());
     yield put(actions.transaction.setHistoryData());
   } catch (error) {

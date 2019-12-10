@@ -1,3 +1,5 @@
+import Immutable from 'seamless-immutable';
+import R from 'ramda';
 import { put, call, select, } from 'redux-saga/effects';
 import { actions, selectors, } from 'src/stores';
 import { API, } from 'src/services';
@@ -17,19 +19,19 @@ export default function* removeCartItem({ payload, }) {
     const shopId = dataTran.shop.id;
 
     // update list array id  from by Id
-    const itemArray = yield select(selectors.cart.getCartData);
+    var dataById = yield select(selectors.cart.getCartData);
+    item = Immutable.asMutable(dataById);
 
-    if (Array.isArray(itemArray)) {
-      item = itemArray.splice(itemArray.indexOf(payload), 1);
+    if (Array.isArray(item)) {
+      item = R.without([payload,], item);
     }
-
     const result = yield call(API.CartApi.addCartItem, {
       shopId,
       item,
       tokenUser,
       idTransaction,
     });
-
+    yield put(actions.cart.setCartData(item));
     yield put(actions.cart.setTransaction(result));
   } catch (error) {
     // eslint-disable-next-line no-console

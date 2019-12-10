@@ -17,7 +17,7 @@ export default class BannerHome extends Component {
             {'Hi ' + this.props.name}
           </StyleText>
           <StyleText size={15} color={'white'}>
-            {'Promotions you today'}
+            {'Promotions for you today'}
           </StyleText>
         </View>
         <View style={styles.view1} />
