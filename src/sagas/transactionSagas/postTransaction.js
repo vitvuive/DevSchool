@@ -1,4 +1,5 @@
 import { call, put, select, } from 'redux-saga/effects';
+import { ToastAndroid, } from 'react-native';
 import { actions, selectors, } from 'src/stores';
 import { API, } from 'src/services';
 export default function* postTransaction() {
@@ -12,6 +13,7 @@ export default function* postTransaction() {
     });
 
     if (result.code === 'token_not_valid') {
+      ToastAndroid.show('Session expired, please login again', 2);
       yield put(actions.user.logout());
     }
 

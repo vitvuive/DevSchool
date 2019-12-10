@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   viewContent: {
     borderBottomColor: Colors.border,
-    borderBottomWidth: 0.5,
+    borderBottomWidth: 0.6,
     justifyContent: 'center',
     alignItems: 'center',
 

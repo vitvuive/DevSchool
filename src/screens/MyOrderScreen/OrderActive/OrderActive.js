@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   containerEmpty: {
-    paddingTop: Metrics.getBaseUnitFactor(5),
+    paddingTop: Metrics.getBaseUnitFactor(10),
     justifyContent: 'center',
     alignItems: 'center',
   },

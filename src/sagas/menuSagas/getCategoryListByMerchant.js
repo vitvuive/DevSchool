@@ -1,3 +1,4 @@
+import { ToastAndroid, } from 'react-native';
 import { call, put, select, } from 'redux-saga/effects';
 import { selectors, actions, } from 'src/stores';
 import { API, } from 'src/services';
@@ -13,6 +14,7 @@ export default function* getCategoryListByMerchant({ payload, }) {
     });
 
     if (result.code === 'token_not_valid') {
+      ToastAndroid.show('Session expired, please login again', 2);
       yield put(actions.user.logout());
     } //TODO: create a fetchAPI common
 
