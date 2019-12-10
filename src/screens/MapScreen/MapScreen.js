@@ -41,11 +41,6 @@ export default class MapScreen extends Component {
     };
   }
 
-  componentDidMount() {
-    const { callback, } = this.props;
-    callback && callback();
-  }
-
   _onCarouselItemChange = (index) => {
     const { dataShop, } = this.props;
 

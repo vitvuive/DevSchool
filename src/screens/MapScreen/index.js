@@ -2,7 +2,7 @@ import { Dimensions, } from 'react-native';
 import { connect, } from 'react-redux';
 import { Navigation, } from 'react-native-navigation';
 
-import { selectors, actions, } from 'src/stores';
+import { selectors, } from 'src/stores';
 
 import MapScreen from './MapScreen';
 import ScreenIDs from '../ScreenIDs';
@@ -32,12 +32,6 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch, { componentId, }) => {
-  const callback = () => {
-    dispatch(actions.map.setPositionUser());
-    dispatch(actions.map.getShopByLocation());
-    dispatch(actions.transaction.createTransaction());
-  };
-
   const onPressPush = async (dataShop) => {
     try {
       await Navigation.push(componentId, {
@@ -54,7 +48,6 @@ const mapDispatchToProps = (dispatch, { componentId, }) => {
     }
   };
   return {
-    callback,
     onPressPush,
   };
 };

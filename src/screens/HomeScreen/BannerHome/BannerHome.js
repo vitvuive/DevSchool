@@ -13,11 +13,11 @@ export default class BannerHome extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.wrapper}>
-          <StyleText size={17} color={'white'}>
-            {'Hi'}
-          </StyleText>
           <StyleText medium size={20} color={'white'}>
-            {this.props.name}
+            {'Hi ' + this.props.name}
+          </StyleText>
+          <StyleText size={15} color={'white'}>
+            {'Promotions you today'}
           </StyleText>
         </View>
         <View style={styles.view1} />
@@ -29,15 +29,15 @@ export default class BannerHome extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: 120,
+    // height: 120,
     alignItems: 'center',
     justifyContent: 'center',
     // backgroundColor: Colors.light,
   },
   wrapper: {
-    height: 70,
+    // height: 70,
     width: '70%',
-    paddingVertical: Metrics.getBaseUnitFactor(),
+    padding: Metrics.getBaseUnitFactor(),
     alignItems: 'center',
     justifyContent: 'space-around',
 
@@ -51,13 +51,13 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
   },
   view1: {
-    height: 100,
+    height: 70,
     width: '100%',
 
     backgroundColor: Colors.light,
   },
   view2: {
-    height: 80,
+    height: 35,
     backgroundColor: Colors.background,
   },
 });

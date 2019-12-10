@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { StyleText, StyledButton, } from 'src/shared-components';
 import { Metrics, Colors, } from 'src/theme';
 import { Formatters, } from 'src/services';
+import { IconAssets, } from 'src/assets';
 export default class OrderDetailScreen extends Component {
   static propTypes = {
     onAddCart: PropTypes.func.isRequired,
@@ -27,7 +28,12 @@ export default class OrderDetailScreen extends Component {
             </StyleText>
           </View>
         </View>
-        <StyledButton title={'Add to Cart'} onPress={onAddCart} />
+        <StyledButton
+          title={'Add to Cart'}
+          icon={IconAssets.AddToCart}
+          textColor={'white'}
+          onPress={onAddCart}
+        />
       </View>
     );
   }

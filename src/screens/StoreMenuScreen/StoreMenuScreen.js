@@ -51,7 +51,11 @@ export default class StoreMenuScreen extends Component {
     } = this.props;
     return (
       <View style={styles.container}>
-        <CoverStore title={dataShop.merchant.name} componentId={componentId} />
+        <CoverStore
+          title={dataShop.merchant.name}
+          uriCover={dataShop.merchant.promotion_img_path}
+          componentId={componentId}
+        />
         <FilterTabView
           componentId={componentId}
           category={categoryByShopId}

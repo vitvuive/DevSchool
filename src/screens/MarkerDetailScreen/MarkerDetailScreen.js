@@ -27,32 +27,35 @@ export default class MarkerDetailScreen extends Component {
 
     return (
       <View style={styles.container}>
-        <Image source={{ uri: promotion_img_path, }} style={styles.imageStyle} />
+        <ScrollView>
+          <Image
+            source={{ uri: promotion_img_path, }}
+            style={styles.imageStyle}
+          />
 
-        <View style={styles.infoMerchant}>
-          <StyleText medium size={19} color={Colors.dark}>
-            {name}
-          </StyleText>
-          <View style={styles.actionView}>
-            <View style={styles.viewAddress}>
-              <StyleText medium size={12}>
-                {address}
-              </StyleText>
+          <View style={styles.infoMerchant}>
+            <StyleText medium size={19} color={Colors.dark}>
+              {name}
+            </StyleText>
+            <View style={styles.actionView}>
+              <View style={styles.viewAddress}>
+                <StyleText medium size={12}>
+                  {address}
+                </StyleText>
+              </View>
+              <StyledButtonSmall
+                title={'Direction'}
+                textColor={Colors.background}
+                backgroundColor={Colors.primary}
+                icon={IconAssets.Direction}
+                onPress={() => onDirection(coordinate, name)}
+              />
             </View>
-            <StyledButtonSmall
-              title={'Direction'}
-              textColor={Colors.background}
-              backgroundColor={Colors.primary}
-              icon={IconAssets.Direction}
-              onPress={() => onDirection(coordinate, name)}
-            />
-          </View>
-          <ScrollView>
             <StyleText size={15} style={styles.borderText}>
               {promotion_detail}
             </StyleText>
-          </ScrollView>
-        </View>
+          </View>
+        </ScrollView>
         <StyledButton
           title={'Go to Menu'}
           textColor={Colors.background}
@@ -79,6 +82,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: Metrics.getBaseUnitFactor(),
     paddingHorizontal: Metrics.getBaseUnitFactor(2),
+    paddingBottom: Metrics.getBaseUnitFactor(8),
   },
   actionView: {
     flexDirection: 'row',

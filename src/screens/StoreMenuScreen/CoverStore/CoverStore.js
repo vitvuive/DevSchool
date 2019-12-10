@@ -8,12 +8,12 @@ import {
 } from 'react-native';
 import { Metrics, } from 'src/theme';
 import { StyleText, } from 'src/shared-components';
-import { ImageAssets, IconAssets, } from 'src/assets';
+import { IconAssets, } from 'src/assets';
 export default class CoverStore extends Component {
   render() {
-    const { onBackButton, title, } = this.props;
+    const { onBackButton, title, uriCover, } = this.props;
     return (
-      <ImageBackground style={styles.container} source={ImageAssets.Card3}>
+      <ImageBackground style={styles.container} source={{ uri: uriCover, }}>
         <View style={styles.viewTitle}>
           <TouchableOpacity onPress={onBackButton}>
             <Image source={IconAssets.Back} style={styles.iconBackStyle} />
