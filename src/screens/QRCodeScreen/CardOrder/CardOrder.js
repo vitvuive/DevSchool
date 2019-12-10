@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
 
     borderRadius: 5,
 
-    marginTop: Metrics.getBaseUnitFactor(5),
+    marginTop: Metrics.getBaseUnitFactor(7),
     backgroundColor: '#fff',
   },
 });

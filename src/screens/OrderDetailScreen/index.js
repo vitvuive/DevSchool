@@ -11,9 +11,9 @@ OrderDetailScreen.navigationStyle = {
   ...NavigationStyles.HideBottomTabAndNormalTopBar,
 };
 
-const mapDispatchToProps = (dispatch, { name, price, url, componentId, }) => {
+const mapDispatchToProps = (dispatch, { shopId, id, componentId, }) => {
   const onAddCart = async () => {
-    dispatch(actions.cart.addItemToCart({ name, price, url, }));
+    dispatch(actions.cart.addItemToCart({ id, shopId, }));
     await Navigation.pop(componentId);
   };
   return {

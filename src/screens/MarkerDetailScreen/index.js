@@ -17,6 +17,8 @@ MarkerDetailScreen.title = 'Info promotion';
 
 const mapDispatchToProps = (dispatch, { componentId, dataShop, }) => {
   const onPushToMenu = async () => {
+    dispatch(actions.cart.setCartData());
+    dispatch(actions.cart.setTransaction());
     try {
       await Navigation.push(componentId, {
         component: {
@@ -32,8 +34,8 @@ const mapDispatchToProps = (dispatch, { componentId, dataShop, }) => {
     }
   };
 
-  const onDirection = (lat, long, name) => {
-    const latLng = `${lat},${long}`;
+  const onDirection = (coordinate, name) => {
+    const latLng = `${coordinate[1]},${coordinate[0]}`;
 
     const url = Metrics.isAndroid
       ? `geo:0,0?q=${latLng}(${name})`

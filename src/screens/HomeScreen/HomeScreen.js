@@ -1,5 +1,5 @@
 import React, { Component, } from 'react';
-import { StyleSheet, ScrollView, } from 'react-native';
+import { StyleSheet, View, } from 'react-native';
 import PropType from 'prop-types';
 
 import { OverlaySpinner, } from 'src/shared-components';
@@ -15,14 +15,19 @@ export default class HomeScreen extends Component {
     return this.props.isLoading !== isLoading;
   }
 
+  componentDidMount() {
+    const { callback, } = this.props;
+    callback && callback();
+  }
+
   render() {
     const { componentId, isLoading, } = this.props;
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
         <BannerHome />
         <PromotionList componentId={componentId} />
         {!!isLoading && <OverlaySpinner />}
-      </ScrollView>
+      </View>
     );
   }
 }

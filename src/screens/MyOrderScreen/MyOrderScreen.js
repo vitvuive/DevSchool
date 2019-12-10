@@ -28,13 +28,8 @@ export default class MyOrderScreen extends Component {
   };
 
   orderActive = () => {
-    const { componentId, dataTransaction, } = this.props;
-    return (
-      <OrderActive
-        componentId={componentId}
-        dataTransaction={dataTransaction}
-      />
-    );
+    const { componentId, } = this.props;
+    return <OrderActive componentId={componentId} />;
   };
 
   orderHistory = () => {

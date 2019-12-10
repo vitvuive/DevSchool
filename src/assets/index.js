@@ -25,6 +25,11 @@ export const IconAssets = {
   Recommend: require('./icon-assets/recommend-icon.png'),
   Popular: require('./icon-assets/popular-icon.png'),
   Bookmark: require('./icon-assets/bookmark-icon.png'),
+  AddToCart: require('./icon-assets/add-to-cart-icon.png'),
+  CheckOut: require('./icon-assets/check-out-icon.png'),
+  MoMo: require('./icon-assets/logo-momo.png'),
+  VISA: require('./icon-assets/visa-master-icon.png'),
+  Paypal: require('./icon-assets/paypal-icon.png'),
 };
 
 export const ImageAssets = {
@@ -36,5 +41,6 @@ export const ImageAssets = {
   Card6: require('./image-assets/card6.jpg'),
   Banner: require('./image-assets/backgroundBanner.jpg'),
   Logo: require('./image-assets/logoMeety.png'),
+  LogoColor: require('./image-assets/logoBrown.png'),
   ImageDefault: require('./image-assets/backgroundBanner.jpg'),
 };

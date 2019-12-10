@@ -21,39 +21,41 @@ export default class MarkerDetailScreen extends Component {
   }
 
   render() {
-    const { dataShop, onPushToMenu, } = this.props;
-    const { address, merchant, } = dataShop;
+    const { dataShop, onPushToMenu, onDirection, } = this.props;
+    const { address, merchant, coordinate, } = dataShop;
     const { name, promotion_img_path, promotion_detail, } = merchant;
 
     return (
       <View style={styles.container}>
-        <Image source={{ uri: promotion_img_path, }} style={styles.imageStyle} />
+        <ScrollView>
+          <Image
+            source={{ uri: promotion_img_path, }}
+            style={styles.imageStyle}
+          />
 
-        <View style={styles.infoMerchant}>
-          <StyleText medium size={19} color={Colors.dark}>
-            {name}
-          </StyleText>
-          <View style={styles.actionView}>
-            <View style={styles.viewAddress}>
-              <StyleText medium size={12}>
-                {address}
-              </StyleText>
+          <View style={styles.infoMerchant}>
+            <StyleText medium size={19} color={Colors.dark}>
+              {name}
+            </StyleText>
+            <View style={styles.actionView}>
+              <View style={styles.viewAddress}>
+                <StyleText medium size={12}>
+                  {address}
+                </StyleText>
+              </View>
+              <StyledButtonSmall
+                title={'Direction'}
+                textColor={Colors.background}
+                backgroundColor={Colors.primary}
+                icon={IconAssets.Direction}
+                onPress={() => onDirection(coordinate, name)}
+              />
             </View>
-            <StyledButtonSmall
-              title={'Direction'}
-              textColor={Colors.background}
-              backgroundColor={Colors.primary}
-              icon={IconAssets.Direction}
-              // onPress={() => onDirection(latitude, longitude, name)}
-              onPress={() => alert('Open map direction')}
-            />
-          </View>
-          <ScrollView>
             <StyleText size={15} style={styles.borderText}>
               {promotion_detail}
             </StyleText>
-          </ScrollView>
-        </View>
+          </View>
+        </ScrollView>
         <StyledButton
           title={'Go to Menu'}
           textColor={Colors.background}
@@ -73,13 +75,14 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   imageStyle: {
-    height: 170,
+    height: 190,
     width: '100%',
   },
   infoMerchant: {
     flex: 1,
     paddingTop: Metrics.getBaseUnitFactor(),
     paddingHorizontal: Metrics.getBaseUnitFactor(2),
+    paddingBottom: Metrics.getBaseUnitFactor(8),
   },
   actionView: {
     flexDirection: 'row',

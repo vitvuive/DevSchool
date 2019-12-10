@@ -18,4 +18,22 @@ const getTransactionData = ({ tokenUser, }) => {
     });
 };
 
-export default { getTransactionData, };
+const postATransaction = ({ tokenUser, }) => {
+  return fetch(`http://${ConfigApi.portIP}/api/v1/transactions/`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${tokenUser}`,
+    },
+  })
+    .then((reponse) => reponse.json())
+    .then((json) => {
+      return json;
+    })
+    .catch((e) => {
+      return e;
+    });
+};
+
+export default { getTransactionData, postATransaction, };

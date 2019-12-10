@@ -1,12 +1,13 @@
-import { Navigation, } from 'react-native-navigation';
 import { connect, } from 'react-redux';
+import { Navigation, } from 'react-native-navigation';
 
-import {} from 'src/stores';
+import { actions, } from 'src/stores';
 import CoverStore from './CoverStore';
 
 const mapDispatchToProps = (dispatch, { componentId, }) => {
   const onBackButton = async () => {
     await Navigation.pop(componentId);
+    dispatch(actions.cart.setCartData());
   };
   return { onBackButton, };
 };

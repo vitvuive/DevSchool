@@ -23,7 +23,7 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 export default class MapScreen extends Component {
   static propsType = {
     region: Propstype.object.isRequired,
-    dataFake: Propstype.object.isRequired,
+    dataShop: Propstype.object.isRequired,
     onPressPush: Propstype.func.isRequired,
     callback: Propstype.func.isRequired,
   };
@@ -41,19 +41,14 @@ export default class MapScreen extends Component {
     };
   }
 
-  componentDidMount() {
-    const { callback, } = this.props;
-    callback && callback();
-  }
-
   _onCarouselItemChange = (index) => {
-    const { dataFake, } = this.props;
+    const { dataShop, } = this.props;
 
-    let location = dataFake[index];
+    let location = dataShop[index];
 
     this._map.animateToRegion({
-      latitude: location.latitude,
-      longitude: location.longitude,
+      latitude: location.coordinate[1],
+      longitude: location.coordinate[0],
       latitudeDelta: LATITUDE_DELTA,
       longitudeDelta: LONGITUDE_DELTA,
     });
@@ -63,8 +58,8 @@ export default class MapScreen extends Component {
 
   _onMarkerPress = (location, index) => {
     this._map.animateToRegion({
-      latitude: location.latitude,
-      longitude: location.longitude,
+      latitude: location.coordinate[1],
+      longitude: location.coordinate[0],
       latitudeDelta: LATITUDE_DELTA,
       longitudeDelta: LONGITUDE_DELTA,
     });
@@ -76,20 +71,23 @@ export default class MapScreen extends Component {
     const { onPressPush, } = this.props;
     return (
       <TouchableOpacity onPress={() => onPressPush(item)}>
-        <Image style={styles.cardCarousel} source={item.banner} />
+        <Image
+          style={styles.cardCarousel}
+          source={{ uri: item.merchant.promotion_img_path, }}
+        />
       </TouchableOpacity>
     );
   };
 
   _renderMarker = () => {
-    const { dataFake, } = this.props;
-    return dataFake.map((marker, index) => (
+    const { dataShop, } = this.props;
+    return dataShop.map((marker, index) => (
       <Marker
         ref={(ref) => (this.state.markers[index] = ref)}
-        key={marker.merchant.name}
+        key={marker.id}
         coordinate={{
-          latitude: marker.latitude,
-          longitude: marker.longitude,
+          latitude: marker.coordinate[1],
+          longitude: marker.coordinate[0],
         }}
         title={marker.merchant.name}
         onPress={() => this._onMarkerPress(marker, index)}
@@ -103,7 +101,7 @@ export default class MapScreen extends Component {
   };
 
   render() {
-    const { dataFake, } = this.props;
+    const { dataShop, } = this.props;
     return (
       <View style={styles.wrapper}>
         <MapView
@@ -121,7 +119,7 @@ export default class MapScreen extends Component {
             this._carousel = c;
           }}
           containerCustomStyle={styles.carousel}
-          data={dataFake}
+          data={dataShop}
           renderItem={this._renderItem}
           sliderWidth={width}
           itemWidth={300}

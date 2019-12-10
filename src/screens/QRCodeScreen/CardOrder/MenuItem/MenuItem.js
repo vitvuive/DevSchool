@@ -1,24 +1,41 @@
 import React, { Component, } from 'react';
-import { View, StyleSheet, } from 'react-native';
+import { View, StyleSheet, FlatList, } from 'react-native';
 import { StyleText, } from 'src/shared-components';
 import { Metrics, Colors, } from 'src/theme';
+import { Formatters, } from 'src/services';
 export default class MenuItem extends Component {
+  _renderItem = ({ item, }) => {
+    return (
+      <View style={styles.container}>
+        <View style={styles.amoutView}>
+          <StyleText primary medium>
+            {''}
+          </StyleText>
+        </View>
+        <View style={styles.nameDishView}>
+          <StyleText medium primary>
+            {item.name}
+          </StyleText>
+        </View>
+        <View style={styles.priceView}>
+          <StyleText bold>{Formatters.displayPrice(item.price)}</StyleText>
+        </View>
+      </View>
+    );
+  };
+
+  _keyExtractor = ({ id, }) => id;
+
   render() {
+    const { dataTransaction, totalPrice, } = this.props;
     return (
       <View>
-        <View style={styles.container}>
-          <View style={styles.amoutView}>
-            <StyleText primary medium>
-              {'1X'}
-            </StyleText>
-          </View>
-          <View style={styles.nameDishView}>
-            <StyleText medium>{'Trà đào cam sả'}</StyleText>
-          </View>
-          <View style={styles.priceView}>
-            <StyleText bold>{'40.000đ'}</StyleText>
-          </View>
-        </View>
+        <FlatList
+          data={dataTransaction.item}
+          renderItem={this._renderItem}
+          keyExtractor={this._keyExtractor}
+        />
+
         <View style={styles.container}>
           <View style={styles.amoutView}>
             <StyleText>{''}</StyleText>
@@ -28,7 +45,7 @@ export default class MenuItem extends Component {
           </View>
           <View style={styles.priceView}>
             <StyleText primary bold>
-              {'40.000đ'}
+              {Formatters.displayPrice(totalPrice)}
             </StyleText>
           </View>
         </View>

@@ -59,10 +59,13 @@ export default class StyledButton extends Component {
               {icon && (
                 <Image
                   source={icon}
-                  style={[styles.iconStyle, { tintColor: textColor, },]}
+                  style={[
+                    styles.iconStyle,
+                    { tintColor: textColor, marginRight: 16, },
+                  ]}
                 />
               )}
-              <StyleText medium size={15} color={textColor}>
+              <StyleText semiBold size={15} color={textColor}>
                 {title}
               </StyleText>
             </View>

@@ -1,35 +1,37 @@
 import React, { Component, } from 'react';
-import { View, StyleSheet, } from 'react-native';
+import { StyleSheet, ScrollView, } from 'react-native';
 
-import { StyledButton, } from 'src/shared-components';
 import { Metrics, Colors, } from 'src/theme';
+import { IconAssets, } from 'src/assets';
+import { StyledButton, } from 'src/shared-components';
 
 import ListCart from './ListCart';
+import ApplyPromotion from './ApplyPromotion';
+import PaymentMethod from './PaymentMethod';
+import ViewTotalPrice from './ViewTotalPrice';
 
 export default class CartScreen extends Component {
   render() {
-    const { onCheckout, } = this.props;
+    const { onCheckout, dataCart, sumPriceItem, } = this.props;
     return (
-      <View style={styles.container}>
-        <ListCart />
-        <View style={styles.buttonContainer}>
-          <StyledButton title={'CHECK OUT'} onPress={onCheckout} />
-        </View>
-      </View>
+      <ScrollView style={styles.container}>
+        <ListCart dataCart={dataCart} />
+        <ApplyPromotion />
+        <ViewTotalPrice sumPriceItem={sumPriceItem} />
+        <PaymentMethod />
+        <StyledButton
+          title={'Check Out'}
+          icon={IconAssets.CheckOut}
+          onPress={onCheckout}
+        />
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     paddingHorizontal: Metrics.getBaseUnitFactor(2),
     backgroundColor: Colors.background,
-  },
-  buttonContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
   },
 });

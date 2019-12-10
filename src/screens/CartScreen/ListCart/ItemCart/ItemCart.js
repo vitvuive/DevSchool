@@ -23,7 +23,7 @@ export default class ItemCart extends Component {
       <View style={styles.container}>
         <Image
           source={{
-            uri: data.image,
+            uri: data.img_url,
           }}
           style={styles.image}
         />
@@ -47,12 +47,12 @@ const styles = StyleSheet.create({
     height: 90,
     borderRadius: 5,
 
-    elevation: 2,
+    elevation: 1,
     shadowRadius: 5,
     shadowOffset: { width: 10, height: 10, },
     shadowColor: Colors.primary,
 
-    marginTop: Metrics.getBaseUnitFactor(2),
+    marginVertical: Metrics.getBaseUnitFactor(1),
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: '#fff',

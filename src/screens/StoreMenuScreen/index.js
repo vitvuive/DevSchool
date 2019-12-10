@@ -17,16 +17,15 @@ const mapStateToProps = (state) => {
   //get list category for tabview
   const categoryByShopId = selectors.menu.getListCategory(state);
 
-  const dataTransaction = selectors.transaction.getDataTransaction(state);
+  const dataTransaction = selectors.cart.getTransaction(state);
   const dataCart = dataTransaction.item;
   //get number item of cart
 
   const numberItem = Array.isArray(dataCart) ? dataCart.length : 0;
   // get total price
-  const sumPriceItem = 3;
-  // = Array.isArray(dataCart)
-  //   ? dataCart.map((item) => item.price).reduce((prev, curr) => prev + curr, 0)
-  //   : 0;
+  const sumPriceItem = Array.isArray(dataCart)
+    ? dataCart.map((item) => item.price).reduce((prev, curr) => prev + curr, 0)
+    : 0;
 
   return { isLoading, numberItem, sumPriceItem, categoryByShopId, };
 };

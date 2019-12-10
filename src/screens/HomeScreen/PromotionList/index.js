@@ -4,8 +4,8 @@ import { selectors, actions, } from 'src/stores';
 import PromotionList from './PromotionList';
 
 const mapStateToProps = (state) => ({
-  dataFake: selectors.map.getListShopNearTo(state),
   isLoading: selectors.map.getPosLoadingStatus(state),
+  dataFake: selectors.map.getListShopNearTo(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

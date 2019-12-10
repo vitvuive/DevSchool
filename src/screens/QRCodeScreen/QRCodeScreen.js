@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
     paddingHorizontal: Metrics.getBaseUnitFactor(2),
-    paddingVertical: Metrics.getBaseUnitFactor(4),
+    paddingVertical: Metrics.getBaseUnitFactor(6),
     backgroundColor: Colors.background,
   },
 });
