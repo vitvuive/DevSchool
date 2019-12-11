@@ -23,7 +23,7 @@ function getCurrentPosition() {
 
 const getShopByLocation = ({ tokenUser, lat, long, }) => {
   return fetch(
-    `http://${ConfigApi.portIP}/api/v1/shops/scan?lat=${long}&long=${lat}&rad=100`,
+    `http://${ConfigApi.portIP}/api/v1/shops/scan?lat=${lat}&long=${long}&rad=100`,
     {
       method: 'GET',
       headers: {

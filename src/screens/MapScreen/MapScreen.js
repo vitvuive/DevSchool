@@ -41,13 +41,13 @@ export default class MapScreen extends Component {
     };
   }
 
-  _getIcon = (type) => {
+  _getIcon = (type: String) => {
     switch (type) {
-      case 1:
+      case 'favorite':
         return IconAssets.Favorite;
-      case 3:
+      case 'normal':
         return IconAssets.Recommend;
-      case 2:
+      case 'popular':
       default:
         return IconAssets.Popular;
     }
@@ -107,7 +107,7 @@ export default class MapScreen extends Component {
         // icon={this._getIcon(marker.id)}
       >
         <Image
-          source={this._getIcon(marker.id)}
+          source={this._getIcon(marker.icon)}
           key={marker.id}
           style={{ height: 25, width: 25, }}
         />
