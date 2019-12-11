@@ -29,11 +29,12 @@ export default class MapScreen extends Component {
 
   constructor(props) {
     super(props);
+    const { latitude, longitude, } = this.props;
     this.state = {
       markers: [],
       region: {
-        latitude: LATITUDE,
-        longitude: LONGITUDE,
+        latitude: latitude || LATITUDE,
+        longitude: longitude || LONGITUDE,
         latitudeDelta: LATITUDE_DELTA,
         longitudeDelta: LONGITUDE_DELTA,
       },
