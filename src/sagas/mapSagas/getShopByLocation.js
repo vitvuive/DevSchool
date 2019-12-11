@@ -10,12 +10,20 @@ export default function* getShopByLocation() {
     yield put(actions.map.setMapLoadingStatus(true));
 
     //get latlong
-    // const lat = yield select(selectors.map.getLatitude);
-    // const long = yield select(selectors.map.getLongitude);
+    const lat = yield select(selectors.map.getLatitude);
+    const long = yield select(selectors.map.getLongitude);
+
+    if (typeof lat !== Number) {
+      yield put(actions.map.getCurrentPosition());
+    }
 
     const tokenUser = yield select(selectors.user.getTokenUser);
 
-    const result = yield call(API.MapApi.getShopByLocation, { tokenUser, });
+    const result = yield call(API.MapApi.getShopByLocation, {
+      tokenUser,
+      lat,
+      long,
+    });
     if (result.code === 'token_not_valid') {
       ToastAndroid.show('Session expired, please login again', 2);
       yield put(actions.user.logout());

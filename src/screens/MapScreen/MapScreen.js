@@ -44,13 +44,13 @@ export default class MapScreen extends Component {
     switch (type) {
       case 1:
         return IconAssets.Favorite;
-
       case 3:
         return IconAssets.Recommend;
       case 2:
       default:
         return IconAssets.Popular;
     }
+    //popular, favorite, normal
   };
 
   _onCarouselItemChange = (index) => {

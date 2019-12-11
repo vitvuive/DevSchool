@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   const callback = () => {
-    dispatch(actions.map.setPositionUser());
+    // dispatch(actions.map.getCurrentPosition());
     dispatch(actions.map.getShopByLocation());
     dispatch(actions.transaction.createTransaction());
   };

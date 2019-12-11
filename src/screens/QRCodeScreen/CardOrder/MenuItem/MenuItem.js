@@ -7,11 +7,6 @@ export default class MenuItem extends Component {
   _renderItem = ({ item, }) => {
     return (
       <View style={styles.container}>
-        <View style={styles.amoutView}>
-          <StyleText primary medium>
-            {''}
-          </StyleText>
-        </View>
         <View style={styles.nameDishView}>
           <StyleText medium primary>
             {item.name}
@@ -37,9 +32,6 @@ export default class MenuItem extends Component {
         />
 
         <View style={styles.container}>
-          <View style={styles.amoutView}>
-            <StyleText>{''}</StyleText>
-          </View>
           <View style={styles.nameDishView}>
             <StyleText bold>{'Total'}</StyleText>
           </View>
@@ -59,12 +51,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginHorizontal: Metrics.getBaseUnitFactor(),
     padding: Metrics.getBaseUnitFactor(),
+
+    justifyContent: 'space-between',
+
     borderTopColor: Colors.border,
     borderTopWidth: 0.5,
   },
-  amoutView: {
-    width: '15%',
-  },
+  // amoutView: {
+  //   width: '10%',
+  // },
   nameDishView: {
     width: '60%',
   },

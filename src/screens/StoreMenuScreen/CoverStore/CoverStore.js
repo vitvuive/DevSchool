@@ -18,7 +18,7 @@ export default class CoverStore extends Component {
           <TouchableOpacity onPress={onBackButton}>
             <Image source={IconAssets.Back} style={styles.iconBackStyle} />
           </TouchableOpacity>
-          <StyleText medium size={20} color={'#fff'}>
+          <StyleText semiBold size={20} color={'#fff'}>
             {title}
           </StyleText>
           <View />
@@ -30,7 +30,7 @@ export default class CoverStore extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: 120,
+    height: 150,
     backgroundColor: '#fff',
   },
   viewTitle: {
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
   },
   iconBackStyle: {
     height: 24,

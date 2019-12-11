@@ -13,7 +13,7 @@ export default function* handleLogout() {
     yield put(actions.user.setProfile());
     yield put(actions.map.setShopData());
     yield put(actions.cart.setCartData());
-    yield put(actions.cart.setTransaction());
+    // yield put(actions.cart.setTransaction());
     yield put(actions.menu.setMenuDataById());
     yield put(actions.menu.setCategoryByMerchant());
     yield put(actions.transaction.setTransactionData());
