@@ -15,7 +15,7 @@ import { Metrics, } from 'src/theme';
 
 let { width, height, } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
-const LATITUDE = 10.8215599;
+const LATITUDE = 10.8215599; // Update me
 const LONGITUDE = 106.7633488;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
@@ -33,8 +33,8 @@ export default class MapScreen extends Component {
     this.state = {
       markers: [],
       region: {
-        latitude: latitude || LATITUDE,
-        longitude: longitude || LONGITUDE,
+        latitude: typeof latitude == Number ? latitude : LATITUDE,
+        longitude: typeof longitude == Number ? longitude : LONGITUDE,
         latitudeDelta: LATITUDE_DELTA,
         longitudeDelta: LONGITUDE_DELTA,
       },
