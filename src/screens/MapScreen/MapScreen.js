@@ -6,13 +6,12 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import MapView, { PROVIDER_GOOGLE, Marker, Callout, } from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE, Marker, } from 'react-native-maps';
 import Carousel from 'react-native-snap-carousel';
 import Propstype from 'prop-types';
 
 import { IconAssets, } from 'src/assets';
 import { Metrics, } from 'src/theme';
-import { StyleText, } from 'src/shared-components';
 
 let { width, height, } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
@@ -40,6 +39,19 @@ export default class MapScreen extends Component {
       },
     };
   }
+
+  _getIcon = (type) => {
+    switch (type) {
+      case 1:
+        return IconAssets.Favorite;
+
+      case 3:
+        return IconAssets.Recommend;
+      case 2:
+      default:
+        return IconAssets.Popular;
+    }
+  };
 
   _onCarouselItemChange = (index) => {
     const { dataShop, } = this.props;
@@ -91,14 +103,19 @@ export default class MapScreen extends Component {
         }}
         title={marker.merchant.name}
         onPress={() => this._onMarkerPress(marker, index)}
-        icon={IconAssets.Popular}
+        // icon={this._getIcon(marker.id)}
       >
-        <Callout>
-          <StyleText>{marker.merchant.name}</StyleText>
-        </Callout>
+        <Image
+          source={this._getIcon(marker.id)}
+          key={marker.id}
+          style={{ height: 25, width: 25, }}
+        />
       </Marker>
     ));
   };
+  //   <Callout>
+  //   <StyleText>{marker.merchant.name}</StyleText>
+  // </Callout>
 
   render() {
     const { dataShop, } = this.props;
