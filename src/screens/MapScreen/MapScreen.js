@@ -15,8 +15,8 @@ import { Metrics, } from 'src/theme';
 
 let { width, height, } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
-const LATITUDE = 10.8215599; // Update me
-const LONGITUDE = 106.7633488;
+const LATITUDE = 10.762337; // Update me
+const LONGITUDE = 106.7078704;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 export default class MapScreen extends Component {
@@ -40,6 +40,8 @@ export default class MapScreen extends Component {
       },
     };
   }
+
+  // _onMapReady = () => this.setState({ marginBottom: 0, });
 
   _getIcon = (type: String) => {
     switch (type) {
@@ -129,6 +131,7 @@ export default class MapScreen extends Component {
           initialRegion={this.state.region}
           showsUserLocation
           showsMyLocationButton
+          // onMapReady={this._onMapReady}
         >
           {this._renderMarker()}
         </MapView>
