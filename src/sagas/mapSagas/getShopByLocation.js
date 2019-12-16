@@ -33,6 +33,7 @@ export default function* getShopByLocation() {
     yield put(actions.map.setShopData(result.results));
   } catch (error) {
     Logger.error(error);
+    yield put(actions.global.toastMessage(error, 10000));
   } finally {
     yield put(actions.map.setMapLoadingStatus());
   }

@@ -1,5 +1,11 @@
 import { combineReducers, } from 'redux';
 
+import {
+  globalActions,
+  globalReducer,
+  globalSelectors,
+  globalTypes,
+} from './global';
 import { userActions, userReducers, userSelectors, userTypes, } from './user';
 import { cartActions, cartReducers, cartTypes, cartSelectors, } from './cart';
 import { mapActions, mapReducer, mapSelectors, mapTypes, } from './map';
@@ -12,6 +18,7 @@ import {
 } from './transaction';
 
 const rootReducer = combineReducers({
+  global: globalReducer,
   user: userReducers,
   map: mapReducer,
   cart: cartReducers,
@@ -20,6 +27,7 @@ const rootReducer = combineReducers({
 });
 
 const types = {
+  global: globalTypes,
   user: userTypes,
   map: mapTypes,
   cart: cartTypes,
@@ -28,6 +36,7 @@ const types = {
 };
 
 const actions = {
+  global: globalActions,
   user: userActions,
   map: mapActions,
   cart: cartActions,
@@ -36,6 +45,7 @@ const actions = {
 };
 
 const selectors = {
+  global: globalSelectors,
   user: userSelectors,
   map: mapSelectors,
   cart: cartSelectors,
