@@ -6,6 +6,7 @@ import { actions, } from 'src/stores';
 
 import * as AppController from 'src/AppController';
 import { API, } from 'src/services';
+import { Logger, } from 'src/log-services';
 
 const PASSWORD = 'vietdapchai97';
 const KEY_USER = 'peter';
@@ -17,7 +18,6 @@ export default function* handleLogin() {
     yield call(API.AuthFb.logOut);
 
     const isLogin = yield call(API.AuthFb.logInWithPermissions);
-    console.log('abc', isLogin);
 
     if (isLogin.isCancelled === true) return;
 
@@ -34,8 +34,6 @@ export default function* handleLogin() {
       password: PASSWORD,
     });
 
-    console.log('vietresultMyServer', resultMyServer);
-
     // Do not have a count, go to create accounts
     if (
       resultMyServer.detail ===
@@ -49,7 +47,7 @@ export default function* handleLogin() {
     yield put(actions.user.setAuthData(resultMyServer));
     AppController.startMainApp();
   } catch (error) {
-    console.log(error);
+    Logger.error(error);
   } finally {
     yield put(actions.user.setAuthLoadingStatus(false));
     //TODO: clear user app as loading

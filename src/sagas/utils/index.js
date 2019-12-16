@@ -1,2 +1,2 @@
-import handleStatusCode from './commonStatusCodeHandle';
-export { handleStatusCode };
+import MeetyFetch from './ MeetyFetch';
+export { MeetyFetch };

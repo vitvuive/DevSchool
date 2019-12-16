@@ -1,9 +1,9 @@
 import Immutable from 'seamless-immutable';
 import R from 'ramda';
-import { ToastAndroid, } from 'react-native';
 import { put, call, select, } from 'redux-saga/effects';
 import { actions, selectors, } from 'src/stores';
 import { API, } from 'src/services';
+import { MeetyFetch, } from '../utils';
 
 export default function* removeCartItem({ payload, }) {
   // const id = payload;
@@ -12,7 +12,6 @@ export default function* removeCartItem({ payload, }) {
   try {
     yield put(actions.cart.setCartLoadingStatus(true));
 
-    const tokenUser = yield select(selectors.user.getTokenUser);
     const idTransaction = yield select(
       selectors.transaction.getIdCurrentTransaction
     );
@@ -26,17 +25,12 @@ export default function* removeCartItem({ payload, }) {
     if (Array.isArray(item)) {
       item = R.without([payload,], item);
     }
-    const result = yield call(API.CartApi.addCartItem, {
-      shopId,
-      item,
-      tokenUser,
-      idTransaction,
-    });
 
-    if (result.code === 'token_not_valid') {
-      ToastAndroid.show('Session expired, please login again', 2);
-      yield put(actions.user.logout());
-    } //TODO: create a fetchAPI common
+    const result = yield call(MeetyFetch, {
+      apiFunc: API.CartApi.addCartItem,
+      postBody: { item, shop: shopId, },
+      params: { idTransaction, },
+    });
 
     yield put(actions.cart.setCartData(item));
     yield put(actions.cart.setTransaction(result));

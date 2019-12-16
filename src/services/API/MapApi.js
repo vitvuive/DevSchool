@@ -1,6 +1,6 @@
 import { Alert, } from 'react-native';
-import { ConfigApi, } from 'src/values';
 import { LocationService, } from 'src/services';
+import { creatRequest, REQUEST_TYPE, } from './Utils';
 
 function getCurrentPosition() {
   return new Promise((resolve, reject) => {
@@ -21,25 +21,13 @@ function getCurrentPosition() {
   });
 }
 
-const getShopByLocation = ({ tokenUser, lat, long, }) => {
-  return fetch(
-    `http://${ConfigApi.portIP}/api/v1/shops/scan?lat=${lat}&long=${long}&rad=10`,
-    {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${tokenUser}`,
-      },
-    }
-  )
-    .then((reponse) => reponse.json())
-    .then((json) => {
-      return json;
-    })
-    .catch((e) => {
-      return e;
-    });
+const getShopByLocation = ({ authKey, params, }) => {
+  const { lat, long, } = params;
+  return creatRequest({
+    endpoint: `/api/v1/shops/scan?lat=${lat}&long=${long}&rad=10`,
+    type: REQUEST_TYPE.GET,
+    authKey,
+  });
 };
 
 export default { getCurrentPosition, getShopByLocation, };

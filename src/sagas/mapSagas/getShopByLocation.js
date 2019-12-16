@@ -1,40 +1,38 @@
-import { ToastAndroid, } from 'react-native';
-import { call, put, select, } from 'redux-saga/effects';
-import { actions, selectors, } from 'src/stores';
+import { call, put, } from 'redux-saga/effects';
+
+import { actions, } from 'src/stores';
 import { API, } from 'src/services';
+import { MeetyFetch, } from 'src/sagas/utils';
+import { Logger, } from 'src/log-services';
 
 // import { handleStatusCode, } from '../utils';
 
 export default function* getShopByLocation() {
+  let lat = 10.762337;
+  let long = 106.7078704;
   try {
     yield put(actions.map.setMapLoadingStatus(true));
 
     //get latlong
-    const lat = yield select(selectors.map.getLatitude);
-    const long = yield select(selectors.map.getLongitude);
+    // const lat = yield select(selectors.map.getLatitude);
+    // const long = yield select(selectors.map.getLongitude);
 
     if (typeof lat !== Number) {
       yield put(actions.map.getCurrentPosition());
     }
 
-    const tokenUser = yield select(selectors.user.getTokenUser);
-
-    const result = yield call(API.MapApi.getShopByLocation, {
-      tokenUser,
-      lat,
-      long,
+    const result = yield call(MeetyFetch, {
+      apiFunc: API.MapApi.getShopByLocation,
+      params: { lat, long, },
     });
-    if (result.code === 'token_not_valid') {
-      ToastAndroid.show('Session expired, please login again', 2);
-      yield put(actions.user.logout());
-    } //TODO: create a fetchAPI common
 
-    //   handleStatusCode(result);
+    if (!result.results) {
+      throw new Error('The result is not an array');
+    }
 
     yield put(actions.map.setShopData(result.results));
   } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error(error);
+    Logger.error(error);
   } finally {
     yield put(actions.map.setMapLoadingStatus());
   }
