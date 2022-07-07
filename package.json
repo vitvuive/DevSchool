@@ -10,7 +10,7 @@
     "@react-native-community/async-storage": "^1.6.2",
     "hoist-non-react-statics": "2.5.0",
     "jsc-android": "245459.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "prop-types": "^15.7.2",
     "ramda": "^0.26.1",
     "react": "16.8.3",
